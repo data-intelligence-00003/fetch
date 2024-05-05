@@ -12,6 +12,9 @@ def main():
     # Logging
     logger: logging.Logger = logging.getLogger(__name__)
 
+    # Explore
+    src.data.interface.Interface().exc()
+
     # Deleting __pycache__
     src.functions.cache.Cache().exc()
 
@@ -27,6 +30,7 @@ if __name__ == '__main__':
                         datefmt='%Y-%m-%d %H:%M:%S')
 
     # Modules
+    import src.data.interface
     import src.elements.s3_parameters as s3p
     import src.elements.service as sr
     import src.functions.cache
