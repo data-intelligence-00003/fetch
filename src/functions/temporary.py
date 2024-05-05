@@ -3,7 +3,7 @@ Module acq.py
 """
 import requests
 
-class Acq:
+class Temporary:
 
     def __init__(self) -> None:
         pass
