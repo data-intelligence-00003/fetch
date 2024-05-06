@@ -1,7 +1,7 @@
 """
 Module upload.py
 """
-
+import io
 import logging
 
 import boto3
@@ -37,7 +37,7 @@ class Upload:
                             datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(__name__)
 
-    def bytes(self, buffer: bytes, metadata: dict, key_name: str):
+    def bytes(self, data: pd.DataFrame, metadata: dict, key_name: str) -> bool:
         """
 
         :param data: The data that will be delivered to Amazon S3
@@ -46,15 +46,34 @@ class Upload:
         :return:
         """
 
+        buffer = io.StringIO()
+        data.to_csv(path_or_buf=buffer, header=True, index=False, encoding='utf-8')
+
         # A bucket object
         bucket = self.__s3_resource.Bucket(name=self.__s3_parameters.internal)
 
         try:
             response = bucket.put_object(
                 ACL=self.__s3_parameters.access_control_list,
-                Body=buffer,
+                Body=buffer.getvalue(),
                 Key=key_name, Metadata=metadata)
             self.__logger.info('%s\n%s', key_name, response)
             return bool(response)
         except botocore.exceptions.ClientError as err:
             raise err from err
+        
+    def binary(self, buffer: bytes, metadata: dict, key_name: str) -> bool:
+        """
+
+        :param buffer: The data that will be delivered to Amazon S3
+        :param metadata: The metadata of the data
+        :param key_name: The key name of the data -> {}/{}/{}.extension
+        :return:
+        """
+
+        # A bucket object
+        bucket = self.__s3_resource.Bucket(name=self.__s3_parameters.internal)
+        outline = bucket.Object(key_name)
+        outline.put(Body=buffer)
+
+        return True
