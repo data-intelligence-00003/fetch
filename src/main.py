@@ -13,7 +13,8 @@ def main():
     logger: logging.Logger = logging.getLogger(__name__)
 
     # Explore
-    src.data.interface.Interface(service=service, s3_parameters=s3_parameters).exc()
+    messages = src.data.interface.Interface(service=service, s3_parameters=s3_parameters).exc()
+    logger.info(messages)
 
     # Deleting __pycache__
     src.functions.cache.Cache().exc()
