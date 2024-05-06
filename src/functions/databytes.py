@@ -9,7 +9,7 @@ class Temporary:
         pass
 
     @staticmethod
-    def api(url: str) -> bytes:
+    def get(url: str) -> bytes:
         """
 
         :param url:
