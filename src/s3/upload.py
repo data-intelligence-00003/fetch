@@ -79,6 +79,6 @@ class Upload:
         # A bucket object
         bucket = self.__s3_resource.Bucket(name=self.__s3_parameters.internal)
         outline = bucket.Object(key_name)
-        outline.put(Body=buffer)
+        outline.put(Body=buffer, Metadata=rebuilt)
 
         return True
