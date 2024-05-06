@@ -29,28 +29,52 @@ class Interface:
         # An instance for fetching and holding in memory
         self.__databytes = src.functions.databytes.DataBytes()
     
-    def __reference(self, name: str):
+    def __reference(self, name: str) -> pd.DataFrame:
+        """
+        
+        :param name: The name of a data file within the project's data directory; including the file's extension.
+        :return:
+            A data frame.
+        """
 
         text = txa.TextAttributes(uri=os.path.join(self.__datapath, name), header=0)
+
         return self.__streams.read(text=text)
     
-    def __deliver(self, buffer: bytes, starting_year: int, entity_identifier: int):
+    def __deliver(self, buffer: bytes, metadata: dict) -> bool:
+        """
+        
+        :param buffer:
+        :param metadata:
+        :return:
+            A boolean indicating data upload success
+        """
+        
+        key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['entity_identifier'])}.xlsx"
 
-        key_name = f'{self.__s3_parameters.path_internal_raw}{str(starting_year)/{str(entity_identifier)}.xlsx}'
-        self.__upload.bytes(buffer=buffer, metadata={}, key_name=key_name)
+        return self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
 
-    def exc(self):
+    def exc(self) -> list:
+        """
+        
+        :return:
+            A list
+        """
 
         documents: pd.DataFrame = self.__reference(name='documents.csv')
         entities: pd.DataFrame = self.__reference(name='entities.csv')
         reference: pd.DataFrame = documents.merge(entities, how='left', on='entity_identifier').drop(columns=['organisation_code'])
         reference.info()
 
-        for index in reference.index:
+        computations = []
+        for index in reference.index[:5]:
 
-            print(reference.iloc[index, :].to_dict())
+            metadata: dict = reference.iloc[index, :].to_dict()
 
-            url: str = self.__api.exc(code=reference.iloc[index]['document_identifier'])
-            print(url)
-
-            # buffer: bytes = self.__databytes.get(url=url)
+            url: str = self.__api.exc(code=metadata['document_identifier'])            
+            buffer: bytes = self.__databytes.get(url=url) 
+            
+            message = self.__deliver(buffer=buffer, metadata=metadata)
+            computations.append(f"{metadata['entity_name']}: {message} ({metadata['starting_year']})")
+        
+        return computations
