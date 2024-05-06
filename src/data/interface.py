@@ -74,7 +74,7 @@ class Interface:
             url: str = self.__api.exc(code=metadata['document_identifier'])            
             buffer: bytes = self.__databytes.get(url=url) 
             
-            message = self.__deliver(buffer=buffer, metadata=metadata)
+            message: bool = self.__deliver(buffer=buffer, metadata=metadata)
             computations.append(f"{metadata['entity_name']}: {message} ({metadata['starting_year']})")
         
         return computations
