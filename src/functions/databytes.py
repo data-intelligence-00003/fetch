@@ -3,7 +3,7 @@ Module acq.py
 """
 import requests
 
-class Temporary:
+class DataBytes:
 
     def __init__(self) -> None:
         pass
