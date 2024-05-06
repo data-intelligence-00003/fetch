@@ -73,6 +73,8 @@ class Upload:
         """
 
         print(metadata)
+        rebuilt = {key: str(value) for key, value in metadata.items()}
+        print(rebuilt)
 
         # A bucket object
         bucket = self.__s3_resource.Bucket(name=self.__s3_parameters.internal)
