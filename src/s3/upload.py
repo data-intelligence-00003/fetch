@@ -64,12 +64,15 @@ class Upload:
         
     def binary(self, buffer: bytes, metadata: dict, key_name: str) -> bool:
         """
+        https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/object/put.html
 
         :param buffer: The data that will be delivered to Amazon S3
         :param metadata: The metadata of the data
         :param key_name: The key name of the data -> {}/{}/{}.extension
         :return:
         """
+
+        print(metadata)
 
         # A bucket object
         bucket = self.__s3_resource.Bucket(name=self.__s3_parameters.internal)
