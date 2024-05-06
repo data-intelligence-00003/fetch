@@ -5,6 +5,7 @@ boto3
 botocore
 s3fs>=2024.*
 openpyxl
+XlsxWriter
 scikit-learn
 numpy>=1.25.*
 pandas>=2.0.*
