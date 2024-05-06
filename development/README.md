@@ -76,6 +76,11 @@ python -m pylint --rcfile .pylintrc ...
     * [contexts](https://docs.github.com/en/actions/learn-github-actions/contexts)
     * [variables](https://docs.github.com/en/actions/learn-github-actions/variables)
 * [pip & requirements](https://pip.pypa.io/en/stable/reference/requirements-file-format/)
+* [BOTO3 & `put`]
+  * [About](https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/object/put.html)
+  * [Documentation Example](https://docs.aws.amazon.com/code-library/latest/ug/python_3_s3_code_examples.html)
+  * [GitHub Example](https://github.com/awsdocs/aws-doc-sdk-examples/blob/main/python/example_code/s3/s3_basics/object_wrapper.py#L36)
+
 
 <br>
 <br>
