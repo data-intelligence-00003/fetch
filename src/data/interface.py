@@ -7,7 +7,7 @@ import src.data.api
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
 import src.elements.text_attributes as txa
-import src.functions.temporary
+import src.functions.databytes
 import src.functions.streams
 import src.s3.upload
 
@@ -27,7 +27,7 @@ class Interface:
         self.__api = src.data.api.API()
 
         # An instance for fetching and holding in memory
-        self.__temporary = src.functions.temporary.Temporary()
+        self.__databytes = src.functions.databytes.DataBytes()
     
     def __reference(self, name: str):
 
@@ -52,5 +52,5 @@ class Interface:
 
             url: str = self.__api.exc(code=reference.iloc[index]['document_identifier'])
             print(url)
-            
-            # buffer: bytes = self.__temporary.get(url=url)
+
+            # buffer: bytes = self.__databytes.get(url=url)
