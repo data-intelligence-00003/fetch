@@ -1,3 +1,4 @@
+"""Module interface.py"""
 import os
 import pandas as pd
 import dask
@@ -14,6 +15,9 @@ import src.s3.upload
 
 
 class Interface:
+    """
+    Interface
+    """
 
     def __init__(self, service: sr.Service, s3_parameters: s3p.S3Parameters) -> None:
         """
