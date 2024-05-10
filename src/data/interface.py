@@ -61,8 +61,8 @@ class Interface:
             A list
         """
 
-        documents: pd.DataFrame = self.__reference(name='documents.csv')
-        organisations: pd.DataFrame = self.__reference(name='organisations.csv')
+        documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
+        organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
         reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
         reference.info()
 
