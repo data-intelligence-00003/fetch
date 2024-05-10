@@ -1,23 +1,23 @@
-"entity_name","entity_identifier","organisation_code"
-"NHS Ayrshire & Arran ",3999111,1
-"NHS Borders ",3999112,1
-"NHS Dumfries & Galloway ",3999113,1
-"NHS Fife ",3999114,1
-"NHS Forth Valley ",3999115,1
-"NHS Grampian ",3999116,1
-"NHS Greater Glasgow and Clyde ",3999117,1
-"NHS Highland ",3999118,1
-"NHS Lanarkshire ",3999119,1
-"NHS Lothian ",3999120,1
-"NHS Orkney",3999121,1
-"NHS Shetland ",3999122,1
-"NHS Tayside ",3999123,1
-"NHS Western Isles ",3999124,1
-"Healthcare Improvement Scotland ",3999125,2
-"National Waiting Times Centre Board ",3999126,2
-"NHS 24",3999127,2
-"NHS Education for Scotland ",3999128,2
-"NHS National Services Scotland ",3999129,2
-"Public Health Scotland ",3999130,3
-"Scottish Ambulance Service Board ",3999131,2
-"State Hospital Board for Scotland ",3999132,2
+organisation_name,organisation_id,organisation_type_id
+NHS Ayrshire & Arran ,3999111,1
+NHS Borders ,3999112,1
+NHS Dumfries & Galloway ,3999113,1
+NHS Fife ,3999114,1
+NHS Forth Valley ,3999115,1
+NHS Grampian ,3999116,1
+NHS Greater Glasgow and Clyde ,3999117,1
+NHS Highland ,3999118,1
+NHS Lanarkshire ,3999119,1
+NHS Lothian ,3999120,1
+NHS Orkney,3999121,1
+NHS Shetland ,3999122,1
+NHS Tayside ,3999123,1
+NHS Western Isles ,3999124,1
+Healthcare Improvement Scotland ,3999125,2
+National Waiting Times Centre Board ,3999126,2
+NHS 24,3999127,2
+NHS Education for Scotland ,3999128,2
+NHS National Services Scotland ,3999129,2
+Public Health Scotland ,3999130,3
+Scottish Ambulance Service Board ,3999131,2
+State Hospital Board for Scotland ,3999132,2
