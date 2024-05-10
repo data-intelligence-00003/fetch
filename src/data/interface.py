@@ -42,6 +42,13 @@ class Interface:
 
         return self.__streams.read(text=text)
     
+    def __retrieve(self, metadata: dict) -> bytes:
+
+        url: str = self.__api.exc(code=metadata['document_id'])            
+        buffer: bytes = self.__databytes.get(url=url) 
+
+        return buffer
+
     def __deliver(self, buffer: bytes, metadata: dict) -> bool:
         """
         
@@ -65,16 +72,12 @@ class Interface:
         documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
         organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
         reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
-        reference.info()
+        dictionary = reference.to_dict(orient='records')
 
         computations = []
-        for index in reference.index[:5]:
+        for metadata in dictionary:
 
-            metadata: dict = reference.iloc[index, :].to_dict()
-
-            url: str = self.__api.exc(code=metadata['document_id'])            
-            buffer: bytes = self.__databytes.get(url=url) 
-            
+            buffer: bytes = self.__retrieve(metadata=metadata)           
             message: bool = self.__deliver(buffer=buffer, metadata=metadata)
             computations.append(f"{metadata['organisation_name']}: {message} ({metadata['starting_year']})")
         
