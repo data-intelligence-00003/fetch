@@ -62,8 +62,8 @@ class Interface:
         """
 
         documents: pd.DataFrame = self.__reference(name='documents.csv')
-        entities: pd.DataFrame = self.__reference(name='entities.csv')
-        reference: pd.DataFrame = documents.merge(entities, how='left', on='entity_identifier').drop(columns=['organisation_code'])
+        organisations: pd.DataFrame = self.__reference(name='organisations.csv')
+        reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
         reference.info()
 
         computations = []
@@ -71,10 +71,10 @@ class Interface:
 
             metadata: dict = reference.iloc[index, :].to_dict()
 
-            url: str = self.__api.exc(code=metadata['document_identifier'])            
+            url: str = self.__api.exc(code=metadata['document_id'])            
             buffer: bytes = self.__databytes.get(url=url) 
             
             message: bool = self.__deliver(buffer=buffer, metadata=metadata)
-            computations.append(f"{metadata['entity_name']}: {message} ({metadata['starting_year']})")
+            computations.append(f"{metadata['organisation_name']}: {message} ({metadata['starting_year']})")
         
         return computations
