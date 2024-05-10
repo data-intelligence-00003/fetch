@@ -19,7 +19,7 @@ class Interface:
         self.__datapath: str = config.Config().datapath
         self.__streams = src.functions.streams.Streams()
         
-        # For Aamazon S3
+        # For Amazon S3
         self.__s3_parameters = s3_parameters
         self.__upload = src.s3.upload.Upload(service=service, s3_parameters=self.__s3_parameters)
 
