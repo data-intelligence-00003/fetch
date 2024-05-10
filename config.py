@@ -11,6 +11,7 @@ class Config:
         self.warehouse: str = os.path.join(os.getcwd(), 'warehouse')
         self.datapath: str = os.path.join(os.getcwd(), 'data')
 
+        # The documents of interest, and the names of their source organisations
         self.documents = 'documents.csv'
         self.organisations = 'organisations.csv'
 
