@@ -42,6 +42,7 @@ class Interface:
 
         return self.__streams.read(text=text)
     
+    @dask.delayed
     def __retrieve(self, metadata: dict) -> bytes:
 
         url: str = self.__api.exc(code=metadata['document_id'])            
@@ -49,6 +50,7 @@ class Interface:
 
         return buffer
 
+    @dask.delayed
     def __deliver(self, buffer: bytes, metadata: dict) -> bool:
         """
         
