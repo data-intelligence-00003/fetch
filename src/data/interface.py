@@ -16,7 +16,7 @@ class Interface:
 
     def __init__(self, service: sr.Service, s3_parameters: s3p.S3Parameters) -> None:
         
-        self.__datapath: str = config.Config().datapath
+        self.__configurations = config.Config()
         self.__streams = src.functions.streams.Streams()
         
         # For Amazon S3
@@ -37,7 +37,7 @@ class Interface:
             A data frame.
         """
 
-        text = txa.TextAttributes(uri=os.path.join(self.__datapath, name), header=0)
+        text = txa.TextAttributes(uri=os.path.join(self.__configurations.datapath, name), header=0)
 
         return self.__streams.read(text=text)
     
