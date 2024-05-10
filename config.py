@@ -11,5 +11,8 @@ class Config:
         self.warehouse: str = os.path.join(os.getcwd(), 'warehouse')
         self.datapath: str = os.path.join(os.getcwd(), 'data')
 
+        self.documents = 'documents.csv'
+        self.organisations = 'organisations.csv'
+
         # A S3 parameters template
         self.s3_parameters_template = 'https://raw.githubusercontent.com/data-intelligence-00003/.github/master/profile/s3_parameters.yaml'
