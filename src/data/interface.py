@@ -16,6 +16,12 @@ import src.s3.upload
 class Interface:
 
     def __init__(self, service: sr.Service, s3_parameters: s3p.S3Parameters) -> None:
+        """
+        
+        :param service: A suite of services for interacting with Amazon Web Services.
+        :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
+                              name, buckets, etc.
+        """
         
         self.__configurations = config.Config()
         self.__streams = src.functions.streams.Streams()
@@ -33,7 +39,7 @@ class Interface:
     def __reference(self, name: str) -> pd.DataFrame:
         """
         
-        :param name: The name of a data file within the project's data directory; including the file's extension.
+        :param name: The name of a CSV data file within the project's data directory; including the file's extension.
         :return:
             A data frame.
         """
@@ -44,6 +50,12 @@ class Interface:
     
     @dask.delayed
     def __retrieve(self, metadata: dict) -> bytes:
+        """
+        
+        :param metadata: 
+        :return:
+            A data frame.
+        """
 
         url: str = self.__api.exc(code=metadata['document_id'])            
         buffer: bytes = self.__databytes.get(url=url) 
