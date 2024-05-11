@@ -33,7 +33,7 @@ class Interface:
         # For Amazon S3
         self.__s3_parameters = s3_parameters
         self.__service = service
-        # self.__upload = src.s3.upload.Upload(service=service, s3_parameters=self.__s3_parameters)
+        self.__upload = src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters)
 
         # The source's application programming interface instance
         self.__api = src.data.api.API()
@@ -79,8 +79,7 @@ class Interface:
         
         key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
 
-        return src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters).binary(
-            buffer=buffer, metadata=metadata, key_name=key_name)
+        return self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
 
     def exc(self) -> list:
         """
