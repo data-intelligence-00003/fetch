@@ -68,7 +68,7 @@ class Interface:
         return buffer
 
     @dask.delayed
-    def __deliver(self, buffer: bytes, metadata: dict) -> bool:
+    def __deliver(self, buffer: bytes, metadata: dict) -> str:
         """
         
         :param buffer:
@@ -78,8 +78,9 @@ class Interface:
         """
         
         key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
+        delivered: bool = self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
 
-        return self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
+        return f"{metadata['organisation_name']}: {delivered} ({metadata['starting_year']})"
 
     def exc(self) -> list:
         """
@@ -98,7 +99,6 @@ class Interface:
 
             buffer: bytes = self.__retrieve(metadata=metadata)           
             message: bool = self.__deliver(buffer=buffer, metadata=metadata)
-            # computations.append(f"{metadata['organisation_name']}: {message} ({metadata['starting_year']})")
             computations.append(message)
 
         messages = dask.compute(computations)
