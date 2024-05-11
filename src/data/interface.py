@@ -32,7 +32,8 @@ class Interface:
         
         # For Amazon S3
         self.__s3_parameters = s3_parameters
-        self.__upload = src.s3.upload.Upload(service=service, s3_parameters=self.__s3_parameters)
+        self.__service = service
+        # self.__upload = src.s3.upload.Upload(service=service, s3_parameters=self.__s3_parameters)
 
         # The source's application programming interface instance
         self.__api = src.data.api.API()
@@ -76,9 +77,10 @@ class Interface:
             A boolean indicating data upload success
         """
         
-        key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['entity_identifier'])}.xlsx"
+        key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
 
-        return self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
+        return src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters).binary(
+            buffer=buffer, metadata=metadata, key_name=key_name)
 
     def exc(self) -> list:
         """
@@ -95,8 +97,13 @@ class Interface:
         computations = []
         for metadata in dictionary:
 
+            # metadata: dict = reference.iloc[index, :].to_dict()
+
             buffer: bytes = self.__retrieve(metadata=metadata)           
             message: bool = self.__deliver(buffer=buffer, metadata=metadata)
-            computations.append(f"{metadata['organisation_name']}: {message} ({metadata['starting_year']})")
+            # computations.append(f"{metadata['organisation_name']}: {message} ({metadata['starting_year']})")
+            computations.append(message)
+
+        messages = dask.compute(computations)
         
-        return computations
+        return messages
