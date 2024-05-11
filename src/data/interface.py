@@ -96,8 +96,6 @@ class Interface:
         computations = []
         for metadata in dictionary:
 
-            # metadata: dict = reference.iloc[index, :].to_dict()
-
             buffer: bytes = self.__retrieve(metadata=metadata)           
             message: bool = self.__deliver(buffer=buffer, metadata=metadata)
             # computations.append(f"{metadata['organisation_name']}: {message} ({metadata['starting_year']})")
