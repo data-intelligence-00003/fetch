@@ -15,7 +15,7 @@ def main():
     # Executing
     if hybrid:
         setup, service, s3_parameters = src.setup.Setup().exc()
-        messages = src.data.steps.Steps(service=service, s3_parameters=s3_parameters).exc(hybrid=hybrid)
+        messages = src.data.steps.Steps().exc(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
         logger.info(msg=messages)
     else:
         logger.info('Private')
@@ -47,6 +47,6 @@ if __name__ == '__main__':
     import src.setup
 
     # Execution
-    hybrid = False    
+    hybrid = True    
 
     main()
