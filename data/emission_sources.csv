@@ -1,4 +1,4 @@
-emission_source_id,emission_source,emission_type_id,emission_source_temporary
+emission_source_id,emission_source,emission_type_id,emission_source_mapping_string
 91274921,Biogas,8144,Biogas
 91274922,Landfill gas,8144,Landfill gas
 91274923,Wood chips,8144,Wood chips
@@ -13,7 +13,7 @@ emission_source_id,emission_source,emission_type_id,emission_source_temporary
 91274932,Diesel (average biofuel blend),8137,Diesel (average biofuel blend)
 91274933,Fuel oil,8137,Fuel oil
 91274934,Gas oil,8137,Gas oil
-91274935,LPG,8137,LPG
+91274935,Liquefied Petroleum Gas,8137,LPG
 91274936,Marine fuel oil,8137,Marine fuel oil
 91274937,Marine gas oil,8137,Marine gas oil
 91274938,Natural gas,8137,Natural gas
@@ -37,7 +37,7 @@ emission_source_id,emission_source,emission_type_id,emission_source_temporary
 91274956,Average construction - Primary material production,8146,Average construction - Primary material production
 91274957,Batteries - Alkaline - Primary material production,8146,Batteries - Alkaline - Primary material production
 91274958,Batteries - Li ion - Primary material production,8146,Batteries - Li ion - Primary material production
-91274959,Batteries – Ni-MH (Nickel Metal Hydride) - Primary material production,8146,Batteries - NiMh - Primary material production
+91274959,Batteries - Ni-MH (Nickel Metal Hydride) - Primary material production,8146,Batteries - NiMh - Primary material production
 91274960,Bricks - Primary material production,8146,Bricks - Primary material production
 91274961,Clothing - Primary material production,8146,Clothing - Primary material production
 91274962,Clothing - Re-used,8146,Clothing - Re-used
