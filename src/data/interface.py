@@ -57,42 +57,43 @@ class Interface:
         return buffer
 
     @dask.delayed
-    def __cloud(self, buffer: bytes, metadata: dict) -> bool:
+    def __cloud(self, buffer: bytes, metadata: dict) -> str:
         """
         
         :param buffer:
         :param metadata:
         :return:
-            A boolean indicating data upload success
+            A str indicating data upload success
         """
         
         key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
+        state = self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
         
-        return self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
+        return f"{metadata['organisation_name']}: {state} ({metadata['starting_year']})"
     
     @dask.delayed
-    def __backup(self, buffer: bytes, metadata: dict) -> bool:
+    def __backup(self, buffer: bytes, metadata: dict) -> str:
         """
         
         :param buffer:
         :param metadata:
         :return:
-            A boolean indicating data upload success
+            A str indicating data upload success
         """
 
         name: str = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
+        state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
-        return self.__xlsx.write(buffer=buffer, name=name)
+        return f"{metadata['organisation_name']}: {state} ({metadata['starting_year']})"
 
     def hybrid(self, dictionary: list[dict]):
 
         computations: list = []
         for metadata in dictionary:
             buffer: bytes = self.__read(metadata=metadata)           
-            cloud: bool = self.__cloud(buffer=buffer, metadata=metadata)
-            backup: bool = self.__backup(buffer=buffer, metadata=metadata)
-            message: str = f"{metadata['organisation_name']}: {cloud}, {backup} ({metadata['starting_year']})"
-            computations.append(message)
+            cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
+            backup: str = self.__backup(buffer=buffer, metadata=metadata)            
+            computations.append((cloud, backup))
 
         messages = dask.compute(computations)
         
@@ -104,8 +105,7 @@ class Interface:
         for metadata in dictionary:
             buffer: bytes = self.__read(metadata=metadata)  
             backup: bool = self.__backup(buffer=buffer, metadata=metadata)
-            message: str = f"{metadata['organisation_name']}: {backup} ({metadata['starting_year']})"
-            computations.append(message)
+            computations.append(backup)
 
         messages = dask.compute(computations)
 
