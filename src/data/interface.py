@@ -1,5 +1,6 @@
 """Module interface.py"""
 import os
+import dask.delayed
 import pandas as pd
 import dask
 
@@ -12,6 +13,7 @@ import src.elements.text_attributes as txa
 import src.functions.databytes
 import src.functions.streams
 import src.s3.upload
+import src.functions.xlsx
 
 
 class Interface:
@@ -40,6 +42,7 @@ class Interface:
 
         # An instance for fetching and holding in memory
         self.__databytes = src.functions.databytes.DataBytes()
+        self.__xlsx = src.functions.xlsx.XLSX()
     
     def __reference(self, name: str) -> pd.DataFrame:
         """
@@ -68,7 +71,7 @@ class Interface:
         return buffer
 
     @dask.delayed
-    def __deliver(self, buffer: bytes, metadata: dict) -> str:
+    def __cloud(self, buffer: bytes, metadata: dict) -> bool:
         """
         
         :param buffer:
@@ -78,10 +81,43 @@ class Interface:
         """
         
         key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
-        delivered: bool = self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
+        
+        return self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
+    
+    @dask.delayed
+    def __backup(self, buffer: bytes, metadata: dict) -> bool:
 
-        return f"{metadata['organisation_name']}: {delivered} ({metadata['starting_year']})"
+        name = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
+        
+        return self.__xlsx.write(buffer=buffer, name=name)
 
+    def hybrid(self, dictionary: list[dict]):
+
+        computations = []
+        for metadata in dictionary:
+            buffer: bytes = self.__retrieve(metadata=metadata)           
+            cloud: bool = self.__cloud(buffer=buffer, metadata=metadata)
+            backup = self.__backup(buffer=buffer, metadata=metadata)
+            message = f"{metadata['organisation_name']}: {cloud}, {backup} ({metadata['starting_year']})"
+            computations.append(message)
+
+        messages = dask.compute(computations)
+        
+        return messages
+    
+    def single(self, dictionary):
+
+        computations = []
+        for metadata in dictionary:
+            buffer: bytes = self.__retrieve(metadata=metadata)  
+            backup = self.__backup(buffer=buffer, metadata=metadata)
+            message = f"{metadata['organisation_name']}: {backup} ({metadata['starting_year']})"
+            computations.append(message)
+
+        messages = dask.compute(computations)
+
+
+    
     def exc(self) -> list:
         """
         
@@ -93,14 +129,3 @@ class Interface:
         organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
         reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
         dictionary = reference.to_dict(orient='records')
-
-        computations = []
-        for metadata in dictionary:
-
-            buffer: bytes = self.__retrieve(metadata=metadata)           
-            message: bool = self.__deliver(buffer=buffer, metadata=metadata)
-            computations.append(message)
-
-        messages = dask.compute(computations)
-        
-        return messages
