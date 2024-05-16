@@ -19,7 +19,7 @@ class Interface:
     Interface
     """
 
-    def __init__(self, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> None:
+    def __init__(self, hybrid: bool, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> None:
         """
         
         :param service: A suite of services for interacting with Amazon Web Services.
@@ -30,9 +30,10 @@ class Interface:
         self.__configurations = config.Config()   
 
         # For Amazon S3
-        self.__s3_parameters = s3_parameters
-        self.__service = service
-        self.__upload = src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters)  
+        if hybrid:
+            self.__s3_parameters = s3_parameters
+            self.__service = service
+            self.__upload = src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters)  
 
         # The source's application programming interface instance
         self.__api = src.data.api.API()
@@ -97,7 +98,7 @@ class Interface:
         
         return messages
     
-    def single(self, dictionary):
+    def single(self, dictionary: list[dict]):
 
         computations: list = []
         for metadata in dictionary:
