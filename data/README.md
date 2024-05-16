@@ -26,7 +26,7 @@ erDiagram
     }
     typ ||--|{ org : lists
 
-    classDef default fill:#ffffff,stroke:#ffffff,stroke-width:0px;
+    classDef default fill:#111111,stroke:#111111,stroke-width:0px;
 ```
 
 
