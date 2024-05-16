@@ -15,10 +15,11 @@ def main():
     # Executing
     if hybrid:
         setup, service, s3_parameters = src.setup.Setup().exc()
-        messages = src.data.interface.Interface(service=service, s3_parameters=s3_parameters).exc()
+        messages = src.data.steps.Steps(service=service, s3_parameters=s3_parameters).exc(hybrid=hybrid)
         logger.info(msg=messages)
     else:
-        logger.info(msg='Substitute')
+        messages = src.data.steps.Steps().exc(hybrid=hybrid)
+        logger.info(msg=messages)
 
     # Deleting __pycache__
     src.functions.cache.Cache().exc()
@@ -36,6 +37,7 @@ if __name__ == '__main__':
 
     # Modules
     import src.data.interface
+    import src.data.steps
     import src.elements.s3_parameters as s3p
     import src.elements.service as sr
     import src.functions.cache
