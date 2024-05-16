@@ -28,5 +28,3 @@ class DataBytes:
             content: bytes = response.content
             return content
         raise f'Failure code: {response.status_code}'
-    
-    
