@@ -15,7 +15,7 @@ Each organisation has submitted one or more annual climate measures reports to [
 
 ```mermaid
 erDiagram
-    typ[organisation types]{
+    typ["organisation types"]{
         string organisation_type
         int organisation_type_id
     }
