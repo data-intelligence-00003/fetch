@@ -2,6 +2,7 @@ import os
 import pandas as pd
 
 import config
+import src.functions.directories
 import src.functions.streams
 import src.elements.text_attributes as txa
 import src.data.interface
@@ -36,6 +37,16 @@ class Steps:
         text = txa.TextAttributes(uri=os.path.join(self.__configurations.datapath, name), header=0)
 
         return self.__streams.read(text=text)
+    
+    def __directories(self, dictionary: list[dict]) -> list[bool]:
+
+        years: list[str] = [str(metadata['starting_year']) for metadata in dictionary]
+        directories = src.functions.directories.Directories()
+        directories.cleanup(path=self.__configurations.warehouse)
+        states: list[bool] = [directories.create(path=os.path.join(self.__configurations.warehouse, year)) 
+                  for year in years]
+        
+        return states
 
     def exc(self, hybrid: bool) -> list:
         """
@@ -44,11 +55,16 @@ class Steps:
             A list
         """
 
+        # References
         documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
         organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
         reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
         dictionary = reference.to_dict(orient='records')
 
+        # Backup Directories
+        self.__directories(dictionary=dictionary)
+
+        # Execute
         if hybrid:
             return self.__interface.hybrid(dictionary=dictionary)
         else:
