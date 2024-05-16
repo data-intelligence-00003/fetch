@@ -1,7 +1,6 @@
 """Module interface.py"""
 import os
 import dask.delayed
-import pandas as pd
 import dask
 
 import config
@@ -9,9 +8,8 @@ import config
 import src.data.api
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
-import src.elements.text_attributes as txa
+
 import src.functions.databytes
-import src.functions.streams
 import src.s3.upload
 import src.functions.xlsx
 
@@ -21,7 +19,7 @@ class Interface:
     Interface
     """
 
-    def __init__(self, service: sr.Service, s3_parameters: s3p.S3Parameters) -> None:
+    def __init__(self, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> None:
         """
         
         :param service: A suite of services for interacting with Amazon Web Services.
@@ -29,13 +27,12 @@ class Interface:
                               name, buckets, etc.
         """
         
-        self.__configurations = config.Config()
-        self.__streams = src.functions.streams.Streams()
-        
+        self.__configurations = config.Config()   
+
         # For Amazon S3
         self.__s3_parameters = s3_parameters
         self.__service = service
-        self.__upload = src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters)
+        self.__upload = src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters)  
 
         # The source's application programming interface instance
         self.__api = src.data.api.API()
@@ -44,20 +41,8 @@ class Interface:
         self.__databytes = src.functions.databytes.DataBytes()
         self.__xlsx = src.functions.xlsx.XLSX()
     
-    def __reference(self, name: str) -> pd.DataFrame:
-        """
-        
-        :param name: The name of a CSV data file within the project's data directory; including the file's extension.
-        :return:
-            A data frame.
-        """
-
-        text = txa.TextAttributes(uri=os.path.join(self.__configurations.datapath, name), header=0)
-
-        return self.__streams.read(text=text)
-    
     @dask.delayed
-    def __retrieve(self, metadata: dict) -> bytes:
+    def __read(self, metadata: dict) -> bytes:
         """
         
         :param metadata: 
@@ -86,19 +71,26 @@ class Interface:
     
     @dask.delayed
     def __backup(self, buffer: bytes, metadata: dict) -> bool:
+        """
+        
+        :param buffer:
+        :param metadata:
+        :return:
+            A boolean indicating data upload success
+        """
 
-        name = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
+        name: str = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
         
         return self.__xlsx.write(buffer=buffer, name=name)
 
     def hybrid(self, dictionary: list[dict]):
 
-        computations = []
+        computations: list = []
         for metadata in dictionary:
-            buffer: bytes = self.__retrieve(metadata=metadata)           
+            buffer: bytes = self.__read(metadata=metadata)           
             cloud: bool = self.__cloud(buffer=buffer, metadata=metadata)
-            backup = self.__backup(buffer=buffer, metadata=metadata)
-            message = f"{metadata['organisation_name']}: {cloud}, {backup} ({metadata['starting_year']})"
+            backup: bool = self.__backup(buffer=buffer, metadata=metadata)
+            message: str = f"{metadata['organisation_name']}: {cloud}, {backup} ({metadata['starting_year']})"
             computations.append(message)
 
         messages = dask.compute(computations)
@@ -107,25 +99,13 @@ class Interface:
     
     def single(self, dictionary):
 
-        computations = []
+        computations: list = []
         for metadata in dictionary:
-            buffer: bytes = self.__retrieve(metadata=metadata)  
-            backup = self.__backup(buffer=buffer, metadata=metadata)
-            message = f"{metadata['organisation_name']}: {backup} ({metadata['starting_year']})"
+            buffer: bytes = self.__read(metadata=metadata)  
+            backup: bool = self.__backup(buffer=buffer, metadata=metadata)
+            message: str = f"{metadata['organisation_name']}: {backup} ({metadata['starting_year']})"
             computations.append(message)
 
         messages = dask.compute(computations)
 
-
-    
-    def exc(self) -> list:
-        """
-        
-        :return:
-            A list
-        """
-
-        documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
-        organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
-        reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
-        dictionary = reference.to_dict(orient='records')
+        return messages
