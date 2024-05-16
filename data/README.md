@@ -24,7 +24,7 @@ erDiagram
         int organisation_id
         int organisation_type_id 
     }
-    type ||--|{ org : lists
+    typ ||--|{ org : lists
 ```
 
 
