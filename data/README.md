@@ -25,6 +25,8 @@ erDiagram
         int organisation_type_id 
     }
     typ ||--|{ org : lists
+
+    classDef default fill:#ffffff,stroke:#ffffff,stroke-width:0px;
 ```
 
 
