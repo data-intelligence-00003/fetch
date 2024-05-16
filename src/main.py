@@ -18,6 +18,7 @@ def main():
         messages = src.data.steps.Steps(service=service, s3_parameters=s3_parameters).exc(hybrid=hybrid)
         logger.info(msg=messages)
     else:
+        logger.info('Private')
         messages = src.data.steps.Steps().exc(hybrid=hybrid)
         logger.info(msg=messages)
 
