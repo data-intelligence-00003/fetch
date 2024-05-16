@@ -12,9 +12,13 @@ def main():
     # Logging
     logger: logging.Logger = logging.getLogger(__name__)
 
-    # Explore
-    messages = src.data.interface.Interface(service=service, s3_parameters=s3_parameters).exc()
-    logger.info(messages)
+    # Executing
+    if hybrid:
+        setup, service, s3_parameters = src.setup.Setup().exc()
+        messages = src.data.interface.Interface(service=service, s3_parameters=s3_parameters).exc()
+        logger.info(msg=messages)
+    else:
+        logger.info(msg='Substitute')
 
     # Deleting __pycache__
     src.functions.cache.Cache().exc()
@@ -39,12 +43,7 @@ if __name__ == '__main__':
     import src.s3.s3_parameters
     import src.setup
 
-    # S3 S3Parameters, Service Instance
-    s3_parameters: s3p.S3Parameters = src.s3.s3_parameters.S3Parameters().exc()
-    service: sr.Service = src.functions.service.Service(region_name=s3_parameters.region_name).exc()
-
-    # Setting-up
-    setup: bool = src.setup.Setup(
-        service=service, s3_parameters=s3_parameters).exc()
+    # Execution
+    hybrid = False    
 
     main()
