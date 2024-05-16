@@ -11,16 +11,10 @@ import src.elements.service as sr
 
 class Steps:
 
-    def __init__(self, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> None:
+    def __init__(self) -> None:
         """
-        
-        :param service: A suite of services for interacting with Amazon Web Services.
-        :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
-                              name, buckets, etc.
+        Constructor
         """
-        
-        # For Amazon S3 & Amazon
-        self.__interface = src.data.interface.Interface(service=service, s3_parameters=s3_parameters)
         
         # Additionally
         self.__configurations = config.Config()
@@ -48,9 +42,13 @@ class Steps:
         
         return states
 
-    def exc(self, hybrid: bool) -> list:
+    def exc(self, hybrid: bool, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> list:
         """
-        
+
+        :param hybrid: Execute cloud & backup programs?
+        :param service: A suite of services for interacting with Amazon Web Services.
+        :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
+                              name, buckets, etc.
         :return:
             A list
         """
@@ -66,6 +64,8 @@ class Steps:
 
         # Execute
         if hybrid:
-            return self.__interface.hybrid(dictionary=dictionary)
+            interface = src.data.interface.Interface(hybrid=True, service=service, s3_parameters=s3_parameters)
+            return interface.hybrid(dictionary=dictionary)
         else:
-            return self.__interface.single(dictionary=dictionary)
+            interface = src.data.interface.Interface(hybrid=False)
+            return interface.single(dictionary=dictionary)
