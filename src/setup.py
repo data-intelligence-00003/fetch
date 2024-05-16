@@ -2,8 +2,12 @@
 Module setup.py
 """
 
+import typing
+
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
+import src.s3.s3_parameters
+import src.functions.service
 import src.s3.bucket
 
 
@@ -16,16 +20,15 @@ class Setup:
     This class prepares the Amazon S3 (Simple Storage Service) and local data environments.
     """
 
-    def __init__(self, service: sr.Service, s3_parameters: s3p.S3Parameters):
+    def __init__(self):
         """
         
-        :param service: A suite of services for interacting with Amazon Web Services.
-        :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
-                              name, buckets, etc.
+        
         """
 
-        self.__service: sr.Service = service
-        self.__s3_parameters: s3p.S3Parameters = s3_parameters
+        # S3 S3Parameters Instance, Service Instance
+        self.__s3_parameters: s3p.S3Parameters = src.s3.s3_parameters.S3Parameters().exc()
+        self.__service: sr.Service = src.functions.service.Service(region_name=self.__s3_parameters.region_name).exc()
 
     def __s3(self) -> bool:
         """
@@ -43,12 +46,16 @@ class Setup:
 
         return bucket.create()
 
-    def exc(self) -> bool:
+    def exc(self) -> typing.Tuple[bool, sr.Service, s3p.S3Parameters]:
         """
 
         :return:
+            :setup:
+            :service: A suite of services for interacting with Amazon Web Services.
+            :s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
+                            name, buckets, etc.
         """
 
         setup: bool = self.__s3()
 
-        return setup
+        return setup, self.__service, self.__s3_parameters
