@@ -69,7 +69,7 @@ class Interface:
         key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
         state = self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
         
-        return f"{metadata['organisation_name']}: {state} ({metadata['starting_year']})"
+        return f"Cloud -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
     
     @dask.delayed
     def __backup(self, buffer: bytes, metadata: dict) -> str:
@@ -84,7 +84,7 @@ class Interface:
         name: str = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
         state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
-        return f"{metadata['organisation_name']}: {state} ({metadata['starting_year']})"
+        return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
 
     def hybrid(self, dictionary: list[dict]):
 
@@ -95,7 +95,7 @@ class Interface:
             backup: str = self.__backup(buffer=buffer, metadata=metadata)            
             computations.append((cloud, backup))
 
-        messages = dask.compute(computations)
+        messages = dask.compute(computations)[0]
         
         return messages
     
@@ -107,6 +107,6 @@ class Interface:
             backup: bool = self.__backup(buffer=buffer, metadata=metadata)
             computations.append(backup)
 
-        messages = dask.compute(computations)
+        messages = dask.compute(computations)[0]
 
         return messages
