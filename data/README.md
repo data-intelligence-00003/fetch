@@ -27,29 +27,9 @@ erDiagram
     typ ||--|{ org : lists
 ```
 
+<img src="/data/images/objects-sketches.png" alt="documents">
 
 
-
-<pre class="mermaid">
-        graph TD
-        A[Client] --> B[Load Balancer]
-        B --> C[Server01]
-        B --> D[Server02]
-</pre>
-
-<pre class="mermaid">
-    erDiagram
-    typ["organisation types"]{
-        string organisation_type
-        int organisation_type_id
-    }
-    org[organisations]{
-        string organisation_name
-        int organisation_id
-        int organisation_type_id 
-    }
-    typ ||--|{ org : lists
-</pre>
 
 
 
