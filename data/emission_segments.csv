@@ -1,0 +1,43 @@
+emission_segment_id,emission_type_id,emission_type_class
+781311,8144,Biogas
+781314,8144,Biomass
+781318,8136,Electricity generated
+781319,8136,T & D UK electricity
+781320,8137,Liquid fuels
+781327,8137,Solid fuels
+781336,8137,Gaseous fuels
+781348,8145,Heat and steam
+781351,8147,Homeworking (office equipment + heating)
+781352,8148,Hotel stay
+781354,8146,Construction
+781362,8146,Electrical items
+781366,8146,Other
+781368,8146,Organic
+781381,8146,Metal
+781393,8146,Paper
+781401,8146,Plastic
+781425,8150,Other products
+781429,8139,Other products
+781431,8139,Blends
+781480,8149,Renewable Electricity Purchase Direct Supply
+781481,8149,Renewable Heat Purchase Direct Supply
+781482,8141,Cars (by size)
+781530,8141,Motorbike
+781548,8142,Bus
+781549,8142,Taxis
+781552,8142,Ferry
+781555,8142,Flights
+781569,8142,Rail
+781577,8143,Vans
+781593,8143,Heavy Goods Vehicle (all diesel)
+781599,8143,Heavy Goods Vehicle Refrigerated (all diesel)
+781623,8140,Construction
+781630,8140,Electrical items
+781631,8140,Other
+781635,8140,Clinical
+781642,8140,Refuse
+781653,8140,Metal
+781681,8140,Paper
+781695,8140,Plastic
+781736,8138,Water supply
+781738,8138,Water treatment
