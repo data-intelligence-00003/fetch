@@ -9,6 +9,8 @@ class Config:
         """
 
         self.warehouse: str = os.path.join(os.getcwd(), 'warehouse')
+        self.raw_: str = os.path.join(self.warehouse, 'raw')
+        self.excerpt_: str = os.path.join(self.warehouse, 'excerpt')
         self.datapath: str = os.path.join(os.getcwd(), 'data')
 
         # Scope
