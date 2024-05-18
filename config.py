@@ -14,6 +14,10 @@ class Config:
         # Scope
         self.scope: list[str] = ['Scope 1', 'Scope 2', 'Scope 3', 'Combined scopes (for EVs only)']
 
+        # Fields
+        self.fields: list[str] = ['emission_type', 'emission_source', 'scope', 'consumption_data', 'consumption_data_units', 
+                       'emission_factor', 'emission_factor_units', 'emissions', 'comment']
+
         # The documents of interest, and the names of their source organisations
         self.documents = 'documents.csv'
         self.organisations = 'organisations.csv'
