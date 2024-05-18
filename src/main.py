@@ -2,6 +2,7 @@
 import logging
 import os
 import sys
+import glob
 
 
 def main():
@@ -22,6 +23,8 @@ def main():
         messages = src.data.steps.Steps().exc(hybrid=hybrid)
         logger.info(msg=messages)
 
+    files: list[str] = glob.glob(pathname=os.path.join(os.path.join(os.getcwd(), 'warehouse', 'raw'), '**',  '*.xlsx'), recursive=True)
+    logger.info(files)
     
 
     # Deleting __pycache__
