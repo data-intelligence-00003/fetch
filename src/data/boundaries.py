@@ -27,16 +27,16 @@ class Boundaries:
                  'header': None, 'skiprows': 0, 'usecols': 'D', 'nrows': None}
         self.__sheet = src.elements.sheet.Sheet()
 
-    def __segment(self, url: str, buffer: bytes) -> pd.DataFrame:
+    def __segment(self, buffer: bytes) -> pd.DataFrame:
         """
         
-        :param url: A data file's uniform resource locator
+        :param buffer: A buffer
         :return:
             A data frame
         """
 
         # Setting the final set of Excel Sheet attributes
-        self.__dictionary['io'] = url        
+        # self.__dictionary['io'] = url        
         sheet = self.__sheet._replace(**self.__dictionary)
 
         # Reading the data cells
@@ -87,15 +87,15 @@ class Boundaries:
         return index
 
         
-    def exc(self, url: str, buffer: bytes) -> src.elements.boundaries.Boundaries:
+    def exc(self, buffer: bytes) -> src.elements.boundaries.Boundaries:
         """
         
-        :param url: A document's url
+        :param buffer: A buffer
         :return:
             A data frame
         """
 
-        segment: pd.DataFrame = self.__segment(url=url, buffer=buffer)
+        segment: pd.DataFrame = self.__segment(buffer=buffer)
         segment: pd.DataFrame = self.__inspect(blob=segment)
         starting: int = self.__starting(blob=segment)
         ending: int = self.__ending(blob=segment)
