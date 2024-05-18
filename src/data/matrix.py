@@ -27,22 +27,19 @@ class Matrix:
         # Configurations
         self.__configurations = config.Config()
 
-    def __segment(self, url: str, buffer: bytes, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
+    def __segment(self, buffer: bytes, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
         """
         
-        :param url: A data file's uniform resource locator
+        :param buffer: A buffer
         :param boundaries: The data boundaries
         :return:
             A data frame
         """
 
-        self.__dictionary['io'] = url
         self.__dictionary['header'] = 0
         self.__dictionary['skiprows'] =  boundaries.starting
         self.__dictionary['nrows'] = boundaries.ending - boundaries.starting - 2
         sheet = self.__sheet._replace(**self.__dictionary)
-
-        # segment: pd.DataFrame = self.__xlsx.read(sheet=sheet)
         segment: pd.DataFrame = self.__xlsx.decode(buffer=buffer, sheet=sheet)
 
         return segment
@@ -63,9 +60,14 @@ class Matrix:
 
         return frame
 
-    def exc(self, url: str, buffer: bytes, metadata: dict, boundaries: src.elements.boundaries.Boundaries):
+    def exc(self, buffer: bytes, metadata: dict, boundaries: src.elements.boundaries.Boundaries):
+        """
+        :param buffer:
+        :param metadata:
+        :param boundaries:
+        """
 
-        frame: pd.DataFrame = self.__segment(url=url, buffer=buffer, boundaries=boundaries)
+        frame: pd.DataFrame = self.__segment(buffer=buffer, boundaries=boundaries)
         frame: pd.DataFrame = self.__inspect(blob=frame)
         frame = frame.assign(starting_year=metadata['starting_year'])
         frame = frame.assign(organisation_id=metadata['organisation_id'])
