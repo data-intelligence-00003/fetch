@@ -27,7 +27,7 @@ class Boundaries:
                  'header': None, 'skiprows': 0, 'usecols': 'D', 'nrows': None}
         self.__sheet = src.elements.sheet.Sheet()
 
-    def __segment(self, url: str) -> pd.DataFrame:
+    def __segment(self, url: str, buffer: bytes) -> pd.DataFrame:
         """
         
         :param url: A data file's uniform resource locator
@@ -40,7 +40,8 @@ class Boundaries:
         sheet = self.__sheet._replace(**self.__dictionary)
 
         # Reading the data cells
-        segment: pd.DataFrame = self.__xlsx.read(sheet=sheet)
+        # segment: pd.DataFrame = self.__xlsx.read(sheet=sheet)
+        segment: pd.DataFrame = self.__xlsx.decode(buffer=buffer, sheet=sheet)
 
         return segment
     
@@ -86,7 +87,7 @@ class Boundaries:
         return index
 
         
-    def exc(self, url: str) -> src.elements.boundaries.Boundaries:
+    def exc(self, url: str, buffer: bytes) -> src.elements.boundaries.Boundaries:
         """
         
         :param url: A document's url
@@ -94,7 +95,7 @@ class Boundaries:
             A data frame
         """
 
-        segment: pd.DataFrame = self.__segment(url=url)
+        segment: pd.DataFrame = self.__segment(url=url, buffer=buffer)
         segment: pd.DataFrame = self.__inspect(blob=segment)
         starting: int = self.__starting(blob=segment)
         ending: int = self.__ending(blob=segment)
