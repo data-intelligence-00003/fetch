@@ -21,13 +21,11 @@ class Matrix:
         """
 
         self.__xlsx = src.functions.xlsx.XLSX()
-
         self.__dictionary: dict = {'sheet_name': 'Emissions and Projects', 'usecols': 'C:K'}
         self.__sheet = src.elements.sheet.Sheet()
+        self.__scope: list[str] = config.Config().scope
 
-        self.__scope = config.Config().scope
-
-    def __segment(self, url: str, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
+    def __segment(self, url: str, buffer: bytes, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
         """
         
         :param url: A data file's uniform resource locator
@@ -42,7 +40,8 @@ class Matrix:
         self.__dictionary['nrows'] = boundaries.ending - boundaries.starting - 2
         sheet = self.__sheet._replace(**self.__dictionary)
 
-        segment: pd.DataFrame = self.__xlsx.read(sheet=sheet)
+        # segment: pd.DataFrame = self.__xlsx.read(sheet=sheet)
+        segment: pd.DataFrame = self.__xlsx.decode(buffer=buffer, sheet=sheet)
 
         return segment
     
@@ -61,9 +60,9 @@ class Matrix:
 
         return frame
 
-    def exc(self, url: str, boundaries: src.elements.boundaries.Boundaries):
+    def exc(self, url: str, buffer: bytes, boundaries: src.elements.boundaries.Boundaries):
 
-        frame = self.__segment(url=url, boundaries=boundaries)
+        frame = self.__segment(url=url, buffer=buffer, boundaries=boundaries)
         frame = self.__inspect(blob=frame)
 
         return frame
