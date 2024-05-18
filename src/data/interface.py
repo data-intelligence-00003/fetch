@@ -2,7 +2,6 @@
 import os
 
 import dask
-import dask.delayed
 import pandas as pd
 
 import config
