@@ -8,6 +8,7 @@ import src.elements.text_attributes as txa
 import src.data.interface
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
+import src.data.transfer
 
 class Steps:
 
@@ -72,5 +73,10 @@ class Steps:
 
         # Execute
         interface = src.data.interface.Interface(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
+        messages = interface.exc(dictionary=dictionary)
+
+        # If hybrid
+        # transfer = src.data.transfer.Transfer()
+        # transfer ... dictionary
         
-        return interface.exc(dictionary=dictionary)
+        return messages
