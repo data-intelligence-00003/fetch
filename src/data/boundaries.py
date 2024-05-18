@@ -35,12 +35,10 @@ class Boundaries:
             A data frame
         """
 
-        # Setting the final set of Excel Sheet attributes
-        # self.__dictionary['io'] = url        
+        # Setting the final set of Excel Sheet attributes        
         sheet = self.__sheet._replace(**self.__dictionary)
 
         # Reading the data cells
-        # segment: pd.DataFrame = self.__xlsx.read(sheet=sheet)
         segment: pd.DataFrame = self.__xlsx.decode(buffer=buffer, sheet=sheet)
 
         return segment
