@@ -1,4 +1,4 @@
-
+"""Module analytics.py"""
 import pandas as pd
 
 import src.data.boundaries
@@ -9,6 +9,9 @@ import src.elements.boundaries as br
 class Analytics:
 
     def __init__(self) -> None:
+        """
+        Constructor
+        """
         
         self.__boundaries = src.data.boundaries.Boundaries()
         self.__matrix = src.data.matrix.Matrix()
@@ -16,7 +19,8 @@ class Analytics:
     def exc(self, buffer: bytes, metadata: dict) -> pd.DataFrame:
         """
         
-        :param url:
+        :param buffer: A buffer of data
+        :param metadate: The metadata of the bytes
         :return:
         """
 
