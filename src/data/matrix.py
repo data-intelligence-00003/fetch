@@ -23,7 +23,9 @@ class Matrix:
         self.__xlsx = src.functions.xlsx.XLSX()
         self.__dictionary: dict = {'sheet_name': 'Emissions and Projects', 'usecols': 'C:K'}
         self.__sheet = src.elements.sheet.Sheet()
-        self.__scope: list[str] = config.Config().scope
+
+        # Configurations
+        self.__configurations = config.Config()
 
     def __segment(self, url: str, buffer: bytes, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
         """
@@ -47,6 +49,7 @@ class Matrix:
     
     def __inspect(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
+        frame.dropna(axis=0, subset=['scope'], inplace=True)
         
         :param blob: 
         :return:
@@ -54,15 +57,17 @@ class Matrix:
         """
 
         
-        frame = blob.copy().rename(mapper=str.lower, axis=1)
-        frame = frame.copy().loc[frame['scope'].isin(self.__scope), :]
-        # frame.dropna(axis=0, subset=['scope'], inplace=True)
+        frame: pd.DataFrame = blob.copy().rename(mapper=str.lower, axis=1)
+        frame: pd.DataFrame = frame.set_axis(labels=self.__configurations.fields, axis=1)
+        frame: pd.DataFrame = frame.copy().loc[frame['scope'].isin(self.__configurations.scope), :]
 
         return frame
 
-    def exc(self, url: str, buffer: bytes, boundaries: src.elements.boundaries.Boundaries):
+    def exc(self, url: str, buffer: bytes, metadata: dict, boundaries: src.elements.boundaries.Boundaries):
 
-        frame = self.__segment(url=url, buffer=buffer, boundaries=boundaries)
-        frame = self.__inspect(blob=frame)
+        frame: pd.DataFrame = self.__segment(url=url, buffer=buffer, boundaries=boundaries)
+        frame: pd.DataFrame = self.__inspect(blob=frame)
+        frame = frame.assign(starting_year=metadata['starting_year'])
+        frame = frame.assign(organisation_id=metadata['organisation_id'])
 
         return frame
