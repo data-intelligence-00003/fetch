@@ -33,6 +33,9 @@ class Steps:
         return self.__streams.read(text=text)
     
     def __directories(self, dictionary: list[dict]) -> list[bool]:
+        """
+        
+        """
 
         years: list[str] = [str(metadata['starting_year']) for metadata in dictionary]
         directories = src.functions.directories.Directories()
@@ -45,7 +48,7 @@ class Steps:
     def exc(self, hybrid: bool, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> list:
         """
 
-        :param hybrid: Execute cloud & backup programs?
+        :param hybrid: Execute cloud & backup programs?  False => Backup only.
         :param service: A suite of services for interacting with Amazon Web Services.
         :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
                               name, buckets, etc.
@@ -57,15 +60,12 @@ class Steps:
         documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
         organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
         reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
-        dictionary = reference.to_dict(orient='records')
+        dictionary: list[dict] = reference.to_dict(orient='records')
 
         # Backup Directories
         self.__directories(dictionary=dictionary)
 
         # Execute
-        if hybrid:
-            interface = src.data.interface.Interface(hybrid=True, service=service, s3_parameters=s3_parameters)
-            return interface.hybrid(dictionary=dictionary)
-        else:
-            interface = src.data.interface.Interface(hybrid=False)
-            return interface.single(dictionary=dictionary)
+        interface = src.data.interface.Interface(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
+        
+        return interface.exc(dictionary=dictionary)
