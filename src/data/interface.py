@@ -3,6 +3,8 @@ import os
 
 import dask
 import dask.delayed
+import dask.delayed
+import dask.delayed
 import pandas as pd
 
 import config
@@ -100,15 +102,18 @@ class Interface:
 
     def exc(self, dictionary: list[dict]):
 
+        print(dictionary[:4])
+
         computations: list = []
-        for metadata in dictionary:
+        for metadata in dictionary[:4]:
             url: str = self.__url(metadata=metadata)
-            buffer: bytes = self.__read(url=url)           
-            cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
-            backup: str = self.__backup(buffer=buffer, metadata=metadata)
+            # buffer: bytes = self.__read(url=url)           
+            # cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
+            # backup: str = self.__backup(buffer=buffer, metadata=metadata)
             matrix: pd.DataFrame = self.__matrix(url=url)       
-            computations.append((cloud, backup))
+            computations.append((matrix))
 
         messages = dask.compute(computations)[0]
+        # messages = computations
         
         return messages
