@@ -11,6 +11,9 @@ class Config:
         self.warehouse: str = os.path.join(os.getcwd(), 'warehouse')
         self.datapath: str = os.path.join(os.getcwd(), 'data')
 
+        # Scope
+        self.scope: list[str] = ['Scope 1', 'Scope 2', 'Scope 3', 'Combined scopes (for EVs only)']
+
         # The documents of interest, and the names of their source organisations
         self.documents = 'documents.csv'
         self.organisations = 'organisations.csv'
