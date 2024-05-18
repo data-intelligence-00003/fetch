@@ -97,17 +97,17 @@ class Interface:
 
         print(dictionary[:4])
 
-        # self.__analytics = src.data.analytics.Analytics()
+        # Additional delayed tasks
         analytics = dask.delayed(src.data.analytics.Analytics().exc)
         
-
+        # Compute
         computations: list = []
         for metadata in dictionary[:4]:
             url: str = self.__url(metadata=metadata)
             buffer: bytes = self.__read(url=url)           
             cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
             backup: str = self.__backup(buffer=buffer, metadata=metadata)
-            matrix: pd.DataFrame = analytics(url=url, buffer=buffer, metadata=metadata)    
+            matrix: pd.DataFrame = analytics(buffer=buffer, metadata=metadata)    
             computations.append((cloud, backup, matrix))
 
         messages = dask.compute(computations)[0]
