@@ -32,18 +32,23 @@ class Steps:
 
         return self.__streams.read(text=text)
     
-    def __directories(self, dictionary: list[dict]) -> list[bool]:
+    def __directories(self, dictionary: list[dict]) -> list:
         """
-        
+
+        :param dictionary:
         """
 
         years: list[str] = [str(metadata['starting_year']) for metadata in dictionary]
         directories = src.functions.directories.Directories()
         directories.cleanup(path=self.__configurations.warehouse)
-        states: list[bool] = [directories.create(path=os.path.join(self.__configurations.warehouse, year)) 
-                  for year in years]
+
+        # Raw & Excerpts
+        computations = []
+        for section in [self.__configurations.raw_, self.__configurations.excerpt_]:
+            states: list[bool] = [directories.create(path=os.path.join(section, year)) for year in years]
+            computations.append(states)
         
-        return states
+        return computations
 
     def exc(self, hybrid: bool, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> list:
         """
