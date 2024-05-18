@@ -92,11 +92,6 @@ class Interface:
         state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
         return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
-    
-    @dask.delayed
-    def __matrix(self, url: str, buffer: bytes, metadata: dict) -> pd.DataFrame:
-
-        return self.__analytics.exc(url=url, buffer=buffer, metadata=metadata)
 
     def exc(self, dictionary: list[dict]) -> list:
 
@@ -112,8 +107,7 @@ class Interface:
             buffer: bytes = self.__read(url=url)           
             cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
             backup: str = self.__backup(buffer=buffer, metadata=metadata)
-            matrix: pd.DataFrame = analytics(url=url, buffer=buffer, metadata=metadata)
-            # matrix: pd.DataFrame = self.__matrix(url=url, buffer=buffer, metadata=metadata)       
+            matrix: pd.DataFrame = analytics(url=url, buffer=buffer, metadata=metadata)    
             computations.append((cloud, backup, matrix))
 
         messages = dask.compute(computations)[0]
