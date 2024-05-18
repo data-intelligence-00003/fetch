@@ -13,15 +13,15 @@ class Analytics:
         self.__boundaries = src.data.boundaries.Boundaries()
         self.__matrix = src.data.matrix.Matrix()
 
-    def exc(self, url: str) -> pd.DataFrame:
+    def exc(self, url: str, buffer: bytes) -> pd.DataFrame:
         """
         
         :param url:
         :return:
         """
 
-        boundaries: br.Boundaries = self.__boundaries.exc(url=url)
-        matrix: pd.DataFrame = self.__matrix.exc(url=url, boundaries=boundaries)
+        boundaries: br.Boundaries = self.__boundaries.exc(url=url, buffer=buffer)
+        matrix: pd.DataFrame = self.__matrix.exc(url=url, buffer=buffer, boundaries=boundaries)
 
         return matrix
  
