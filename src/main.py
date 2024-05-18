@@ -32,6 +32,8 @@ if __name__ == '__main__':
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
 
+    logging.captureWarnings(capture=True)
+
     logging.basicConfig(level=logging.INFO,
                         format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
                         datefmt='%Y-%m-%d %H:%M:%S')
