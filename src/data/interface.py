@@ -90,7 +90,7 @@ class Interface:
         :return: A str indicating data upload success
         """
 
-        name: str = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
+        name: str = os.path.join(self.__configurations.raw_, str(metadata['starting_year']), str(metadata['organisation_id']))
         state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
         return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
