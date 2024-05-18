@@ -1,17 +1,18 @@
 """Module interface.py"""
 import os
-import dask.delayed
+
 import dask
+import dask.delayed
+import pandas as pd
 
 import config
-
+import src.data.analytics
 import src.data.api
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
-
 import src.functions.databytes
-import src.s3.upload
 import src.functions.xlsx
+import src.s3.upload
 
 
 class Interface:
@@ -27,8 +28,7 @@ class Interface:
         :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
                               name, buckets, etc.
         """
-        
-        
+   
         self.__hybrid = hybrid
 
         # For Amazon S3
@@ -43,17 +43,22 @@ class Interface:
         self.__api = src.data.api.API()
         self.__databytes = src.functions.databytes.DataBytes()
         self.__xlsx = src.functions.xlsx.XLSX()
+        self.__analytics = src.data.analytics.Analytics()
+
+    @dask.delayed
+    def __url(self, metadata: dict) -> str:
+
+        return self.__api.exc(code=metadata['document_id'])   
+
     
     @dask.delayed
-    def __read(self, metadata: dict) -> bytes:
+    def __read(self, url: str) -> bytes:
         """
         
-        :param metadata: 
-        :return:
-            A data frame.
+        :param url: 
+        :return: A buffer of data bytes
         """
 
-        url: str = self.__api.exc(code=metadata['document_id'])            
         buffer: bytes = self.__databytes.get(url=url) 
 
         return buffer
@@ -64,8 +69,7 @@ class Interface:
         
         :param buffer:
         :param metadata:
-        :return:
-            A str indicating data upload success
+        :return: A str indicating data upload success
         """
 
         if self.__hybrid:
@@ -81,22 +85,28 @@ class Interface:
         
         :param buffer:
         :param metadata:
-        :return:
-            A str indicating data upload success
+        :return: A str indicating data upload success
         """
 
         name: str = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
         state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
         return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
+    
+    @dask.delayed
+    def __matrix(self, url: str) -> pd.DataFrame:
+
+        return self.__analytics.exc(url=url)
 
     def exc(self, dictionary: list[dict]):
 
         computations: list = []
         for metadata in dictionary:
-            buffer: bytes = self.__read(metadata=metadata)           
+            url: str = self.__url(metadata=metadata)
+            buffer: bytes = self.__read(url=url)           
             cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
-            backup: str = self.__backup(buffer=buffer, metadata=metadata)            
+            backup: str = self.__backup(buffer=buffer, metadata=metadata)
+            matrix: pd.DataFrame = self.__matrix(url=url)       
             computations.append((cloud, backup))
 
         messages = dask.compute(computations)[0]
