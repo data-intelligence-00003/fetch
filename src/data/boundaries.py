@@ -68,7 +68,7 @@ class Boundaries:
         """        
 
         frame: pd.DataFrame = blob.copy()
-        index: int = frame.index[frame['source'].str.lower() == 'emission source'].values[0] 
+        index: int = frame.index[frame['source'].str.lower() == 'emission source'].values[0]
         
         return index
     
@@ -98,6 +98,8 @@ class Boundaries:
         segment: pd.DataFrame = self.__inspect(blob=segment)
         starting: int = self.__starting(blob=segment)
         ending: int = self.__ending(blob=segment)
+
+        print(f'Starting: {starting}, Ending: {ending}')
 
         boundaries = src.elements.boundaries.Boundaries(starting=starting, ending=ending)
 
