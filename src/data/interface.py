@@ -96,9 +96,9 @@ class Interface:
         return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
     
     @dask.delayed
-    def __matrix(self, url: str) -> pd.DataFrame:
+    def __matrix(self, url: str, buffer: bytes) -> pd.DataFrame:
 
-        return self.__analytics.exc(url=url)
+        return self.__analytics.exc(url=url, buffer=buffer)
 
     def exc(self, dictionary: list[dict]):
 
@@ -107,10 +107,10 @@ class Interface:
         computations: list = []
         for metadata in dictionary[:4]:
             url: str = self.__url(metadata=metadata)
-            # buffer: bytes = self.__read(url=url)           
+            buffer: bytes = self.__read(url=url)           
             # cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
             # backup: str = self.__backup(buffer=buffer, metadata=metadata)
-            matrix: pd.DataFrame = self.__matrix(url=url)       
+            matrix: pd.DataFrame = self.__matrix(url=url, buffer=buffer)       
             computations.append((matrix))
 
         messages = dask.compute(computations)[0]
