@@ -1,5 +1,6 @@
 import os
 import pandas as pd
+import logging
 
 import config
 import src.functions.directories
@@ -20,6 +21,12 @@ class Steps:
         # Additionally
         self.__configurations = config.Config()
         self.__streams = src.functions.streams.Streams()
+
+        # Logging
+        logging.basicConfig(level=logging.INFO,
+                        format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
+                        datefmt='%Y-%m-%d %H:%M:%S')
+        self.__logger = logging.getLogger(name=__name__)
 
     def __reference(self, name: str) -> pd.DataFrame:
         """
@@ -76,7 +83,9 @@ class Steps:
         messages = interface.exc(dictionary=dictionary)
 
         # If hybrid
-        # transfer = src.data.transfer.Transfer()
-        # transfer ... dictionary
+        if hybrid:
+            transfer = src.data.transfer.Transfer(reference=reference, service=service, s3_parameters=s3_parameters)
+            transfers = transfer.exc()
+            self.__logger.info(transfers)
         
         return messages
