@@ -47,8 +47,8 @@ class Anomalies:
         print(self.__emission_types)
 
         frame = blob.assign(emission_type=blob['emission_type'].str.lower())
-        # condition = frame['emission_types'].isin(values=self.__emission_types['emission_type'].values)
-        # frame.loc[~condition, 'emission_type'] = 'other'
+        condition = frame['emission_type'].isin(values=self.__emission_types['emission_type'].values)
+        frame.loc[~condition, 'emission_type'] = 'other'
         
         # Merge
         frame: pd.DataFrame = frame.copy().merge(right=self.__emission_types, how='left', on='emission_type')
