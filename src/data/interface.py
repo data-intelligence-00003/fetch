@@ -8,11 +8,9 @@ import pandas as pd
 import config
 import src.data.analytics
 import src.data.api
-import src.elements.s3_parameters as s3p
-import src.elements.service as sr
 import src.functions.databytes
-import src.functions.xlsx
 import src.functions.streams
+import src.functions.xlsx
 import src.s3.upload
 
 
@@ -93,13 +91,15 @@ class Interface:
         """
 
         # Additional delayed tasks
+        databytes = dask.delayed(src.functions.databytes.DataBytes().get)
         analytics = dask.delayed(src.data.analytics.Analytics().exc)
         
         # Compute
         computations: list = []
         for metadata in dictionary[:4]:
             url: str = self.__url(metadata=metadata)
-            buffer: bytes = self.__read(url=url)           
+            # buffer: bytes = self.__read(url=url)
+            buffer: bytes = databytes(url=url)       
             backup: str = self.__backup(buffer=buffer, metadata=metadata)
             frame: pd.DataFrame = analytics(buffer=buffer, metadata=metadata)    
             computations.append((backup, frame))
