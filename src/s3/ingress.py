@@ -39,9 +39,11 @@ class Ingress:
             A message string
         """
 
+        rebuilt: dict = {key: str(value) for key, value in metadata.items()}
+
         try:
             self.__service.s3_client.upload_file(Filename=file, Bucket=self.__s3_parameters.internal, Key=key, 
-                                                 ExtraArgs={'Metadata': metadata})
+                                                 ExtraArgs={'Metadata': rebuilt})
             return f'Uploading {key}'
         except botocore.exceptions.ClientError as err:
             raise err from err
