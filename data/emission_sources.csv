@@ -1,356 +1,356 @@
-emission_source_id,emission_source,emission_type_id,emission_source_mapping_string
-91274921,Biogas,8144,Biogas
-91274922,Landfill gas,8144,Landfill gas
-91274923,Wood chips,8144,Wood chips
-91274924,Wood pellets,8144,Wood pellets
-91274925,Electricity: UK,8136,Electricity: UK
-91274926,Transmission and distribution - Electricity: UK,8136,Transmission and distribution - Electricity: UK
-91274927,Aviation spirit,8137,Aviation spirit
-91274928,Aviation turbine fuel,8137,Aviation turbine fuel
-91274929,Burning oil (Kerosene),8137,Burning oil (Kerosene)
-91274930,Coal (industrial),8137,Coal (industrial)
-91274931,Diesel (100% mineral diesel),8137,Diesel (100% mineral diesel)
-91274932,Diesel (average biofuel blend),8137,Diesel (average biofuel blend)
-91274933,Fuel oil,8137,Fuel oil
-91274934,Gas oil,8137,Gas oil
-91274935,Liquefied Petroleum Gas,8137,LPG
-91274936,Marine fuel oil,8137,Marine fuel oil
-91274937,Marine gas oil,8137,Marine gas oil
-91274938,Natural gas,8137,Natural gas
-91274939,Petrol (100% mineral diesel),8137,Petrol (100% mineral diesel)
-91274940,Petrol (average biofuel blend),8137,Petrol (average biofuel blend)
-91274941,Propane,8137,Propane
-91274942,Waste oils,8137,Waste oils
-91274943,District heat and steam,8145,District heat and steam
-91274944,On-site heat and steam,8145,Onsite heat and steam
-91274945,"Transmission and distribution - district heat & steam, 5% loss",8145,"Transmission and distribution - district heat & steam, 5% loss"
-91274946,Homeworking (office equipment + heating),8147,Homeworking (office equipment + heating)
-91274947,Hotel stay - UK,8148,Hotel stay - UK
-91274948,Hotel stay - UK (London),8148,Hotel stay - UK (London)
-91274949,Aggregates - Primary material production,8146,Aggregates - Primary material production
-91274950,Aggregates - Recycled source,8146,Aggregates - Recycled source
-91274951,Aggregates - Re-used,8146,Aggregates - Re-used
-91274952,Asbestos - Primary material production,8146,Asbestos - Primary material production
-91274953,Asphalt - Primary material production,8146,Asphalt - Primary material production
-91274954,Asphalt - Recycled source,8146,Asphalt - Recycled source
-91274955,Asphalt - Re-used,8146,Asphalt - Re-used
-91274956,Average construction - Primary material production,8146,Average construction - Primary material production
-91274957,Batteries - Alkaline - Primary material production,8146,Batteries - Alkaline - Primary material production
-91274958,Batteries - Li ion - Primary material production,8146,Batteries - Li ion - Primary material production
-91274959,Batteries - Ni-MH (Nickel Metal Hydride) - Primary material production,8146,Batteries - NiMh - Primary material production
-91274960,Bricks - Primary material production,8146,Bricks - Primary material production
-91274961,Clothing - Primary material production,8146,Clothing - Primary material production
-91274962,Clothing - Re-used,8146,Clothing - Re-used
-91274963,Compost derived from food and garden waste - Primary material production,8146,Compost derived from food and garden waste - Primary material production
-91274964,Compost derived from garden waste - Primary material production,8146,Compost derived from garden waste - Primary material production
-91274965,Concrete - Primary material production,8146,Concrete - Primary material production
-91274966,Concrete - Recycled source,8146,Concrete - Recycled source
-91274967,Electrical items - fridges and freezers - Primary material production,8146,Electrical items - fridges and freezers - Primary material production
-91274968,Electrical items - IT - Primary material production,8146,Electrical items - IT - Primary material production
-91274969,Electrical items - large - Primary material production,8146,Electrical items - large - Primary material production
-91274970,Electrical items - small - Primary material production,8146,Electrical items - small - Primary material production
-91274971,Food and drink - Primary material production,8146,Food and drink - Primary material production
-91274972,Glass - Primary material production,8146,Glass - Primary material production
-91274973,Glass - Recycled source,8146,Glass - Recycled source
-91274974,Insulation - Primary material production,8146,Insulation - Primary material production
-91274975,Insulation - Recycled source,8146,Insulation - Recycled source
-91274976,Metal: aluminium cans and foil (excluding forming) - Primary material production,8146,Metal: aluminium cans and foil (excl. forming) - Primary material production
-91274977,Metal: aluminium cans and foil (excluding forming) - Recycled source,8146,Metal: aluminium cans and foil (excl. forming) - Recycled source
-91274978,Metal: mixed cans - Primary material production,8146,Metal: mixed cans - Primary material production
-91274979,Metal: mixed cans - Recycled source,8146,Metal: mixed cans - Recycled source
-91274980,Metal: scrap metal - Primary material production,8146,Metal: scrap metal - Primary material production
-91274981,Metal: scrap metal - Recycled source,8146,Metal: scrap metal - Recycled source
-91274982,Metal: steel cans - Primary material production,8146,Metal: steel cans - Primary material production
-91274983,Metal: steel cans - Recycled source,8146,Metal: steel cans - Recycled source
-91274984,Metals - Primary material production,8146,Metals - Primary material production
-91274985,Metals - Recycled source,8146,Metals - Recycled source
-91274986,Mineral oil - Primary material production,8146,Mineral oil - Primary material production
-91274987,Mineral oil - Recycled source,8146,Mineral oil - Recycled source
-91274988,Paper and board: board - Primary material production,8146,Paper and board: board - Primary material production
-91274989,Paper and board: board - Recycled source,8146,Paper and board: board - Recycled source
-91274990,Paper and board: mixed - Primary material production,8146,Paper and board: mixed - Primary material production
-91274991,Paper and board: mixed - Recycled source,8146,Paper and board: mixed - Recycled source
-91274992,Paper and board: paper - Primary material production,8146,Paper and board: paper - Primary material production
-91274993,Paper and board: paper - Recycled source,8146,Paper and board: paper - Recycled source
-91274994,Plasterboard - Primary material production,8146,Plasterboard - Primary material production
-91274995,Plasterboard - Recycled source,8146,Plasterboard - Recycled source
-91274996,Plastics: average plastic film - Primary material production,8146,Plastics: average plastic film - Primary material production
-91274997,Plastics: average plastic film - Recycled source,8146,Plastics: average plastic film - Recycled source
-91274998,Plastics: average plastic rigid - Primary material production,8146,Plastics: average plastic rigid - Primary material production
-91274999,Plastics: average plastic rigid - Recycled source,8146,Plastics: average plastic rigid - Recycled source
-91275000,Plastics: average plastics - Primary material production,8146,Plastics: average plastics - Primary material production
-91275001,Plastics: average plastics - Recycled source,8146,Plastics: average plastics - Recycled source
-91275002,Plastics: HDPE (including forming) - Primary material production,8146,Plastics: HDPE (incl. forming) - Primary material production
-91275003,Plastics: HDPE (including forming) - Recycled source,8146,Plastics: HDPE (incl. forming) - Recycled source
-91275004,Plastics: LDPE and LLDPE (including forming) - Primary material production,8146,Plastics: LDPE and LLDPE (incl. forming) - Primary material production
-91275005,Plastics: LDPE and LLDPE (including forming) - Recycled source,8146,Plastics: LDPE and LLDPE (incl. forming) - Recycled source
-91275006,Plastics: PET (including forming) - Primary material production,8146,Plastics: PET (incl. forming) - Primary material production
-91275007,Plastics: PET (including forming) - Recycled source,8146,Plastics: PET (incl. forming) - Recycled source
-91275008,Plastics: PP (including forming) - Primary material production,8146,Plastics: PP (incl. forming) - Primary material production
-91275009,Plastics: PP (including forming) - Recycled source,8146,Plastics: PP (incl. forming) - Recycled source
-91275010,Plastics: PS (including forming) - Primary material production,8146,Plastics: PS (incl. forming) - Primary material production
-91275011,Plastics: PS (including forming) - Recycled source,8146,Plastics: PS (incl. forming) - Recycled source
-91275012,Plastics: PVC (including forming) - Primary material production,8146,Plastics: PVC (incl. forming) - Primary material production
-91275013,Plastics: PVC (including forming) - Recycled source,8146,Plastics: PVC (incl. forming) - Recycled source
-91275014,Soils - Recycled source,8146,Soils - Recycled source
-91275015,Tyres - Primary material production,8146,Tyres - Primary material production
-91275016,Tyres - Re-used,8146,Tyres - Re-used
-91275017,Wood - Primary material production,8146,Wood - Primary material production
-91275018,Wood - Recycled source,8146,Wood - Recycled source
-91275019,Wood - Re-used,8146,Wood - Re-used
-91275020,Desflurane,8150,Desflurane
-91275021,Sevoflurane,8150,Sevoflurane
-91275022,Isoflurane ,8150,Isoflurane 
-91275023,Anaesthetic Nitrous Oxide ,8150,Anaesthetic Nitrous Oxide 
-91275024,HFC-134a,8139,HFC-134a
-91275025,HFC-32,8139,HFC-32
-91275026,R404A,8139,R404A
-91275027,R407C,8139,R407C
-91275028,R410A,8139,R410A
-91275029,R422D,8139,R422D
-91275030,R422E,8139,R422E
-91275031,R423A,8139,R423A
-91275032,R424A,8139,R424A
-91275033,R425A,8139,R425A
-91275034,R426A,8139,R426A
-91275035,R427A,8139,R427A
-91275036,R428A,8139,R428A
-91275037,R429A,8139,R429A
-91275038,R430A,8139,R430A
-91275039,R431A,8139,R431A
-91275040,R432A,8139,R432A
-91275041,R433A,8139,R433A
-91275042,R433B,8139,R433B
-91275043,R433C,8139,R433C
-91275044,R434A,8139,R434A
-91275045,R435A,8139,R435A
-91275046,R436A,8139,R436A
-91275047,R436B,8139,R436B
-91275048,R437A,8139,R437A
-91275049,R438A,8139,R438A
-91275050,R439A,8139,R439A
-91275051,R440A,8139,R440A
-91275052,R441A,8139,R441A
-91275053,R442A,8139,R442A
-91275054,R443A,8139,R443A
-91275055,R444A,8139,R444A
-91275056,R445A,8139,R445A
-91275057,R500,8139,R500
-91275058,R501,8139,R501
-91275059,R502,8139,R502
-91275060,R503,8139,R503
-91275061,R504,8139,R504
-91275062,R505,8139,R505
-91275063,R506,8139,R506
-91275064,R507A,8139,R507A
-91275065,R508A,8139,R508A
-91275066,R508B,8139,R508B
-91275067,R509A,8139,R509A
-91275068,R510A,8139,R510A
-91275069,R511A,8139,R511A
-91275070,R512A,8139,R512A
-91275071,R600 = Butane,8139,R600 = butane
-91275072,R600A = Isobutane,8139,R600A = isobutane
-91275073,R601 = Pentane,8139,R601 = pentane
-91275074,R601A = Isopentane,8139,R601A = isopentane
-91275075,Renewable Electricity Purchase Direct Supply,8149,Renewable Elec Purchase Direct Supply
-91275076,Renewable Heat Purchase Direct Supply,8149,Renewable Heat Purchase Direct Supply
-91275077,Average business travel car - Battery Electric Vehicle,8141,Average business travel car - Battery Electric Vehicle
-91275078,Average business travel car - Plug-in Hybrid Electric Vehicle,8141,Average business travel car - Plug-in Hybrid Electric Vehicle
-91275079,Average car - Diesel,8141,Average car - Diesel
-91275080,Average car - Hybrid,8141,Average car - Hybrid
-91275081,Average car - Petrol,8141,Average car - Petrol
-91275082,Average car - Unknown,8141,Average car - Unknown
-91275083,Average fleet car - Battery Electric Vehicle,8141,Average fleet car - Battery Electric Vehicle
-91275084,Average fleet car - Plug-in Hybrid Electric Vehicle,8141,Average fleet car - Plug-in Hybrid Electric Vehicle
-91275085,Large business travel car - Battery Electric Vehicle,8141,Large business travel car - Battery Electric Vehicle
-91275086,Large business travel car - Plug-in Hybrid Electric Vehicle,8141,Large business travel car - Plug-in Hybrid Electric Vehicle
-91275087,Large car - Diesel,8141,Large car - Diesel
-91275088,Large car - Hybrid,8141,Large car - Hybrid
-91275089,Large car - Petrol,8141,Large car - Petrol
-91275090,Large car - Unknown,8141,Large car - Unknown
-91275091,Large fleet car - Battery Electric Vehicle,8141,Large fleet car - Battery Electric Vehicle
-91275092,Large fleet car - Plug-in Hybrid Electric Vehicle,8141,Large fleet car - Plug-in Hybrid Electric Vehicle
-91275093,Medium business travel car - Battery Electric Vehicle,8141,Medium business travel car - Battery Electric Vehicle
-91275094,Medium business travel car - Plug-in Hybrid Electric Vehicle,8141,Medium business travel car - Plug-in Hybrid Electric Vehicle
-91275095,Medium car - Diesel,8141,Medium car - Diesel
-91275096,Medium car - Hybrid,8141,Medium car - Hybrid
-91275097,Medium car - Petrol,8141,Medium car - Petrol
-91275098,Medium car - Unknown,8141,Medium car - Unknown
-91275099,Medium fleet car - Battery Electric Vehicle,8141,Medium fleet car - Battery Electric Vehicle
-91275100,Medium fleet car - Plug-in Hybrid Electric Vehicle,8141,Medium fleet car - Plug-in Hybrid Electric Vehicle
-91275101,Motorbike - Average,8141,Motorbike - Average
-91275102,Small business travel car - Battery Electric Vehicle,8141,Small business travel car - Battery Electric Vehicle
-91275103,Small business travel car - Plug-in Hybrid Electric Vehicle,8141,Small business travel car - Plug-in Hybrid Electric Vehicle
-91275104,Small car - Diesel,8141,Small car - Diesel
-91275105,Small car - Hybrid,8141,Small car - Hybrid
-91275106,Small car - Petrol,8141,Small car - Petrol
-91275107,Small car - Unknown,8141,Small car - Unknown
-91275108,Small fleet car - Battery Electric Vehicle,8141,Small fleet car - Battery Electric Vehicle
-91275109,Small fleet car - Plug-in Hybrid Electric Vehicle,8141,Small fleet car - Plug-in Hybrid Electric Vehicle
-91275110,Average local bus,8142,Average local bus
-91275111,Black cab,8142,Black cab
-91275112,Coach,8142,Coach
-91275113,Ferry - Average (all passenger),8142,Ferry - Average (all passenger)
-91275114,Ferry - Car passenger,8142,Ferry - Car passenger
-91275115,Ferry - Foot passenger,8142,Ferry - Foot passenger
-91275116,"Flights - Domestic, to/from UK - Average passenger",8142,"Flights - Domestic, to/from UK - Average passenger"
-91275117,"Flights - International, to/from non-UK - Average passenger",8142,"Flights - International, to/from non-UK - Average passenger"
-91275118,"Flights - International, to/from non-UK - Business class",8142,"Flights - International, to/from non-UK - Business class"
-91275119,"Flights - International, to/from non-UK - Economy class",8142,"Flights - International, to/from non-UK - Economy class"
-91275120,"Flights - International, to/from non-UK - First class",8142,"Flights - International, to/from non-UK - First class"
-91275121,"Flights - International, to/from non-UK - Premium economy class",8142,"Flights - International, to/from non-UK - Premium economy class"
-91275122,"Flights - Long-haul, to/from UK - Average passenger",8142,"Flights - Long-haul, to/from UK - Average passenger"
-91275123,"Flights - Long-haul, to/from UK - Business class",8142,"Flights - Long-haul, to/from UK - Business class"
-91275124,"Flights - Long-haul, to/from UK - Economy class",8142,"Flights - Long-haul, to/from UK - Economy class"
-91275125,"Flights - Long-haul, to/from UK - First class",8142,"Flights - Long-haul, to/from UK - First class"
-91275126,"Flights - Long-haul, to/from UK - Premium economy class",8142,"Flights - Long-haul, to/from UK - Premium economy class"
-91275127,"Flights - Short-haul, to/from UK - Average passenger",8142,"Flights - Short-haul, to/from UK - Average passenger"
-91275128,"Flights - Short-haul, to/from UK - Business class",8142,"Flights - Short-haul, to/from UK - Business class"
-91275129,"Flights - Short-haul, to/from UK - Economy class",8142,"Flights - Short-haul, to/from UK - Economy class"
-91275130,International rail,8142,International rail
-91275131,Light rail and tram,8142,Light rail and tram
-91275132,Local bus (not London),8142,Local bus (not London)
-91275133,Local London bus,8142,Local London bus
-91275134,London Underground,8142,London Underground
-91275135,National rail,8142,National rail
-91275136,Regular taxi,8142,Regular taxi
-91275137,Business Travel Van - Average (up to 3.5 tonnes) - Battery Electric Vehicle,8143,Business Travel Van - Average (up to 3.5 tonnes) - Battery Electric Vehicle
-91275138,Business Travel Van - Class I (up to 1.305 tonnes) - Battery Electric Vehicle,8143,Business Travel Van - Class I (up to 1.305 tonnes) - Battery Electric Vehicle
-91275139,Business Travel Van - Class II (1.305 to 1.74 tonnes) - Battery Electric Vehicle,8143,Business Travel Van - Class II (1.305 to 1.74 tonnes) - Battery Electric Vehicle
-91275140,Business Travel Van - Class III (1.74 to 3.5 tonnes) - Battery Electric Vehicle,8143,Business Travel Van - Class III (1.74 to 3.5 tonnes) - Battery Electric Vehicle
-91275141,Fleet Van - Average (up to 3.5 tonnes) - Battery Electric Vehicle,8143,Fleet Van - Average (up to 3.5 tonnes) - Battery Electric Vehicle
-91275142,Fleet Van - Class I (up to 1.305 tonnes) - Battery Electric Vehicle,8143,Fleet Van - Class I (up to 1.305 tonnes) - Battery Electric Vehicle
-91275143,Fleet Van - Class II (1.305 to 1.74 tonnes) - Battery Electric Vehicle,8143,Fleet Van - Class II (1.305 to 1.74 tonnes) - Battery Electric Vehicle
-91275144,Fleet Van - Class III (1.74 to 3.5 tonnes) - Battery Electric Vehicle,8143,Fleet Van - Class III (1.74 to 3.5 tonnes) - Battery Electric Vehicle
-91275145,HGV (all diesel) - All Artics - Average laden,8143,HGV (all diesel) - All artics - Average laden
-91275146,HGV (all diesel) - All Heavy Goods Vehicles - Average laden,8143,HGV (all diesel) - All HGVs - Average laden
-91275147,HGV (all diesel) - All Rigids - Average laden,8143,HGV (all diesel) - All rigids - Average laden
-91275148,HGV refrigerated (all diesel) - All Artics - Average laden,8143,HGVs refrigerated (all diesel) - All artics - Average laden
-91275149,HGV refrigerated (all diesel) - All Heavy Goods Vehicles - Average laden,8143,HGVs refrigerated (all diesel) - All HGVs - Average laden
-91275150,HGV refrigerated (all diesel) - All Rigids - Average laden,8143,HGVs refrigerated (all diesel) - All rigids - Average laden
-91275151,Vans - Average (up to 3.5 tonnes) - Diesel,8143,Vans - Average (up to 3.5 tonnes) - Diesel
-91275152,Vans - Average (up to 3.5 tonnes) - Petrol,8143,Vans - Average (up to 3.5 tonnes) - Petrol
-91275153,Vans - Average (up to 3.5 tonnes) - Unknown,8143,Vans - Average (up to 3.5 tonnes) - Unknown
-91275154,Vans - Class I (up to 1.305 tonnes) - Diesel,8143,Vans - Class I (up to 1.305 tonnes) - Diesel
-91275155,Vans - Class I (up to 1.305 tonnes) - Petrol,8143,Vans - Class I (up to 1.305 tonnes) - Petrol
-91275156,Vans - Class II (1.305 to 1.74 tonnes) - Diesel,8143,Vans - Class II (1.305 to 1.74 tonnes) - Diesel
-91275157,Vans - Class II (1.305 to 1.74 tonnes) - Petrol,8143,Vans - Class II (1.305 to 1.74 tonnes) - Petrol
-91275158,Vans - Class III (1.74 to 3.5 tonnes) - Diesel,8143,Vans - Class III (1.74 to 3.5 tonnes) - Diesel
-91275159,Vans - Class III (1.74 to 3.5 tonnes) - Petrol,8143,Vans - Class III (1.74 to 3.5 tonnes) - Petrol
-91275160,Aggregates - Landfill,8140,Aggregates - Landfill
-91275161,Aggregates - Recycled,8140,Aggregates - Recycled
-91275162,Asbestos - Landfill,8140,Asbestos - Landfill
-91275163,Asphalt - Landfill,8140,Asphalt - Landfill
-91275164,Asphalt - Recycled,8140,Asphalt - Recycled
-91275165,Average construction - Combustion,8140,Average construction - Combustion
-91275166,Average construction - Recycled,8140,Average construction - Recycled
-91275167,Batteries - Landfill,8140,Batteries - Landfill
-91275168,Books - Combustion,8140,Books - Combustion
-91275169,Books - Landfill,8140,Books - Landfill
-91275170,Books - Recycled,8140,Books - Recycled
-91275171,Bricks - Landfill,8140,Bricks - Landfill
-91275172,Clinical Waste - Orange Stream,8140,Clinical Waste - Orange Stream
-91275173,Clinical Waste - Other,8140,Clinical Waste - Other
-91275174,Clinical Waste - Red Stream,8140,Clinical Waste - Red Stream
-91275175,Clinical Waste - Yellow Stream,8140,Clinical Waste - Yellow Stream
-91275176,Clothing - Combustion,8140,Clothing - Combustion
-91275177,Clothing - Landfill,8140,Clothing - Landfill
-91275178,Clothing - Recycled,8140,Clothing - Recycled
-91275179,Commercial and industrial waste - Combustion,8140,Commercial and industrial waste - Combustion
-91275180,Commercial and industrial waste - Landfill,8140,Commercial and industrial waste - Landfill
-91275181,Concrete - Landfill,8140,Concrete - Landfill
-91275182,Concrete - Recycled,8140,Concrete - Recycled
-91275183,Glass - Combustion,8140,Glass - Combustion
-91275184,Glass - Landfill,8140,Glass - Landfill
-91275185,Glass - Recycled,8140,Glass - Recycled
-91275186,Household/Municipal/Domestic waste - Combustion,8140,Household/Municipal/Domestic waste - Combustion
-91275187,Household/Municipal/Domestic waste - Landfill,8140,Household/Municipal/Domestic waste - Landfill
-91275188,Insulation - Landfill,8140,Insulation - Landfill
-91275189,Insulation - Recycled,8140,Insulation - Recycled
-91275190,Metal: aluminium cans and foil (excluding forming) - Combustion,8140,Metal: aluminium cans and foil (excl. forming) - Combustion
-91275191,Metal: aluminium cans and foil (excluding forming) - Landfill,8140,Metal: aluminium cans and foil (excl. forming) - Landfill
-91275192,Metal: aluminium cans and foil (excluding forming) - Recycled,8140,Metal: aluminium cans and foil (excl. forming) - Recycled
-91275193,Metal: mixed cans - Combustion,8140,Metal: mixed cans - Combustion
-91275194,Metal: mixed cans - Landfill,8140,Metal: mixed cans - Landfill
-91275195,Metal: mixed cans - Recycled,8140,Metal: mixed cans - Recycled
-91275196,Metal: scrap metal - Combustion,8140,Metal: scrap metal - Combustion
-91275197,Metal: scrap metal - Landfill,8140,Metal: scrap metal - Landfill
-91275198,Metal: scrap metal - Recycled,8140,Metal: scrap metal - Recycled
-91275199,Metal: steel cans - Combustion,8140,Metal: steel cans - Combustion
-91275200,Metal: steel cans - Landfill,8140,Metal: steel cans - Landfill
-91275201,Metal: steel cans - Recycled,8140,Metal: steel cans - Recycled
-91275202,Metals - Landfill,8140,Metals - Landfill
-91275203,Metals - Recycled,8140,Metals - Recycled
-91275204,Mineral oil - Combustion,8140,Mineral oil - Combustion
-91275205,Mineral oil - Recycled,8140,Mineral oil - Recycled
-91275206,Organic: food and drink waste - Anaerobic digestion,8140,Organic: food and drink waste - Anaerobic digestion
-91275207,Organic: food and drink waste - Combustion,8140,Organic: food and drink waste - Combustion
-91275208,Organic: food and drink waste - Composting,8140,Organic: food and drink waste - Composting
-91275209,Organic: food and drink waste - Landfill,8140,Organic: food and drink waste - Landfill
-91275210,Organic: garden waste - Anaerobic digestion,8140,Organic: garden waste - Anaerobic digestion
-91275211,Organic: garden waste - Combustion,8140,Organic: garden waste - Combustion
-91275212,Organic: garden waste - Composting,8140,Organic: garden waste - Composting
-91275213,Organic: garden waste - Landfill,8140,Organic: garden waste - Landfill
-91275214,Organic: mixed food and garden waste - Anaerobic digestion,8140,Organic: mixed food and garden waste - Anaerobic digestion
-91275215,Organic: mixed food and garden waste - Combustion,8140,Organic: mixed food and garden waste - Combustion
-91275216,Organic: mixed food and garden waste - Composting,8140,Organic: mixed food and garden waste - Composting
-91275217,Organic: mixed food and garden waste - Landfill,8140,Organic: mixed food and garden waste - Landfill
-91275218,Paper and board: board - Combustion,8140,Paper and board: board - Combustion
-91275219,Paper and board: board - Composting,8140,Paper and board: board - Composting
-91275220,Paper and board: board - Landfill,8140,Paper and board: board - Landfill
-91275221,Paper and board: board - Recycled,8140,Paper and board: board - Recycled
-91275222,Paper and board: mixed - Combustion,8140,Paper and board: mixed - Combustion
-91275223,Paper and board: mixed - Composting,8140,Paper and board: mixed - Composting
-91275224,Paper and board: mixed - Landfill,8140,Paper and board: mixed - Landfill
-91275225,Paper and board: mixed - Recycled,8140,Paper and board: mixed - Recycled
-91275226,Paper and board: paper - Combustion,8140,Paper and board: paper - Combustion
-91275227,Paper and board: paper - Composting,8140,Paper and board: paper - Composting
-91275228,Paper and board: paper - Landfill,8140,Paper and board: paper - Landfill
-91275229,Paper and board: paper - Recycled,8140,Paper and board: paper - Recycled
-91275230,Plasterboard - Landfill,8140,Plasterboard - Landfill
-91275231,Plasterboard - Recycled,8140,Plasterboard - Recycled
-91275232,Plastics: average plastic film - Combustion,8140,Plastics: average plastic film - Combustion
-91275233,Plastics: average plastic film - Landfill,8140,Plastics: average plastic film - Landfill
-91275234,Plastics: average plastic film - Recycled,8140,Plastics: average plastic film - Recycled
-91275235,Plastics: average plastic rigid - Combustion,8140,Plastics: average plastic rigid - Combustion
-91275236,Plastics: average plastic rigid - Landfill,8140,Plastics: average plastic rigid - Landfill
-91275237,Plastics: average plastic rigid - Recycled,8140,Plastics: average plastic rigid - Recycled
-91275238,Plastics: average plastics - Combustion,8140,Plastics: average plastics - Combustion
-91275239,Plastics: average plastics - Landfill,8140,Plastics: average plastics - Landfill
-91275240,Plastics: average plastics - Recycled,8140,Plastics: average plastics - Recycled
-91275241,Plastics: HDPE (including forming) - Combustion,8140,Plastics: HDPE (incl. forming) - Combustion
-91275242,Plastics: HDPE (including forming) - Landfill,8140,Plastics: HDPE (incl. forming) - Landfill
-91275243,Plastics: HDPE (including forming) - Recycled,8140,Plastics: HDPE (incl. forming) - Recycled
-91275244,Plastics: LDPE and LLDPE (including forming) - Combustion,8140,Plastics: LDPE and LLDPE (incl. forming) - Combustion
-91275245,Plastics: LDPE and LLDPE (including forming) - Landfill,8140,Plastics: LDPE and LLDPE (incl. forming) - Landfill
-91275246,Plastics: LDPE and LLDPE (including forming) - Recycled,8140,Plastics: LDPE and LLDPE (incl. forming) - Recycled
-91275247,Plastics: PET (including forming) - Combustion,8140,Plastics: PET (incl. forming) - Combustion
-91275248,Plastics: PET (including forming) - Landfill,8140,Plastics: PET (incl. forming) - Landfill
-91275249,Plastics: PET (including forming) - Recycled,8140,Plastics: PET (incl. forming) - Recycled
-91275250,Plastics: PP (including forming) - Combustion,8140,Plastics: PP (incl. forming) - Combustion
-91275251,Plastics: PP (including forming) - Landfill,8140,Plastics: PP (incl. forming) - Landfill
-91275252,Plastics: PP (including forming) - Recycled,8140,Plastics: PP (incl. forming) - Recycled
-91275253,Plastics: PS (including forming) - Combustion,8140,Plastics: PS (incl. forming) - Combustion
-91275254,Plastics: PS (including forming) - Landfill,8140,Plastics: PS (incl. forming) - Landfill
-91275255,Plastics: PS (including forming) - Recycled,8140,Plastics: PS (incl. forming) - Recycled
-91275256,Plastics: PVC (including forming) - Combustion,8140,Plastics: PVC (incl. forming) - Combustion
-91275257,Plastics: PVC (including forming) - Landfill,8140,Plastics: PVC (incl. forming) - Landfill
-91275258,Plastics: PVC (including forming) - Recycled,8140,Plastics: PVC (incl. forming) - Recycled
-91275259,Soils - Landfill,8140,Soils - Landfill
-91275260,Soils - Recycled,8140,Soils - Recycled
-91275261,Tyres - Recycled,8140,Tyres - Recycled
-91275262,WEEE - fridges and freezers - Landfill,8140,WEEE - fridges and freezers - Landfill
-91275263,WEEE - large - Recycled,8140,WEEE - large - Recycled
-91275264,WEEE - large - Landfill,8140,WEEE - large - Landfill
-91275265,WEEE - mixed - Recycled,8140,WEEE - mixed - Recycled
-91275266,WEEE - mixed - Landfill,8140,WEEE - mixed - Landfill
-91275267,WEEE - small - Recycled,8140,WEEE - small - Recycled
-91275268,WEEE - small - Landfill,8140,WEEE - small - Landfill
-91275269,Wood - Combustion,8140,Wood - Combustion
-91275270,Wood - Composting,8140,Wood - Composting
-91275271,Wood - Landfill,8140,Wood - Landfill
-91275272,Wood - Recycled,8140,Wood - Recycled
-91275273,Water supply,8138,Water supply
-91275274,Water treatment,8138,Water treatment
-91275275,Other (please specify in comments),8151,Other (please specify in comments)
+emission_source_id,emission_source,emission_type_id,mapping_string
+91274921,Biogas,8144,biogas
+91274922,Landfill gas,8144,landfill gas
+91274923,Wood chips,8144,wood chips
+91274924,Wood pellets,8144,wood pellets
+91274925,Electricity: UK,8136,electricity: uk
+91274926,Transmission and distribution - Electricity: UK,8136,transmission and distribution - electricity: uk
+91274927,Aviation spirit,8137,aviation spirit
+91274928,Aviation turbine fuel,8137,aviation turbine fuel
+91274929,Burning oil (Kerosene),8137,burning oil (kerosene)
+91274930,Coal (industrial),8137,coal (industrial)
+91274931,Diesel (100% mineral diesel),8137,diesel (100% mineral diesel)
+91274932,Diesel (average biofuel blend),8137,diesel (average biofuel blend)
+91274933,Fuel oil,8137,fuel oil
+91274934,Gas oil,8137,gas oil
+91274935,Liquefied Petroleum Gas,8137,lpg
+91274936,Marine fuel oil,8137,marine fuel oil
+91274937,Marine gas oil,8137,marine gas oil
+91274938,Natural gas,8137,natural gas
+91274939,Petrol (100% mineral diesel),8137,petrol (100% mineral diesel)
+91274940,Petrol (average biofuel blend),8137,petrol (average biofuel blend)
+91274941,Propane,8137,propane
+91274942,Waste oils,8137,waste oils
+91274943,District heat and steam,8145,district heat and steam
+91274944,On-site heat and steam,8145,onsite heat and steam
+91274945,"Transmission and distribution - district heat & steam, 5% loss",8145,"transmission and distribution - district heat & steam, 5% loss"
+91274946,Homeworking (office equipment + heating),8147,homeworking (office equipment + heating)
+91274947,Hotel stay - UK,8148,hotel stay - uk
+91274948,Hotel stay - UK (London),8148,hotel stay - uk (london)
+91274949,Aggregates - Primary material production,8146,aggregates - primary material production
+91274950,Aggregates - Recycled source,8146,aggregates - recycled source
+91274951,Aggregates - Re-used,8146,aggregates - re-used
+91274952,Asbestos - Primary material production,8146,asbestos - primary material production
+91274953,Asphalt - Primary material production,8146,asphalt - primary material production
+91274954,Asphalt - Recycled source,8146,asphalt - recycled source
+91274955,Asphalt - Re-used,8146,asphalt - re-used
+91274956,Average construction - Primary material production,8146,average construction - primary material production
+91274957,Batteries - Alkaline - Primary material production,8146,batteries - alkaline - primary material production
+91274958,Batteries - Li ion - Primary material production,8146,batteries - li ion - primary material production
+91274959,Batteries - Ni-MH (Nickel Metal Hydride) - Primary material production,8146,batteries - nimh - primary material production
+91274960,Bricks - Primary material production,8146,bricks - primary material production
+91274961,Clothing - Primary material production,8146,clothing - primary material production
+91274962,Clothing - Re-used,8146,clothing - re-used
+91274963,Compost derived from food and garden waste - Primary material production,8146,compost derived from food and garden waste - primary material production
+91274964,Compost derived from garden waste - Primary material production,8146,compost derived from garden waste - primary material production
+91274965,Concrete - Primary material production,8146,concrete - primary material production
+91274966,Concrete - Recycled source,8146,concrete - recycled source
+91274967,Electrical items - fridges and freezers - Primary material production,8146,electrical items - fridges and freezers - primary material production
+91274968,Electrical items - IT - Primary material production,8146,electrical items - it - primary material production
+91274969,Electrical items - large - Primary material production,8146,electrical items - large - primary material production
+91274970,Electrical items - small - Primary material production,8146,electrical items - small - primary material production
+91274971,Food and drink - Primary material production,8146,food and drink - primary material production
+91274972,Glass - Primary material production,8146,glass - primary material production
+91274973,Glass - Recycled source,8146,glass - recycled source
+91274974,Insulation - Primary material production,8146,insulation - primary material production
+91274975,Insulation - Recycled source,8146,insulation - recycled source
+91274976,Metal: aluminium cans and foil (excluding forming) - Primary material production,8146,metal: aluminium cans and foil (excl. forming) - primary material production
+91274977,Metal: aluminium cans and foil (excluding forming) - Recycled source,8146,metal: aluminium cans and foil (excl. forming) - recycled source
+91274978,Metal: mixed cans - Primary material production,8146,metal: mixed cans - primary material production
+91274979,Metal: mixed cans - Recycled source,8146,metal: mixed cans - recycled source
+91274980,Metal: scrap metal - Primary material production,8146,metal: scrap metal - primary material production
+91274981,Metal: scrap metal - Recycled source,8146,metal: scrap metal - recycled source
+91274982,Metal: steel cans - Primary material production,8146,metal: steel cans - primary material production
+91274983,Metal: steel cans - Recycled source,8146,metal: steel cans - recycled source
+91274984,Metals - Primary material production,8146,metals - primary material production
+91274985,Metals - Recycled source,8146,metals - recycled source
+91274986,Mineral oil - Primary material production,8146,mineral oil - primary material production
+91274987,Mineral oil - Recycled source,8146,mineral oil - recycled source
+91274988,Paper and board: board - Primary material production,8146,paper and board: board - primary material production
+91274989,Paper and board: board - Recycled source,8146,paper and board: board - recycled source
+91274990,Paper and board: mixed - Primary material production,8146,paper and board: mixed - primary material production
+91274991,Paper and board: mixed - Recycled source,8146,paper and board: mixed - recycled source
+91274992,Paper and board: paper - Primary material production,8146,paper and board: paper - primary material production
+91274993,Paper and board: paper - Recycled source,8146,paper and board: paper - recycled source
+91274994,Plasterboard - Primary material production,8146,plasterboard - primary material production
+91274995,Plasterboard - Recycled source,8146,plasterboard - recycled source
+91274996,Plastics: average plastic film - Primary material production,8146,plastics: average plastic film - primary material production
+91274997,Plastics: average plastic film - Recycled source,8146,plastics: average plastic film - recycled source
+91274998,Plastics: average plastic rigid - Primary material production,8146,plastics: average plastic rigid - primary material production
+91274999,Plastics: average plastic rigid - Recycled source,8146,plastics: average plastic rigid - recycled source
+91275000,Plastics: average plastics - Primary material production,8146,plastics: average plastics - primary material production
+91275001,Plastics: average plastics - Recycled source,8146,plastics: average plastics - recycled source
+91275002,Plastics: HDPE (including forming) - Primary material production,8146,plastics: hdpe (incl. forming) - primary material production
+91275003,Plastics: HDPE (including forming) - Recycled source,8146,plastics: hdpe (incl. forming) - recycled source
+91275004,Plastics: LDPE and LLDPE (including forming) - Primary material production,8146,plastics: ldpe and lldpe (incl. forming) - primary material production
+91275005,Plastics: LDPE and LLDPE (including forming) - Recycled source,8146,plastics: ldpe and lldpe (incl. forming) - recycled source
+91275006,Plastics: PET (including forming) - Primary material production,8146,plastics: pet (incl. forming) - primary material production
+91275007,Plastics: PET (including forming) - Recycled source,8146,plastics: pet (incl. forming) - recycled source
+91275008,Plastics: PP (including forming) - Primary material production,8146,plastics: pp (incl. forming) - primary material production
+91275009,Plastics: PP (including forming) - Recycled source,8146,plastics: pp (incl. forming) - recycled source
+91275010,Plastics: PS (including forming) - Primary material production,8146,plastics: ps (incl. forming) - primary material production
+91275011,Plastics: PS (including forming) - Recycled source,8146,plastics: ps (incl. forming) - recycled source
+91275012,Plastics: PVC (including forming) - Primary material production,8146,plastics: pvc (incl. forming) - primary material production
+91275013,Plastics: PVC (including forming) - Recycled source,8146,plastics: pvc (incl. forming) - recycled source
+91275014,Soils - Recycled source,8146,soils - recycled source
+91275015,Tyres - Primary material production,8146,tyres - primary material production
+91275016,Tyres - Re-used,8146,tyres - re-used
+91275017,Wood - Primary material production,8146,wood - primary material production
+91275018,Wood - Recycled source,8146,wood - recycled source
+91275019,Wood - Re-used,8146,wood - re-used
+91275020,Desflurane,8150,desflurane
+91275021,Sevoflurane,8150,sevoflurane
+91275022,Isoflurane ,8150,isoflurane 
+91275023,Anaesthetic Nitrous Oxide ,8150,anaesthetic nitrous oxide 
+91275024,HFC-134a,8139,hfc-134a
+91275025,HFC-32,8139,hfc-32
+91275026,R404A,8139,r404a
+91275027,R407C,8139,r407c
+91275028,R410A,8139,r410a
+91275029,R422D,8139,r422d
+91275030,R422E,8139,r422e
+91275031,R423A,8139,r423a
+91275032,R424A,8139,r424a
+91275033,R425A,8139,r425a
+91275034,R426A,8139,r426a
+91275035,R427A,8139,r427a
+91275036,R428A,8139,r428a
+91275037,R429A,8139,r429a
+91275038,R430A,8139,r430a
+91275039,R431A,8139,r431a
+91275040,R432A,8139,r432a
+91275041,R433A,8139,r433a
+91275042,R433B,8139,r433b
+91275043,R433C,8139,r433c
+91275044,R434A,8139,r434a
+91275045,R435A,8139,r435a
+91275046,R436A,8139,r436a
+91275047,R436B,8139,r436b
+91275048,R437A,8139,r437a
+91275049,R438A,8139,r438a
+91275050,R439A,8139,r439a
+91275051,R440A,8139,r440a
+91275052,R441A,8139,r441a
+91275053,R442A,8139,r442a
+91275054,R443A,8139,r443a
+91275055,R444A,8139,r444a
+91275056,R445A,8139,r445a
+91275057,R500,8139,r500
+91275058,R501,8139,r501
+91275059,R502,8139,r502
+91275060,R503,8139,r503
+91275061,R504,8139,r504
+91275062,R505,8139,r505
+91275063,R506,8139,r506
+91275064,R507A,8139,r507a
+91275065,R508A,8139,r508a
+91275066,R508B,8139,r508b
+91275067,R509A,8139,r509a
+91275068,R510A,8139,r510a
+91275069,R511A,8139,r511a
+91275070,R512A,8139,r512a
+91275071,R600 = Butane,8139,r600 = butane
+91275072,R600A = Isobutane,8139,r600a = isobutane
+91275073,R601 = Pentane,8139,r601 = pentane
+91275074,R601A = Isopentane,8139,r601a = isopentane
+91275075,Renewable Electricity Purchase Direct Supply,8149,renewable elec purchase direct supply
+91275076,Renewable Heat Purchase Direct Supply,8149,renewable heat purchase direct supply
+91275077,Average business travel car - Battery Electric Vehicle,8141,average business travel car - battery electric vehicle
+91275078,Average business travel car - Plug-in Hybrid Electric Vehicle,8141,average business travel car - plug-in hybrid electric vehicle
+91275079,Average car - Diesel,8141,average car - diesel
+91275080,Average car - Hybrid,8141,average car - hybrid
+91275081,Average car - Petrol,8141,average car - petrol
+91275082,Average car - Unknown,8141,average car - unknown
+91275083,Average fleet car - Battery Electric Vehicle,8141,average fleet car - battery electric vehicle
+91275084,Average fleet car - Plug-in Hybrid Electric Vehicle,8141,average fleet car - plug-in hybrid electric vehicle
+91275085,Large business travel car - Battery Electric Vehicle,8141,large business travel car - battery electric vehicle
+91275086,Large business travel car - Plug-in Hybrid Electric Vehicle,8141,large business travel car - plug-in hybrid electric vehicle
+91275087,Large car - Diesel,8141,large car - diesel
+91275088,Large car - Hybrid,8141,large car - hybrid
+91275089,Large car - Petrol,8141,large car - petrol
+91275090,Large car - Unknown,8141,large car - unknown
+91275091,Large fleet car - Battery Electric Vehicle,8141,large fleet car - battery electric vehicle
+91275092,Large fleet car - Plug-in Hybrid Electric Vehicle,8141,large fleet car - plug-in hybrid electric vehicle
+91275093,Medium business travel car - Battery Electric Vehicle,8141,medium business travel car - battery electric vehicle
+91275094,Medium business travel car - Plug-in Hybrid Electric Vehicle,8141,medium business travel car - plug-in hybrid electric vehicle
+91275095,Medium car - Diesel,8141,medium car - diesel
+91275096,Medium car - Hybrid,8141,medium car - hybrid
+91275097,Medium car - Petrol,8141,medium car - petrol
+91275098,Medium car - Unknown,8141,medium car - unknown
+91275099,Medium fleet car - Battery Electric Vehicle,8141,medium fleet car - battery electric vehicle
+91275100,Medium fleet car - Plug-in Hybrid Electric Vehicle,8141,medium fleet car - plug-in hybrid electric vehicle
+91275101,Motorbike - Average,8141,motorbike - average
+91275102,Small business travel car - Battery Electric Vehicle,8141,small business travel car - battery electric vehicle
+91275103,Small business travel car - Plug-in Hybrid Electric Vehicle,8141,small business travel car - plug-in hybrid electric vehicle
+91275104,Small car - Diesel,8141,small car - diesel
+91275105,Small car - Hybrid,8141,small car - hybrid
+91275106,Small car - Petrol,8141,small car - petrol
+91275107,Small car - Unknown,8141,small car - unknown
+91275108,Small fleet car - Battery Electric Vehicle,8141,small fleet car - battery electric vehicle
+91275109,Small fleet car - Plug-in Hybrid Electric Vehicle,8141,small fleet car - plug-in hybrid electric vehicle
+91275110,Average local bus,8142,average local bus
+91275111,Black cab,8142,black cab
+91275112,Coach,8142,coach
+91275113,Ferry - Average (all passenger),8142,ferry - average (all passenger)
+91275114,Ferry - Car passenger,8142,ferry - car passenger
+91275115,Ferry - Foot passenger,8142,ferry - foot passenger
+91275116,"Flights - Domestic, to/from UK - Average passenger",8142,"flights - domestic, to/from uk - average passenger"
+91275117,"Flights - International, to/from non-UK - Average passenger",8142,"flights - international, to/from non-uk - average passenger"
+91275118,"Flights - International, to/from non-UK - Business class",8142,"flights - international, to/from non-uk - business class"
+91275119,"Flights - International, to/from non-UK - Economy class",8142,"flights - international, to/from non-uk - economy class"
+91275120,"Flights - International, to/from non-UK - First class",8142,"flights - international, to/from non-uk - first class"
+91275121,"Flights - International, to/from non-UK - Premium economy class",8142,"flights - international, to/from non-uk - premium economy class"
+91275122,"Flights - Long-haul, to/from UK - Average passenger",8142,"flights - long-haul, to/from uk - average passenger"
+91275123,"Flights - Long-haul, to/from UK - Business class",8142,"flights - long-haul, to/from uk - business class"
+91275124,"Flights - Long-haul, to/from UK - Economy class",8142,"flights - long-haul, to/from uk - economy class"
+91275125,"Flights - Long-haul, to/from UK - First class",8142,"flights - long-haul, to/from uk - first class"
+91275126,"Flights - Long-haul, to/from UK - Premium economy class",8142,"flights - long-haul, to/from uk - premium economy class"
+91275127,"Flights - Short-haul, to/from UK - Average passenger",8142,"flights - short-haul, to/from uk - average passenger"
+91275128,"Flights - Short-haul, to/from UK - Business class",8142,"flights - short-haul, to/from uk - business class"
+91275129,"Flights - Short-haul, to/from UK - Economy class",8142,"flights - short-haul, to/from uk - economy class"
+91275130,International rail,8142,international rail
+91275131,Light rail and tram,8142,light rail and tram
+91275132,Local bus (not London),8142,local bus (not london)
+91275133,Local London bus,8142,local london bus
+91275134,London Underground,8142,london underground
+91275135,National rail,8142,national rail
+91275136,Regular taxi,8142,regular taxi
+91275137,Business Travel Van - Average (up to 3.5 tonnes) - Battery Electric Vehicle,8143,business travel van - average (up to 3.5 tonnes) - battery electric vehicle
+91275138,Business Travel Van - Class I (up to 1.305 tonnes) - Battery Electric Vehicle,8143,business travel van - class i (up to 1.305 tonnes) - battery electric vehicle
+91275139,Business Travel Van - Class II (1.305 to 1.74 tonnes) - Battery Electric Vehicle,8143,business travel van - class ii (1.305 to 1.74 tonnes) - battery electric vehicle
+91275140,Business Travel Van - Class III (1.74 to 3.5 tonnes) - Battery Electric Vehicle,8143,business travel van - class iii (1.74 to 3.5 tonnes) - battery electric vehicle
+91275141,Fleet Van - Average (up to 3.5 tonnes) - Battery Electric Vehicle,8143,fleet van - average (up to 3.5 tonnes) - battery electric vehicle
+91275142,Fleet Van - Class I (up to 1.305 tonnes) - Battery Electric Vehicle,8143,fleet van - class i (up to 1.305 tonnes) - battery electric vehicle
+91275143,Fleet Van - Class II (1.305 to 1.74 tonnes) - Battery Electric Vehicle,8143,fleet van - class ii (1.305 to 1.74 tonnes) - battery electric vehicle
+91275144,Fleet Van - Class III (1.74 to 3.5 tonnes) - Battery Electric Vehicle,8143,fleet van - class iii (1.74 to 3.5 tonnes) - battery electric vehicle
+91275145,HGV (all diesel) - All Artics - Average laden,8143,hgv (all diesel) - all artics - average laden
+91275146,HGV (all diesel) - All Heavy Goods Vehicles - Average laden,8143,hgv (all diesel) - all hgvs - average laden
+91275147,HGV (all diesel) - All Rigids - Average laden,8143,hgv (all diesel) - all rigids - average laden
+91275148,HGV refrigerated (all diesel) - All Artics - Average laden,8143,hgvs refrigerated (all diesel) - all artics - average laden
+91275149,HGV refrigerated (all diesel) - All Heavy Goods Vehicles - Average laden,8143,hgvs refrigerated (all diesel) - all hgvs - average laden
+91275150,HGV refrigerated (all diesel) - All Rigids - Average laden,8143,hgvs refrigerated (all diesel) - all rigids - average laden
+91275151,Vans - Average (up to 3.5 tonnes) - Diesel,8143,vans - average (up to 3.5 tonnes) - diesel
+91275152,Vans - Average (up to 3.5 tonnes) - Petrol,8143,vans - average (up to 3.5 tonnes) - petrol
+91275153,Vans - Average (up to 3.5 tonnes) - Unknown,8143,vans - average (up to 3.5 tonnes) - unknown
+91275154,Vans - Class I (up to 1.305 tonnes) - Diesel,8143,vans - class i (up to 1.305 tonnes) - diesel
+91275155,Vans - Class I (up to 1.305 tonnes) - Petrol,8143,vans - class i (up to 1.305 tonnes) - petrol
+91275156,Vans - Class II (1.305 to 1.74 tonnes) - Diesel,8143,vans - class ii (1.305 to 1.74 tonnes) - diesel
+91275157,Vans - Class II (1.305 to 1.74 tonnes) - Petrol,8143,vans - class ii (1.305 to 1.74 tonnes) - petrol
+91275158,Vans - Class III (1.74 to 3.5 tonnes) - Diesel,8143,vans - class iii (1.74 to 3.5 tonnes) - diesel
+91275159,Vans - Class III (1.74 to 3.5 tonnes) - Petrol,8143,vans - class iii (1.74 to 3.5 tonnes) - petrol
+91275160,Aggregates - Landfill,8140,aggregates - landfill
+91275161,Aggregates - Recycled,8140,aggregates - recycled
+91275162,Asbestos - Landfill,8140,asbestos - landfill
+91275163,Asphalt - Landfill,8140,asphalt - landfill
+91275164,Asphalt - Recycled,8140,asphalt - recycled
+91275165,Average construction - Combustion,8140,average construction - combustion
+91275166,Average construction - Recycled,8140,average construction - recycled
+91275167,Batteries - Landfill,8140,batteries - landfill
+91275168,Books - Combustion,8140,books - combustion
+91275169,Books - Landfill,8140,books - landfill
+91275170,Books - Recycled,8140,books - recycled
+91275171,Bricks - Landfill,8140,bricks - landfill
+91275172,Clinical Waste - Orange Stream,8140,clinical waste - orange stream
+91275173,Clinical Waste - Other,8140,clinical waste - other
+91275174,Clinical Waste - Red Stream,8140,clinical waste - red stream
+91275175,Clinical Waste - Yellow Stream,8140,clinical waste - yellow stream
+91275176,Clothing - Combustion,8140,clothing - combustion
+91275177,Clothing - Landfill,8140,clothing - landfill
+91275178,Clothing - Recycled,8140,clothing - recycled
+91275179,Commercial and industrial waste - Combustion,8140,commercial and industrial waste - combustion
+91275180,Commercial and industrial waste - Landfill,8140,commercial and industrial waste - landfill
+91275181,Concrete - Landfill,8140,concrete - landfill
+91275182,Concrete - Recycled,8140,concrete - recycled
+91275183,Glass - Combustion,8140,glass - combustion
+91275184,Glass - Landfill,8140,glass - landfill
+91275185,Glass - Recycled,8140,glass - recycled
+91275186,Household/Municipal/Domestic waste - Combustion,8140,household/municipal/domestic waste - combustion
+91275187,Household/Municipal/Domestic waste - Landfill,8140,household/municipal/domestic waste - landfill
+91275188,Insulation - Landfill,8140,insulation - landfill
+91275189,Insulation - Recycled,8140,insulation - recycled
+91275190,Metal: aluminium cans and foil (excluding forming) - Combustion,8140,metal: aluminium cans and foil (excl. forming) - combustion
+91275191,Metal: aluminium cans and foil (excluding forming) - Landfill,8140,metal: aluminium cans and foil (excl. forming) - landfill
+91275192,Metal: aluminium cans and foil (excluding forming) - Recycled,8140,metal: aluminium cans and foil (excl. forming) - recycled
+91275193,Metal: mixed cans - Combustion,8140,metal: mixed cans - combustion
+91275194,Metal: mixed cans - Landfill,8140,metal: mixed cans - landfill
+91275195,Metal: mixed cans - Recycled,8140,metal: mixed cans - recycled
+91275196,Metal: scrap metal - Combustion,8140,metal: scrap metal - combustion
+91275197,Metal: scrap metal - Landfill,8140,metal: scrap metal - landfill
+91275198,Metal: scrap metal - Recycled,8140,metal: scrap metal - recycled
+91275199,Metal: steel cans - Combustion,8140,metal: steel cans - combustion
+91275200,Metal: steel cans - Landfill,8140,metal: steel cans - landfill
+91275201,Metal: steel cans - Recycled,8140,metal: steel cans - recycled
+91275202,Metals - Landfill,8140,metals - landfill
+91275203,Metals - Recycled,8140,metals - recycled
+91275204,Mineral oil - Combustion,8140,mineral oil - combustion
+91275205,Mineral oil - Recycled,8140,mineral oil - recycled
+91275206,Organic: food and drink waste - Anaerobic digestion,8140,organic: food and drink waste - anaerobic digestion
+91275207,Organic: food and drink waste - Combustion,8140,organic: food and drink waste - combustion
+91275208,Organic: food and drink waste - Composting,8140,organic: food and drink waste - composting
+91275209,Organic: food and drink waste - Landfill,8140,organic: food and drink waste - landfill
+91275210,Organic: garden waste - Anaerobic digestion,8140,organic: garden waste - anaerobic digestion
+91275211,Organic: garden waste - Combustion,8140,organic: garden waste - combustion
+91275212,Organic: garden waste - Composting,8140,organic: garden waste - composting
+91275213,Organic: garden waste - Landfill,8140,organic: garden waste - landfill
+91275214,Organic: mixed food and garden waste - Anaerobic digestion,8140,organic: mixed food and garden waste - anaerobic digestion
+91275215,Organic: mixed food and garden waste - Combustion,8140,organic: mixed food and garden waste - combustion
+91275216,Organic: mixed food and garden waste - Composting,8140,organic: mixed food and garden waste - composting
+91275217,Organic: mixed food and garden waste - Landfill,8140,organic: mixed food and garden waste - landfill
+91275218,Paper and board: board - Combustion,8140,paper and board: board - combustion
+91275219,Paper and board: board - Composting,8140,paper and board: board - composting
+91275220,Paper and board: board - Landfill,8140,paper and board: board - landfill
+91275221,Paper and board: board - Recycled,8140,paper and board: board - recycled
+91275222,Paper and board: mixed - Combustion,8140,paper and board: mixed - combustion
+91275223,Paper and board: mixed - Composting,8140,paper and board: mixed - composting
+91275224,Paper and board: mixed - Landfill,8140,paper and board: mixed - landfill
+91275225,Paper and board: mixed - Recycled,8140,paper and board: mixed - recycled
+91275226,Paper and board: paper - Combustion,8140,paper and board: paper - combustion
+91275227,Paper and board: paper - Composting,8140,paper and board: paper - composting
+91275228,Paper and board: paper - Landfill,8140,paper and board: paper - landfill
+91275229,Paper and board: paper - Recycled,8140,paper and board: paper - recycled
+91275230,Plasterboard - Landfill,8140,plasterboard - landfill
+91275231,Plasterboard - Recycled,8140,plasterboard - recycled
+91275232,Plastics: average plastic film - Combustion,8140,plastics: average plastic film - combustion
+91275233,Plastics: average plastic film - Landfill,8140,plastics: average plastic film - landfill
+91275234,Plastics: average plastic film - Recycled,8140,plastics: average plastic film - recycled
+91275235,Plastics: average plastic rigid - Combustion,8140,plastics: average plastic rigid - combustion
+91275236,Plastics: average plastic rigid - Landfill,8140,plastics: average plastic rigid - landfill
+91275237,Plastics: average plastic rigid - Recycled,8140,plastics: average plastic rigid - recycled
+91275238,Plastics: average plastics - Combustion,8140,plastics: average plastics - combustion
+91275239,Plastics: average plastics - Landfill,8140,plastics: average plastics - landfill
+91275240,Plastics: average plastics - Recycled,8140,plastics: average plastics - recycled
+91275241,Plastics: HDPE (including forming) - Combustion,8140,plastics: hdpe (incl. forming) - combustion
+91275242,Plastics: HDPE (including forming) - Landfill,8140,plastics: hdpe (incl. forming) - landfill
+91275243,Plastics: HDPE (including forming) - Recycled,8140,plastics: hdpe (incl. forming) - recycled
+91275244,Plastics: LDPE and LLDPE (including forming) - Combustion,8140,plastics: ldpe and lldpe (incl. forming) - combustion
+91275245,Plastics: LDPE and LLDPE (including forming) - Landfill,8140,plastics: ldpe and lldpe (incl. forming) - landfill
+91275246,Plastics: LDPE and LLDPE (including forming) - Recycled,8140,plastics: ldpe and lldpe (incl. forming) - recycled
+91275247,Plastics: PET (including forming) - Combustion,8140,plastics: pet (incl. forming) - combustion
+91275248,Plastics: PET (including forming) - Landfill,8140,plastics: pet (incl. forming) - landfill
+91275249,Plastics: PET (including forming) - Recycled,8140,plastics: pet (incl. forming) - recycled
+91275250,Plastics: PP (including forming) - Combustion,8140,plastics: pp (incl. forming) - combustion
+91275251,Plastics: PP (including forming) - Landfill,8140,plastics: pp (incl. forming) - landfill
+91275252,Plastics: PP (including forming) - Recycled,8140,plastics: pp (incl. forming) - recycled
+91275253,Plastics: PS (including forming) - Combustion,8140,plastics: ps (incl. forming) - combustion
+91275254,Plastics: PS (including forming) - Landfill,8140,plastics: ps (incl. forming) - landfill
+91275255,Plastics: PS (including forming) - Recycled,8140,plastics: ps (incl. forming) - recycled
+91275256,Plastics: PVC (including forming) - Combustion,8140,plastics: pvc (incl. forming) - combustion
+91275257,Plastics: PVC (including forming) - Landfill,8140,plastics: pvc (incl. forming) - landfill
+91275258,Plastics: PVC (including forming) - Recycled,8140,plastics: pvc (incl. forming) - recycled
+91275259,Soils - Landfill,8140,soils - landfill
+91275260,Soils - Recycled,8140,soils - recycled
+91275261,Tyres - Recycled,8140,tyres - recycled
+91275262,WEEE - fridges and freezers - Landfill,8140,weee - fridges and freezers - landfill
+91275263,WEEE - large - Recycled,8140,weee - large - recycled
+91275264,WEEE - large - Landfill,8140,weee - large - landfill
+91275265,WEEE - mixed - Recycled,8140,weee - mixed - recycled
+91275266,WEEE - mixed - Landfill,8140,weee - mixed - landfill
+91275267,WEEE - small - Recycled,8140,weee - small - recycled
+91275268,WEEE - small - Landfill,8140,weee - small - landfill
+91275269,Wood - Combustion,8140,wood - combustion
+91275270,Wood - Composting,8140,wood - composting
+91275271,Wood - Landfill,8140,wood - landfill
+91275272,Wood - Recycled,8140,wood - recycled
+91275273,Water supply,8138,water supply
+91275274,Water treatment,8138,water treatment
+91275275,Other (please specify in comments),8151,other (please specify in comments)
