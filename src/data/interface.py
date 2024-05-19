@@ -29,7 +29,6 @@ class Interface:
         # (c) an instance for fetching data bytes, and holding in memory, (d) an instance for writing, etc., Excel files. 
         self.__configurations = config.Config()
         self.__api = src.data.api.API()
-        self.__databytes = src.functions.databytes.DataBytes()
         self.__xlsx = src.functions.xlsx.XLSX()
         self.__streams = src.functions.streams.Streams()
         
@@ -42,19 +41,6 @@ class Interface:
         """
 
         return self.__api.exc(code=metadata['document_id'])   
-
-    
-    @dask.delayed
-    def __read(self, url: str) -> bytes:
-        """
-        
-        :param url: 
-        :return: A buffer of data bytes
-        """
-
-        buffer: bytes = self.__databytes.get(url=url) 
-
-        return buffer
     
     @dask.delayed
     def __backup(self, buffer: bytes, metadata: dict) -> str:
@@ -65,7 +51,8 @@ class Interface:
         :return: A str indicating data upload success
         """
 
-        name: str = os.path.join(self.__configurations.raw_, str(metadata['starting_year']), str(metadata['organisation_id']))
+        name: str = os.path.join(self.__configurations.raw_, 
+                                 str(metadata['starting_year']), str(metadata['organisation_id']))
         state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
         return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
@@ -79,8 +66,9 @@ class Interface:
         :return: A str indicating data a successful save action, or otherwise
         """
 
-        name: str = os.path.join(self.__configurations.excerpt__, str(metadata['starting_year']), str(metadata['organisation_id']))
-        message = self.__streams.write(blob=blob, path=name)
+        name: str = os.path.join(self.__configurations.excerpt_, 
+                                 str(metadata['starting_year']), f"{str(metadata['organisation_id'])}.csv")
+        message: str = self.__streams.write(blob=blob, path=name)
 
         return message
 
@@ -98,11 +86,11 @@ class Interface:
         computations: list = []
         for metadata in dictionary[:4]:
             url: str = self.__url(metadata=metadata)
-            # buffer: bytes = self.__read(url=url)
             buffer: bytes = databytes(url=url)       
             backup: str = self.__backup(buffer=buffer, metadata=metadata)
-            frame: pd.DataFrame = analytics(buffer=buffer, metadata=metadata)    
-            computations.append((backup, frame))
+            frame: pd.DataFrame = analytics(buffer=buffer, metadata=metadata)
+            message = self.__persist(blob=frame, metadata=metadata)   
+            computations.append((backup, message))
 
         messages = dask.compute(computations)[0]
         
