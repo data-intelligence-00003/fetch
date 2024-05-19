@@ -83,6 +83,7 @@ class Anomalies:
         frame: pd.DataFrame = blob.assign(mapping_string=blob['consumption_data_unit'].str.lower())
         frame.drop(columns='consumption_data_unit', inplace=True)
 
+        # Identification codes
         frame = frame.copy().merge(right=units, how='left', on='mapping_string')
         frame.drop(columns=['mapping_string', 'description'], inplace=True)
         
