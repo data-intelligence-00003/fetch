@@ -21,6 +21,10 @@ class Anomalies:
         emission_types: pd.DataFrame = self.__reference(name=self.__configurations.emission_types)
         self.__emission_types: pd.DataFrame = emission_types.assign(
             emission_type=emission_types['emission_type'].str.lower())
+        
+        emission_sources = self.__reference(name=self.__configurations.emission_sources)
+        self.__emission_sources = emission_sources.assign(
+            emission_source_mapping_string=emission_sources['emission_source_mapping_string'].str.lower())
 
     def __reference(self, name: str) -> pd.DataFrame:
         """
@@ -46,11 +50,16 @@ class Anomalies:
         
         print(self.__emission_types)
 
+        # Types
         frame = blob.assign(emission_type=blob['emission_type'].str.lower())
-        condition = frame['emission_type'].isin(values=self.__emission_types['emission_type'].values)
+        condition: pd.Series[bool] = frame['emission_type'].isin(values=self.__emission_types['emission_type'].values)
         frame.loc[~condition, 'emission_type'] = 'other'
-        
-        # Merge
         frame: pd.DataFrame = frame.copy().merge(right=self.__emission_types, how='left', on='emission_type')
 
-        return frame
+        # Sources
+        data: pd.DataFrame = frame.assign(emission_source_mapping_string=frame['emission_source'].str.lower())
+        data.drop(columns='emission_source', inplace=True)
+        data = data.copy().merge(self.__emission_sources, how='left', on=['emission_type_id', 'emission_source_mapping_string'])
+        data.drop(columns='emission_source_mapping_string', inplace=True)
+
+        return data
