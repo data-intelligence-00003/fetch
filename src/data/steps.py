@@ -79,7 +79,7 @@ class Steps:
         self.__directories(dictionary=dictionary)
 
         # Execute
-        interface = src.data.interface.Interface(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
+        interface = src.data.interface.Interface()
         messages = interface.exc(dictionary=dictionary)
 
         # If hybrid
