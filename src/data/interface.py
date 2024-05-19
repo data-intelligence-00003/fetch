@@ -28,7 +28,7 @@ class Interface:
                               name, buckets, etc.
         """
    
-        self.__hybrid = hybrid
+        self.__hybrid: bool = False
 
         # For Amazon S3
         if self.__hybrid:
@@ -43,7 +43,6 @@ class Interface:
         self.__databytes = src.functions.databytes.DataBytes()
         self.__xlsx = src.functions.xlsx.XLSX()
         
-
     @dask.delayed
     def __url(self, metadata: dict) -> str:
 
