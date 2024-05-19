@@ -1,15 +1,18 @@
-import os
-import pandas as pd
 import logging
+import os
+
+import pandas as pd
 
 import config
-import src.functions.directories
-import src.functions.streams
-import src.elements.text_attributes as txa
 import src.data.interface
+import src.data.reference
+import src.data.transfer
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
-import src.data.transfer
+import src.elements.text_attributes as txa
+import src.functions.directories
+import src.functions.streams
+
 
 class Steps:
 
@@ -19,8 +22,9 @@ class Steps:
         """
         
         # Additionally
-        self.__configurations = config.Config()
-        self.__streams = src.functions.streams.Streams()
+        self.__reference = src.data.reference.Reference()()
+        self.__dictionary: list[dict] = self.__reference.to_dict(orient='records')
+
 
         # Logging
         logging.basicConfig(level=logging.INFO,
@@ -28,35 +32,16 @@ class Steps:
                         datefmt='%Y-%m-%d %H:%M:%S')
         self.__logger = logging.getLogger(name=__name__)
 
-    def __reference(self, name: str) -> pd.DataFrame:
+    def __get_data(self) -> list:
         """
-        
-        :param name: The name of a CSV data file within the project's data directory; including the file's extension.
-        :return:
-            A data frame.
+        :param reference:
         """
 
-        text = txa.TextAttributes(uri=os.path.join(self.__configurations.datapath, name), header=0)
+        # Execute
+        interface = src.data.interface.Interface()
+        messages = interface.exc(dictionary=self.__dictionary)
 
-        return self.__streams.read(text=text)
-    
-    def __directories(self, dictionary: list[dict]) -> list:
-        """
-
-        :param dictionary:
-        """
-
-        years: list[str] = [str(metadata['starting_year']) for metadata in dictionary]
-        directories = src.functions.directories.Directories()
-        directories.cleanup(path=self.__configurations.warehouse)
-
-        # Raw & Excerpts
-        computations = []
-        for section in [self.__configurations.raw_, self.__configurations.excerpt_]:
-            states: list[bool] = [directories.create(path=os.path.join(section, year)) for year in years]
-            computations.append(states)
-        
-        return computations
+        return messages
 
     def exc(self, hybrid: bool, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> list:
         """
@@ -68,24 +53,14 @@ class Steps:
         :return:
             A list
         """
-
-        # References
-        documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
-        organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
-        reference: pd.DataFrame = documents.merge(organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
-        dictionary: list[dict] = reference.to_dict(orient='records')
-
-        # Backup Directories
-        self.__directories(dictionary=dictionary)
-
-        # Execute
-        interface = src.data.interface.Interface()
-        messages = interface.exc(dictionary=dictionary)
+        
+        # Get
+        messages: list = self.__get_data()
 
         # If hybrid
         if hybrid:
-            transfer = src.data.transfer.Transfer(reference=reference, service=service, s3_parameters=s3_parameters)
-            transfers = transfer.exc()
-            self.__logger.info(transfers)
+            transfer = src.data.transfer.Transfer(reference=self.__reference, service=service, s3_parameters=s3_parameters)
+            transfers: list[str] = transfer.exc()
+            self.__logger.info(msg=transfers)
         
         return messages
