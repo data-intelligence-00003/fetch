@@ -1,6 +1,7 @@
 """Module analytics.py"""
 import pandas as pd
 
+import src.data.anomalies
 import src.data.boundaries
 import src.data.matrix
 import src.elements.boundaries as br
@@ -13,6 +14,7 @@ class Analytics:
         Constructor
         """
         
+        self.__anomalies = src.data.anomalies.Anomalies()
         self.__boundaries = src.data.boundaries.Boundaries()
         self.__matrix = src.data.matrix.Matrix()
 
@@ -26,6 +28,7 @@ class Analytics:
 
         boundaries: br.Boundaries = self.__boundaries.exc(buffer=buffer)
         matrix: pd.DataFrame = self.__matrix.exc(buffer=buffer, metadata=metadata, boundaries=boundaries)
+        frame: pd.DataFrame = self.__anomalies.exc(blob=matrix)
 
-        return matrix
+        return frame
  
