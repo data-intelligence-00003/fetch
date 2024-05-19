@@ -59,18 +59,6 @@ class Transfer:
 
         return dictionary
 
-    @dask.delayed
-    def __trf(self, file: str, key: str, metadata: dict) -> str:
-        """
-        
-        :param file:
-        :param key:
-        :param metadata:
-        """
-
-        return self.__ingress.exc(file='', key='', metadata={})
-
-
     def exc(self) -> list[str]:
         """
         The metadata of the files being uploaded. Note, files of the same content type are expected, assumed.
@@ -78,12 +66,14 @@ class Transfer:
         :return:
         """
 
+        ingress = dask.delayed(self.__ingress.exc)
+
         names, years, keys = self.__tags()
         dictionary = self.__dictionary(names=names, years=years)
 
         computations = []
         for file, key, metadata in zip(self.__files, keys, dictionary):
-            message = self.__trf(file=file, key=key, metadata=metadata)
+            message = ingress(file=file, key=key, metadata=metadata)
             computations.append(message)
         
         messages = dask.compute(computations, scheduler='threads')[0]
