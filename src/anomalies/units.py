@@ -1,4 +1,4 @@
-
+"""Module units.py"""
 import pandas as pd
 
 import config
@@ -6,6 +6,9 @@ import src.data.reference
 
 
 class Units:
+    """
+    Units
+    """
 
     def __init__(self) -> None:
         """
@@ -35,5 +38,11 @@ class Units:
         return frame.rename(columns={'unit_of_measure': 'consumption_data_unit'})
     
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
+            """
+            
+            :param blob:
+            :return:
+                A data frame that includes the numeric identifier of a unit of measure
+            """
 
             return self.__units(blob=blob.copy())
