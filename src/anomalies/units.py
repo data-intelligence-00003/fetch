@@ -35,7 +35,7 @@ class Units:
         frame = frame.copy().merge(right=units, how='left', on='mapping_string')
         frame.drop(columns=['mapping_string', 'description'], inplace=True)
         
-        return frame.rename(columns={'unit_of_measure': 'consumption_data_unit'})
+        return frame.rename(columns={'unit_of_measure': 'consumption_data_unit', 'unit_id': 'consumption_data_unit_id'})
     
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
             """
