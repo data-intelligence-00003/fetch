@@ -1,13 +1,12 @@
 """Module analytics.py"""
 import pandas as pd
 
-import src.data.anomalies
-import src.data.boundaries
-import src.data.matrix
-import src.elements.boundaries as br
 import src.anomalies.emissions as es
 import src.anomalies.scope as se
 import src.anomalies.units as us
+import src.data.boundaries
+import src.data.matrix
+import src.elements.boundaries as br
 
 
 class Analytics:
@@ -17,7 +16,6 @@ class Analytics:
         Constructor
         """
         
-        self.__anomalies = src.data.anomalies.Anomalies()
         self.__boundaries = src.data.boundaries.Boundaries()
         self.__matrix = src.data.matrix.Matrix()
 
@@ -34,7 +32,6 @@ class Analytics:
         frame: pd.DataFrame = es.Emissions().exc(blob=matrix)
         frame: pd.DataFrame = se.Scope().exc(blob=frame)
         frame: pd.DataFrame = us.Units().exc(blob=frame)
-        # frame: pd.DataFrame = self.__anomalies.exc(blob=matrix)
 
         return frame
  
