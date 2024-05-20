@@ -1,4 +1,4 @@
-
+"""Module scope.py"""
 import pandas as pd
 
 import config
@@ -6,6 +6,9 @@ import src.data.reference
 
 
 class Scope:
+    """
+    Scope
+    """
 
     def __init__(self) -> None:
         """
@@ -35,5 +38,11 @@ class Scope:
         return frame
     
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
+        """
+            
+            :param blob:
+            :return:
+                A data frame that includes the numeric identifier of a scope type
+            """
 
         return self.__scope(blob=blob.copy())
