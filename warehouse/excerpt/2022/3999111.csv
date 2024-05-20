@@ -1,4 +1,4 @@
-"consumption_data","emission_factor","emission_factor_unit","emission","comment","starting_year","organisation_id","emission_type_id","emission_type","emission_source_id","emission_source","scope_id","scope","unit_id","consumption_data_unit"
+"consumption_data","emission_factor","emission_factor_unit","emission","comment","starting_year","organisation_id","emission_type_id","emission_type","emission_source_id","emission_source","scope_id","scope","consumption_data_unit_id","consumption_data_unit"
 54909665.0,0.18253999999999998,"kg CO2e/kWh",10023.2102491,"Natural Gas ",2022,3999111,8137,"Fuels",91274938,"Natural gas",4311,"Scope 1",681539,"kWh"
 122979.0,2.75857,"kg CO2e/litres",339.24618003000006,"Gas Oil A2 class",2022,3999111,8137,"Fuels",91274934,"Gas oil",4311,"Scope 1",681541,"litres"
 3187.0,2.54013,"kg CO2e/litres",8.09539431,"Kerosene",2022,3999111,8137,"Fuels",91274929,"Burning oil (Kerosene)",4311,"Scope 1",681541,"litres"
