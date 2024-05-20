@@ -21,14 +21,14 @@ class Reference:
         self.__streams = src.functions.streams.Streams()
         
         # Get the inventory/metadata of climate documents & health organisations
-        documents: pd.DataFrame = self.__reference(name=self.__configurations.documents)
-        organisations: pd.DataFrame = self.__reference(name=self.__configurations.organisations)
+        documents: pd.DataFrame = self.reader(name=self.__configurations.documents)
+        organisations: pd.DataFrame = self.reader(name=self.__configurations.organisations)
 
         # The frame of reference data
         self.reference: pd.DataFrame = documents.merge(
             right=organisations, how='left', on='organisation_id').drop(columns=['organisation_type_id'])
 
-    def __reference(self, name: str) -> pd.DataFrame:
+    def reader(self, name: str) -> pd.DataFrame:
         """
         
         :param name: The name of a CSV reference file within the project's data directory; including the file's extension.
