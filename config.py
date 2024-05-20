@@ -14,7 +14,7 @@ class Config:
         self.datapath: str = os.path.join(os.getcwd(), 'data')
 
         # Scope
-        self.scope: list[str] = ['Scope 1', 'Scope 2', 'Scope 3', 'Combined scopes (for EVs only)']
+        # self.scope: list[str] = ['Scope 1', 'Scope 2', 'Scope 3', 'Combined scopes (for EVs only)']
 
         # Fields
         self.fields: list[str] = ['emission_type', 'emission_source', 'scope', 'consumption_data', 'consumption_data_unit', 
@@ -26,6 +26,7 @@ class Config:
         self.emission_types = 'emission_types.csv'
         self.emission_sources = 'emission_sources.csv'
         self.units = 'units.csv'
+        self.scope = 'scope.csv'
 
         # A S3 parameters template
         self.s3_parameters_template = 'https://raw.githubusercontent.com/prml-0003/.github/master/profile/s3_parameters.yaml'
