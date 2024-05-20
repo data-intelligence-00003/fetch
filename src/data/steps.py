@@ -1,20 +1,19 @@
+"""Module steps.py"""
 import logging
-import os
 
-import pandas as pd
-
-import config
 import src.data.interface
 import src.data.reference
 import src.data.transfer
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
-import src.elements.text_attributes as txa
 import src.functions.directories
 import src.functions.streams
 
 
 class Steps:
+    """
+    Steps
+    """
 
     def __init__(self) -> None:
         """
