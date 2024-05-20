@@ -1,4 +1,4 @@
-"consumption_data","emission_factor","emission_factor_unit","emission","comment","starting_year","organisation_id","emission_type_id","emission_type","emission_source_id","emission_source","scope_id","scope","unit_id","consumption_data_unit"
+"consumption_data","emission_factor","emission_factor_unit","emission","comment","starting_year","organisation_id","emission_type_id","emission_type","emission_source_id","emission_source","scope_id","scope","consumption_data_unit_id","consumption_data_unit"
 8097720.0,0.21233000000000002,"kg CO2e/kWh",1719.3888876000003,"Source: eSight Energy Management System",2021,3999112,8136,"Electricity","","",4312,"Scope 2",681539.0,"kWh"
 8097720.0,0.018789999999999998,"kg CO2e/kWh",152.1561588,"Source: eSight Energy Management System",2021,3999112,8136,"Electricity","","",4312,"Scope 2",681539.0,"kWh"
 24011894.0,0.18316,"kg CO2e/kWh",4398.0185050400005,"Source: eSight Energy Management System",2021,3999112,8137,"Fuels",91274938.0,"Natural gas",4311,"Scope 1",681539.0,"kWh"
