@@ -32,8 +32,13 @@ The emissions measures are recorded within a single sheet, but the name of this 
         A([start]) --> B("Get raw Excel\ndocument") --> C("Extract emission measures\ndata, and address\nanomalies.")
 ```
 
-suggests data fields as recorded in the [warehouse/excerpt/](/warehouse/excerpt/) `csv` files.  Additionally, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  The latter is a concatenation of data across health organisations and years; this exercise stopped at [five documents](https://github.com/prml-0003/fetch/blob/908d0ae8e2f08b409b482917ceb1b5608323ee8c/src/data/interface.py#L88).
+suggests data fields as recorded in the [warehouse/excerpt/](/warehouse/excerpt/) `csv` files.  Additionally, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
 
+The latter, i.e., [warehouse/structures/simple.csv](/warehouse/structures/simple.csv), is a concatenation of data across health organisations and years; this exercise stopped at [five documents](https://github.com/prml-0003/fetch/blob/908d0ae8e2f08b409b482917ceb1b5608323ee8c/src/data/interface.py#L88).  It excludes the text format of drop-down-menu, to avoid errors these should be represented by numeric identifiers.  Note that the
+
+> numeric identifier field for emission_factor_unit **has not been set yet**.
+
+This should involve extending the units of measure table, such that it includes all the distinct unit of measures of emission factors.
 
 <br>
 <br>
