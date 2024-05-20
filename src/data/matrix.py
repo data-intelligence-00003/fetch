@@ -5,6 +5,7 @@ import config
 import src.elements.boundaries
 import src.elements.sheet
 import src.functions.xlsx
+import src.data.reference
 
 
 class Matrix:
@@ -24,8 +25,11 @@ class Matrix:
         self.__dictionary: dict = {'sheet_name': 'Emissions and Projects', 'usecols': 'C:K'}
         self.__sheet = src.elements.sheet.Sheet()
 
+        
+
         # Configurations
         self.__configurations = config.Config()
+        self.__scope: pd.DataFrame = src.data.reference.Reference().reader(name=self.__configurations.scope)
 
     def __segment(self, buffer: bytes, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
         """
@@ -53,10 +57,10 @@ class Matrix:
             A data frame
         """
 
-        
         frame: pd.DataFrame = blob.copy().rename(mapper=str.lower, axis=1)
         frame: pd.DataFrame = frame.set_axis(labels=self.__configurations.fields, axis=1)
-        frame: pd.DataFrame = frame.copy().loc[frame['scope'].isin(self.__configurations.scope), :]
+        frame: pd.DataFrame = frame.copy().loc[
+            frame['scope'].str.lower().isin(self.__scope['mapping_string'].values), :]
 
         return frame
 
