@@ -14,13 +14,14 @@ class Config:
         self.raw_: str = os.path.join(self.warehouse, 'raw')
         self.excerpt_: str = os.path.join(self.warehouse, 'excerpt')
         self.structures_: str = os.path.join(self.warehouse, 'structures')
+        self.sections: list[str] = [self.raw_, self.excerpt_, self.structures_]
 
         # Data
         self.datapath: str = os.path.join(os.getcwd(), 'data')
 
         # Fields
         self.fields: list[str] = ['emission_type', 'emission_source', 'scope', 'consumption_data', 'consumption_data_unit', 
-                       'emission_factor', 'emission_factor_unit', 'emission', 'comment']
+                       'emission_factor', 'emission_factor_unit', 'emission_tCO2e', 'comment']
         
         # Structuring
         self.exclude: list[str] = ['emission_type', 'emission_source', 'scope', 'consumption_data_unit']
