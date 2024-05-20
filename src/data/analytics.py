@@ -5,6 +5,9 @@ import src.data.anomalies
 import src.data.boundaries
 import src.data.matrix
 import src.elements.boundaries as br
+import src.anomalies.emissions as es
+import src.anomalies.scope as se
+import src.anomalies.units as us
 
 
 class Analytics:
@@ -28,7 +31,10 @@ class Analytics:
 
         boundaries: br.Boundaries = self.__boundaries.exc(buffer=buffer)
         matrix: pd.DataFrame = self.__matrix.exc(buffer=buffer, metadata=metadata, boundaries=boundaries)
-        frame: pd.DataFrame = self.__anomalies.exc(blob=matrix)
+        frame: pd.DataFrame = es.Emissions().exc(blob=matrix)
+        frame: pd.DataFrame = se.Scope().exc(blob=frame)
+        frame: pd.DataFrame = us.Units().exc(blob=frame)
+        # frame: pd.DataFrame = self.__anomalies.exc(blob=matrix)
 
         return frame
  
