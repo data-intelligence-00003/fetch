@@ -62,6 +62,7 @@ class Matrix:
         frame: pd.DataFrame = frame.set_axis(labels=self.__configurations.fields, axis=1)
         frame: pd.DataFrame = frame.copy().loc[
             frame['scope'].str.lower().isin(self.__scope['mapping_string'].values), :]
+        frame.loc['consumption_data'] = frame['consumption_data'].astype(dtype=float)
 
         return frame
 
