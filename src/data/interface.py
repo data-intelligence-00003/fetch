@@ -60,6 +60,7 @@ class Interface:
     @dask.delayed
     def __persist(self, blob: pd.DataFrame, metadata: dict) -> str:
         """
+        Saves the rough data extract
         
         :param blob:
         :param metadata:
