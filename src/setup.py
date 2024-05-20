@@ -57,7 +57,7 @@ class Setup:
 
         # Raw & Excerpts
         sections = []
-        for section in [self.__configurations.raw_, self.__configurations.excerpt_]:
+        for section in self.__configurations.sections:
             states: list[bool] = [self.__directories.create(path=os.path.join(section, year)) for year in years]
             sections.append(states)
 
