@@ -2,6 +2,7 @@
 import pandas as pd
 
 import config
+import src.data.reference
 import src.elements.boundaries
 import src.elements.sheet
 import src.functions.xlsx
@@ -12,7 +13,8 @@ class Matrix:
     Description
     -----------
 
-    Extracts the Emissions & Projects data within suggested limits.
+    Extracts the Emissions & Projects data within the prgrammatically determined 
+    boundaries; ref. src.data.boundaries.py.
     """
 
     def __init__(self) -> None:
@@ -26,14 +28,14 @@ class Matrix:
 
         # Configurations
         self.__configurations = config.Config()
+        self.__scope: pd.DataFrame = src.data.reference.Reference().reader(name=self.__configurations.scope)
 
     def __segment(self, buffer: bytes, boundaries: src.elements.boundaries.Boundaries) -> pd.DataFrame:
         """
         
         :param buffer: A buffer
         :param boundaries: The data boundaries
-        :return:
-            A data frame
+        :return: A data frame
         """
 
         self.__dictionary['header'] = 0
@@ -46,17 +48,31 @@ class Matrix:
     
     def __inspect(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        frame.dropna(axis=0, subset=['scope'], inplace=True)
         
         :param blob: 
-        :return:
-            A data frame
+        :return: A data frame
         """
 
-        
         frame: pd.DataFrame = blob.copy().rename(mapper=str.lower, axis=1)
         frame: pd.DataFrame = frame.set_axis(labels=self.__configurations.fields, axis=1)
-        frame: pd.DataFrame = frame.copy().loc[frame['scope'].isin(self.__configurations.scope), :]
+        frame: pd.DataFrame = frame.copy().loc[
+            frame['scope'].str.lower().isin(values=self.__scope['mapping_string'].values), :]
+        
+        return frame
+    
+    def __data_type(self, blob: pd.DataFrame) -> pd.DataFrame:
+        """
+        pd.to_numeric(arg=frame[field].str.strip())
+
+        :param blob: 
+        :return: A data frame
+        """
+
+        frame: pd.DataFrame = blob.copy()
+
+        # Data Type
+        for field in ['consumption_data', 'emission_factor', 'emission_tCO2e']:
+            frame.loc[field] = frame[field].astype(dtype=float)
 
         return frame
 
@@ -65,10 +81,15 @@ class Matrix:
         :param buffer:
         :param metadata:
         :param boundaries:
+        :return: A data frame
         """
 
         frame: pd.DataFrame = self.__segment(buffer=buffer, boundaries=boundaries)
         frame: pd.DataFrame = self.__inspect(blob=frame)
+        frame.dropna(axis=0, subset=['consumption_data'], inplace=True)
+
+        # Markers: These ensure that each record is associated with its start year & 
+        # organisation identifier
         frame = frame.assign(starting_year=metadata['starting_year'])
         frame = frame.assign(organisation_id=metadata['organisation_id'])
 

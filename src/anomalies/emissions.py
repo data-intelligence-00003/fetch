@@ -1,13 +1,14 @@
-import os
-
+"""Module emission.py"""
 import pandas as pd
 
 import config
-import src.elements.text_attributes as txa
-import src.functions.streams
+import src.data.reference
 
 
-class Anomalies:
+class Emissions:
+    """
+    Emissions
+    """
 
     def __init__(self) -> None:
         """
@@ -15,21 +16,8 @@ class Anomalies:
         """
         
         self.__configurations = config.Config()
-        self.__streams = src.functions.streams.Streams()        
-        
-    def __reference(self, name: str) -> pd.DataFrame:
-        """
-        
-        :param name: The name of a CSV reference file within the project's data directory; including the file's extension.
-        :return:
-            A data frame.
-        """
+        self.__reference = src.data.reference.Reference()
 
-        text = txa.TextAttributes(
-            uri=os.path.join(self.__configurations.datapath, name), header=0)
-
-        return self.__streams.read(text=text)
-    
     def __types(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
         
@@ -37,7 +25,7 @@ class Anomalies:
         :return: A frame
         """
 
-        emission_types: pd.DataFrame = self.__reference(name=self.__configurations.emission_types)
+        emission_types: pd.DataFrame = self.__reference.reader(name=self.__configurations.emission_types)
 
         # Mapping strings
         frame = blob.assign(mapping_string=blob['emission_type'].str.lower())
@@ -59,7 +47,7 @@ class Anomalies:
         :return: A frame
         """
 
-        emission_sources: pd.DataFrame = self.__reference(name=self.__configurations.emission_sources)
+        emission_sources: pd.DataFrame = self.__reference.reader(name=self.__configurations.emission_sources)
 
         # Mapping strings
         frame: pd.DataFrame = blob.assign(mapping_string=blob['emission_source'].str.lower())
@@ -70,36 +58,17 @@ class Anomalies:
         
         return frame.drop(columns='mapping_string')
     
-    def __units(self, blob: pd.DataFrame):
-        """
-        
-        :param blob:
-        :return: A frame
-        """
-
-        units: pd.DataFrame = self.__reference(name=self.__configurations.units)
-
-        # Mapping strings
-        frame: pd.DataFrame = blob.assign(mapping_string=blob['consumption_data_unit'].str.lower())
-        frame.drop(columns='consumption_data_unit', inplace=True)
-
-        # Identification codes
-        frame = frame.copy().merge(right=units, how='left', on='mapping_string')
-        frame.drop(columns=['mapping_string', 'description'], inplace=True)
-        
-        return frame.rename(columns={'unit_of_measure': 'consumption_data_unit'})
-
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+            
         :param blob:
         :return:
-            A data frame
+            A data frame that includes the numeric identifier (1) of emission types, and (2) of the emission 
+            source of an emission type
         """
         
         data: pd.DataFrame = blob.copy()
         data = self.__types(blob=data)
         data = self.__sources(blob=data)
-        data = self.__units(blob=data)
 
         return data

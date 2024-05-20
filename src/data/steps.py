@@ -1,20 +1,19 @@
+"""Module steps.py"""
 import logging
-import os
 
-import pandas as pd
-
-import config
 import src.data.interface
 import src.data.reference
 import src.data.transfer
 import src.elements.s3_parameters as s3p
 import src.elements.service as sr
-import src.elements.text_attributes as txa
 import src.functions.directories
 import src.functions.streams
 
 
 class Steps:
+    """
+    Steps
+    """
 
     def __init__(self) -> None:
         """
@@ -39,7 +38,7 @@ class Steps:
 
         # Execute
         interface = src.data.interface.Interface()
-        messages = interface.exc(dictionary=self.__dictionary)
+        messages: list = interface.exc(dictionary=self.__dictionary)
 
         return messages
 
@@ -57,7 +56,7 @@ class Steps:
         # Get
         messages: list = self.__get_data()
 
-        # If hybrid
+        # If hybrid, transfer the raw files to Amazon S3 (Simple Storage Service)
         if hybrid:
             transfer = src.data.transfer.Transfer(reference=self.__reference, service=service, s3_parameters=s3_parameters)
             transfers: list[str] = transfer.exc()
