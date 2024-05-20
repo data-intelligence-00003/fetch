@@ -30,6 +30,8 @@ The emissions measures are recorded within a single sheet, but the name of this 
 ```mermaid
     flowchart LR
         A([start]) --> B("Get raw Excel\ndocument") --> C("Extract emission measures\ndata, and address\nanomalies.")
+
+        click A "https://github.com/prml-0003/fetch/tree/master/warehouse/raw" _blank
 ```
 
 suggests data fields as recorded in the [warehouse/excerpt/](/warehouse/excerpt/) `csv` files.  Additionally, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
