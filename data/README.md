@@ -20,13 +20,19 @@ Each organisation has submitted one or more annual climate measures reports to [
 
 ### Documents & Emission Measures
 
+The emissions measures are recorded within a single sheet, but the name of this sheet is not the same across the years.  Bearing this in mind, programmatically
+
+* Retrieving a set Excel documents from the Sustainable Scotland Network, and
+* Extracting, and inspecting, the emission measures data
+
+<br>
+
 ```mermaid
     flowchart LR
-        A([start]) --> B("Get raw Excel\ndocument") --> C("Extract & Enhance\nEmission Measures")
-        C --> D(Create a simple\nstandard structure)
+        A([start]) --> B("Get raw Excel\ndocument") --> C("Extract and structure\nemission measures\ndata")
 ```
 
-
+suggests
 
 
 <br>
