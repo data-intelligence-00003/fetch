@@ -36,7 +36,11 @@ The emissions measures are recorded within a single sheet, but the name of this 
 
 suggests data fields as recorded in the [warehouse/excerpt/](/warehouse/excerpt/) files.  Additionally, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
 
-<img src="/data/images/objects-simple.png" alt="documents">
+<br>
+
+<img src="/data/images/objects-simple.png"  style="margin-left: 85px" alt="documents">
+
+<br>
 
 The latter, i.e., [warehouse/structures/simple.csv](/warehouse/structures/simple.csv), is a concatenation of data across health organisations and years; this exercise stopped at [five documents](https://github.com/prml-0003/fetch/blob/908d0ae8e2f08b409b482917ceb1b5608323ee8c/src/data/interface.py#L88).  It excludes the text format of drop-down-menu values; these values should be represented by numeric identifiers, which minimises errors.  Note that the
 
