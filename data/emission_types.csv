@@ -1,16 +1,17 @@
-emission_type_id,emission_type
-8144,Bioenergy
-8136,Electricity
-8137,Fuels
-8145,Heat and steam
-8147,Homeworking
-8148,Hotel stay
-8146,Material use
-8150,Process
-8139,Refrigerants
-8149,Renewables
-8141,Transport - car
-8142,Transport - public
-8143,Transport - van/HGV
-8140,Waste
-8138,Water
+emission_type_id,emission_type,mapping_string
+8144,Bioenergy,bioenergy
+8136,Electricity,electricity
+8137,Fuels,fuels
+8145,Heat and steam,heat and steam
+8147,Homeworking,homeworking
+8148,Hotel stay,hotel stay
+8146,Material use,material use
+8150,Process,process
+8139,Refrigerants,refrigerants
+8149,Renewables,renewables
+8141,Transport - car,transport - car
+8142,Transport - public,transport - public
+8143,Transport - van/HGV,transport - van/hgv
+8140,Waste,waste
+8138,Water,water
+8151,Other,other

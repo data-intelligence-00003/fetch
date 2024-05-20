@@ -30,6 +30,12 @@ class S3Parameters(typing.NamedTuple):
 
     external: str
       The name of the bucket that host's externally facing data.
+
+    path_external_raw: str
+      The path
+
+    path_external_references: str
+      The references
     """
 
     region_name: str
@@ -39,4 +45,6 @@ class S3Parameters(typing.NamedTuple):
     path_internal_raw: str
     path_internal_references: str
     external: str
+    path_external_raw: str
+    path_external_references: str
     

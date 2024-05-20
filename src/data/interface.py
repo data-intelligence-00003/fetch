@@ -1,17 +1,17 @@
 """Module interface.py"""
 import os
-import dask.delayed
+
 import dask
+import dask.delayed
+import pandas as pd
 
 import config
-
+import src.data.analytics
 import src.data.api
-import src.elements.s3_parameters as s3p
-import src.elements.service as sr
-
 import src.functions.databytes
-import src.s3.upload
+import src.functions.streams
 import src.functions.xlsx
+import src.s3.upload
 
 
 class Interface:
@@ -19,57 +19,28 @@ class Interface:
     Interface
     """
 
-    def __init__(self, hybrid: bool, service: sr.Service = None, s3_parameters: s3p.S3Parameters = None) -> None:
+    def __init__(self) -> None:
         """
         
-        :param service: A suite of services for interacting with Amazon Web Services.
-        :param s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
-                              name, buckets, etc.
+        Constructor
         """
-        
-        self.__configurations = config.Config()   
 
-        # For Amazon S3
-        if hybrid:
-            self.__s3_parameters = s3_parameters
-            self.__service = service
-            self.__upload = src.s3.upload.Upload(service=self.__service, s3_parameters=self.__s3_parameters)  
-
-        # The source's application programming interface instance
+        # In brief (a) an instance of the config.py variables, (b) the source's application programming interface instance, 
+        # (c) an instance for fetching data bytes, and holding in memory, (d) an instance for writing, etc., Excel files. 
+        self.__configurations = config.Config()
         self.__api = src.data.api.API()
-
-        # An instance for fetching and holding in memory
-        self.__databytes = src.functions.databytes.DataBytes()
         self.__xlsx = src.functions.xlsx.XLSX()
-    
+        self.__streams = src.functions.streams.Streams()
+        
     @dask.delayed
-    def __read(self, metadata: dict) -> bytes:
+    def __url(self, metadata: dict) -> str:
         """
         
-        :param metadata: 
-        :return:
-            A data frame.
-        """
-
-        url: str = self.__api.exc(code=metadata['document_id'])            
-        buffer: bytes = self.__databytes.get(url=url) 
-
-        return buffer
-
-    @dask.delayed
-    def __cloud(self, buffer: bytes, metadata: dict) -> str:
-        """
-        
-        :param buffer:
         :param metadata:
         :return:
-            A str indicating data upload success
         """
-        
-        key_name = f"{self.__s3_parameters.path_internal_raw}{str(metadata['starting_year'])}/{str(metadata['organisation_id'])}.xlsx"
-        state = self.__upload.binary(buffer=buffer, metadata=metadata, key_name=key_name)
-        
-        return f"Cloud -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
+
+        return self.__api.exc(code=metadata['document_id'])   
     
     @dask.delayed
     def __backup(self, buffer: bytes, metadata: dict) -> str:
@@ -77,36 +48,50 @@ class Interface:
         
         :param buffer:
         :param metadata:
-        :return:
-            A str indicating data upload success
+        :return: A str indicating data upload success
         """
 
-        name: str = os.path.join(self.__configurations.warehouse, str(metadata['starting_year']), str(metadata['organisation_id']))
+        name: str = os.path.join(self.__configurations.raw_, 
+                                 str(metadata['starting_year']), str(metadata['organisation_id']))
         state: bool = self.__xlsx.write(buffer=buffer, name=name)
         
         return f"Backup -> {state} ({metadata['organisation_name']}, {metadata['starting_year']})"
+    
+    @dask.delayed
+    def __persist(self, blob: pd.DataFrame, metadata: dict) -> str:
+        """
+        
+        :param blob:
+        :param metadata:
+        :return: A str indicating data a successful save action, or otherwise
+        """
 
-    def hybrid(self, dictionary: list[dict]):
+        name: str = os.path.join(self.__configurations.excerpt_, 
+                                 str(metadata['starting_year']), f"{str(metadata['organisation_id'])}.csv")
+        message: str = self.__streams.write(blob=blob, path=name)
 
+        return message
+
+    def exc(self, dictionary: list[dict]) -> list:
+        """
+        
+        :param dictionary:
+        """
+
+        # Additional delayed tasks
+        databytes = dask.delayed(src.functions.databytes.DataBytes().get)
+        analytics = dask.delayed(src.data.analytics.Analytics().exc)
+        
+        # Compute
         computations: list = []
-        for metadata in dictionary:
-            buffer: bytes = self.__read(metadata=metadata)           
-            cloud: str = self.__cloud(buffer=buffer, metadata=metadata)
-            backup: str = self.__backup(buffer=buffer, metadata=metadata)            
-            computations.append((cloud, backup))
+        for metadata in dictionary[:5]:
+            url: str = self.__url(metadata=metadata)
+            buffer: bytes = databytes(url=url)       
+            backup: str = self.__backup(buffer=buffer, metadata=metadata)
+            frame: pd.DataFrame = analytics(buffer=buffer, metadata=metadata)
+            message = self.__persist(blob=frame, metadata=metadata)   
+            computations.append((backup, message))
 
         messages = dask.compute(computations)[0]
         
-        return messages
-    
-    def single(self, dictionary: list[dict]):
-
-        computations: list = []
-        for metadata in dictionary:
-            buffer: bytes = self.__read(metadata=metadata)  
-            backup: bool = self.__backup(buffer=buffer, metadata=metadata)
-            computations.append(backup)
-
-        messages = dask.compute(computations)[0]
-
         return messages

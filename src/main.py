@@ -14,13 +14,13 @@ def main():
 
     # Executing
     if hybrid:
-        setup, service, s3_parameters = src.setup.Setup().exc()
+        _, service, s3_parameters = src.setup.Setup().exc()
         messages = src.data.steps.Steps().exc(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
         logger.info(msg=messages)
     else:
-        logger.info('Private')
+        logger.info('Backup')
         messages = src.data.steps.Steps().exc(hybrid=hybrid)
-        logger.info(msg=messages)
+        logger.info(msg=messages)    
 
     # Deleting __pycache__
     src.functions.cache.Cache().exc()
@@ -31,6 +31,8 @@ if __name__ == '__main__':
     root = os.getcwd()
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
+
+    logging.captureWarnings(capture=True)
 
     logging.basicConfig(level=logging.INFO,
                         format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',

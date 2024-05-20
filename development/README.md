@@ -20,9 +20,10 @@ development environment via the command:
 
 or
 
-> docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app \
-> &nbsp; &nbsp; --mount type=bind,src="$(pwd)",target=/app -v ~/.aws:/root/.aws mining
-
+```bash
+docker run --rm -i -t -p 127.0.0.1:10000:8888 -w /app 
+  --mount type=bind,src="$(pwd)",target=/app -v ~/.aws:/root/.aws mining
+```
 
 Whereby:
 
