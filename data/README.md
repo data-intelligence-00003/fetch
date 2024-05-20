@@ -23,13 +23,13 @@ Each organisation has submitted one or more annual climate measures reports to [
 The emissions measures are recorded within a single sheet, but the name of this sheet is not the same across the years.  Bearing this in mind, programmatically
 
 * Retrieving a set Excel documents from the Sustainable Scotland Network, and
-* Extracting, and inspecting, the emission measures data
+* Extracting the emission measures data, and addressing anomalies
 
 <br>
 
 ```mermaid
     flowchart LR
-        A([start]) --> B("Get raw Excel\ndocument") --> C("Extract and structure\nemission measures\ndata")
+        A([start]) --> B("Get raw Excel\ndocument") --> C("Extract emission measures\ndata, and address\nanomalies.")
 ```
 
 suggests
