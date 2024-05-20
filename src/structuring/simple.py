@@ -1,5 +1,6 @@
 """Module simple.py"""
 import glob
+import logging
 import os
 
 import pandas as pd
@@ -30,6 +31,12 @@ class Simple:
         # An instance for reading CSV files
         self.__streams = src.functions.streams.Streams()
 
+        # Logging
+        logging.basicConfig(level=logging.INFO,
+                        format='\n\n%(message)s\n%(asctime)s.%(msecs)03d',
+                        datefmt='%Y-%m-%d %H:%M:%S')
+        self.__logger: logging.Logger = logging.getLogger(name=__name__)
+
     def __get_data(self, uri: str) -> pd.DataFrame:
         """
         
@@ -40,18 +47,6 @@ class Simple:
         text = txa.TextAttributes(uri=uri, header=0)
 
         return self.__streams.read(text=text)
-    
-    def __exclude(self, blob: pd.DataFrame) -> pd.DataFrame:
-        """
-        Excludes text identifiers
-        
-        :param blob:
-        :return: A data frame
-        """
-  
-        frame: pd.DataFrame = blob.copy().drop(columns=self.__configurations.exclude, axis=1)
-
-        return frame
 
     def exc(self):
         """
@@ -68,10 +63,10 @@ class Simple:
             computations.append(data)
 
         # Concatenate frames
-        frame = pd.concat(computations, axis=0, ignore_index=True)
+        frame: pd.DataFrame = pd.concat(computations, axis=0, ignore_index=True)
         
         # Save
-        message = self.__streams.write(
+        message: str = self.__streams.write(
             blob=frame, path=os.path.join(self.__configurations.structures_, 'simple.csv'))
 
-        print(message)
+        self.__logger.info(msg=message)
