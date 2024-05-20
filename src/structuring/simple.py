@@ -23,6 +23,10 @@ class Simple:
         
         self.__configurations = config.Config()
 
+        self.__select: list[str] = ['consumption_data', 'consumption_data_unit_id', 'emission_factor', 'emission_factor_unit', 
+                                    'emission_tCO2e', 'starting_year', 'organisation_id', 'emission_type_id', 'emission_source_id', 
+                                    'scope_id', 'comment']
+
         # An instance for reading CSV files
         self.__streams = src.functions.streams.Streams()
 
@@ -51,20 +55,23 @@ class Simple:
 
     def exc(self):
         """
-        
+        A simple structure for modelling & analysis
         """
 
         paths: list[str] = glob.glob(pathname=os.path.join(self.__configurations.excerpt_, '**', '*.csv' ))
 
+        # Compute
         computations = []
         for path in paths:
             data: pd.DataFrame = self.__get_data(uri=path)
-            data = self.__exclude(blob=data)
-            
+            data = data.copy()[self.__select]            
             computations.append(data)
 
+        # Concatenate frames
         frame = pd.concat(computations, axis=0, ignore_index=True)
         
-        message = self.__streams.write(blob=frame, path=os.path.join(self.__configurations.structures_, 'simple.csv'))
+        # Save
+        message = self.__streams.write(
+            blob=frame, path=os.path.join(self.__configurations.structures_, 'simple.csv'))
 
         print(message)
