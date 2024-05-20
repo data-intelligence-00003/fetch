@@ -18,9 +18,12 @@ def main():
         messages = src.data.steps.Steps().exc(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
         logger.info(msg=messages)
     else:
-        logger.info('Backup')
-        messages = src.data.steps.Steps().exc(hybrid=hybrid)
-        logger.info(msg=messages)    
+        logger.info(msg='Backup')
+        messages:list = src.data.steps.Steps().exc(hybrid=hybrid)
+        logger.info(msg=messages)
+
+    # A simple structure of the extracted emissions data
+    src.structuring.simple.Simple().exc()
 
     # Deleting __pycache__
     src.functions.cache.Cache().exc()
@@ -28,7 +31,7 @@ def main():
 
 if __name__ == '__main__':
     # Setting-up
-    root = os.getcwd()
+    root: str = os.getcwd()
     sys.path.append(root)
     sys.path.append(os.path.join(root, 'src'))
 
@@ -41,12 +44,11 @@ if __name__ == '__main__':
     # Modules
     import src.data.interface
     import src.data.steps
-    import src.elements.s3_parameters as s3p
-    import src.elements.service as sr
     import src.functions.cache
     import src.functions.service
     import src.s3.s3_parameters
     import src.setup
+    import src.structuring.simple
 
     # Execution
     hybrid = True    
