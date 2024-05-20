@@ -2,10 +2,10 @@
 import pandas as pd
 
 import config
+import src.data.reference
 import src.elements.boundaries
 import src.elements.sheet
 import src.functions.xlsx
-import src.data.reference
 
 
 class Matrix:
@@ -13,7 +13,8 @@ class Matrix:
     Description
     -----------
 
-    Extracts the Emissions & Projects data within suggested limits.
+    Extracts the Emissions & Projects data within the prgrammatically determined 
+    boundaries; ref. src.data.boundaries.py.
     """
 
     def __init__(self) -> None:
@@ -69,10 +70,15 @@ class Matrix:
         :param buffer:
         :param metadata:
         :param boundaries:
+        :return:
+            A data frame of data
         """
 
         frame: pd.DataFrame = self.__segment(buffer=buffer, boundaries=boundaries)
         frame: pd.DataFrame = self.__inspect(blob=frame)
+
+        # Markers: These ensure that each record is associated with its start year & 
+        # organisation identifier
         frame = frame.assign(starting_year=metadata['starting_year'])
         frame = frame.assign(organisation_id=metadata['organisation_id'])
 
