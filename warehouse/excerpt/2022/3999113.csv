@@ -1,4 +1,4 @@
-"consumption_data","emission_factor","emission_factor_unit","emission","comment","starting_year","organisation_id","emission_type_id","emission_type","emission_source_id","emission_source","scope_id","scope","unit_id","consumption_data_unit"
+"consumption_data","emission_factor","emission_factor_unit","emission","comment","starting_year","organisation_id","emission_type_id","emission_type","emission_source_id","emission_source","scope_id","scope","consumption_data_unit_id","consumption_data_unit"
 52054609.03,0.18253999999999998,"kg CO2e/kWh",9502.048332336199,"",2022,3999113,8137,"Fuels",91274938,"Natural gas",4311,"Scope 1",681539.0,"kWh"
 12221338.0,0.19338,"kg CO2e/kWh",2363.36234244,"",2022,3999113,8136,"Electricity",91274925,"Electricity: UK",4312,"Scope 2",681539.0,"kWh"
 12221338.0,0.01769,"kg CO2e/kWh",216.19546922,"",2022,3999113,8136,"Electricity",91274926,"Transmission and distribution - Electricity: UK",4313,"Scope 3",681539.0,"kWh"
