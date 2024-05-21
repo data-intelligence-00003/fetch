@@ -34,7 +34,7 @@ The emissions measures are recorded within a single sheet, but the name of this 
         click A "https://github.com/prml-0003/fetch/tree/master/warehouse/raw" _blank
 ```
 
-suggests data fields as recorded in the [warehouse/excerpt/](/warehouse/excerpt/) files.  Additionally, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
+An initial range of data fields can be found in the [warehouse/excerpt/](/warehouse/excerpt/) files.  **Practically**, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
 
 <br>
 
