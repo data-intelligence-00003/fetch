@@ -14,13 +14,13 @@ class Emissions:
         """
         Constructor
         """
-        
+
         self.__configurations = config.Config()
         self.__reference = src.data.reference.Reference()
 
     def __types(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
@@ -32,17 +32,17 @@ class Emissions:
         frame.drop(columns='emission_type', inplace=True)
 
         # Missing mapping string
-        condition: pd.Series[bool] = frame['mapping_string'].isin(values=emission_types['mapping_string'].values)
+        condition: pd.Series = frame['mapping_string'].isin(values=emission_types['mapping_string'].values)
         frame.loc[~condition, 'mapping_string'] = 'other'
 
         # Emission type identification codes
         frame: pd.DataFrame = frame.copy().merge(right=emission_types, how='left', on='mapping_string')
-        
+
         return frame.drop(columns='mapping_string')
 
     def __sources(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
@@ -55,18 +55,18 @@ class Emissions:
 
         # Emission source identification codes
         frame = frame.copy().merge(right=emission_sources, how='left', on=['emission_type_id', 'mapping_string'])
-        
+
         return frame.drop(columns='mapping_string')
-    
+
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-            
+
         :param blob:
         :return:
-            A data frame that includes the numeric identifier (1) of emission types, and (2) of the emission 
+            A data frame that includes the numeric identifier (1) of emission types, and (2) of the emission
             source of an emission type
         """
-        
+
         data: pd.DataFrame = blob.copy()
         data = self.__types(blob=data)
         data = self.__sources(blob=data)

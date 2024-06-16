@@ -6,8 +6,6 @@ import itertools
 import os
 import typing
 
-import pandas as pd
-
 import config
 import src.data.reference
 import src.elements.s3_parameters as s3p
@@ -62,7 +60,7 @@ class Setup:
             sections.append(states)
 
         cases = list(itertools.chain(*sections))
-        
+
         return all(cases)
 
     def __s3(self) -> bool:
@@ -85,10 +83,10 @@ class Setup:
         """
 
         :return:
-            :setup: Did the set up succeed?
-            :service: A suite of services for interacting with Amazon Web Services.
-            :s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
-                            name, buckets, etc.
+            setup: Did the set-up succeed?
+            service: A suite of services for interacting with Amazon Web Services.
+            s3_parameters: The overarching S3 parameters settings of this project, e.g., region code
+                           name, buckets, etc.
         """
 
         s3: bool = self.__s3()

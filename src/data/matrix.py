@@ -45,7 +45,7 @@ class Matrix:
         segment: pd.DataFrame = self.__xlsx.decode(buffer=buffer, sheet=sheet)
 
         return segment
-    
+
     def __inspect(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
         
@@ -53,26 +53,10 @@ class Matrix:
         :return: A data frame
         """
 
-        frame: pd.DataFrame = blob.copy().rename(mapper=str.lower, axis=1)
+        frame: pd.DataFrame = blob.copy().rename(str.lower, axis='columns')
         frame: pd.DataFrame = frame.set_axis(labels=self.__configurations.fields, axis=1)
         frame: pd.DataFrame = frame.copy().loc[
             frame['scope'].str.lower().isin(values=self.__scope['mapping_string'].values), :]
-        
-        return frame
-    
-    def __data_type(self, blob: pd.DataFrame) -> pd.DataFrame:
-        """
-        pd.to_numeric(arg=frame[field].str.strip())
-
-        :param blob: 
-        :return: A data frame
-        """
-
-        frame: pd.DataFrame = blob.copy()
-
-        # Data Type
-        for field in ['consumption_data', 'emission_factor', 'emission_tCO2e']:
-            frame.loc[field] = frame[field].astype(dtype=float)
 
         return frame
 
@@ -88,7 +72,7 @@ class Matrix:
         frame: pd.DataFrame = self.__inspect(blob=frame)
         frame.dropna(axis=0, subset=['consumption_data'], inplace=True)
 
-        # Markers: These ensure that each record is associated with its start year & 
+        # Markers: These ensure that each record is associated with its start year &
         # organisation identifier
         frame = frame.assign(starting_year=metadata['starting_year'])
         frame = frame.assign(organisation_id=metadata['organisation_id'])

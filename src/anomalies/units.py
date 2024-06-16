@@ -14,13 +14,13 @@ class Units:
         """
         Constructor
         """
-        
+
         self.__configurations = config.Config()
         self.__reference = src.data.reference.Reference()
 
     def __units(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
@@ -34,15 +34,15 @@ class Units:
         # Identification codes
         frame = frame.copy().merge(right=units, how='left', on='mapping_string')
         frame.drop(columns=['mapping_string', 'description'], inplace=True)
-        
-        return frame.rename(columns={'unit_of_measure': 'consumption_data_unit', 'unit_id': 'consumption_data_unit_id'})
-    
-    def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
-            """
-            
-            :param blob:
-            :return:
-                A data frame that includes the numeric identifier of a unit of measure
-            """
 
-            return self.__units(blob=blob.copy())
+        return frame.rename(columns={'unit_of_measure': 'consumption_data_unit', 'unit_id': 'consumption_data_unit_id'})
+
+    def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
+        """
+
+        :param blob:
+        :return:
+            A data frame that includes the numeric identifier of a unit of measure
+        """
+
+        return self.__units(blob=blob.copy())

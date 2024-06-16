@@ -47,4 +47,3 @@ class S3Parameters(typing.NamedTuple):
     external: str
     path_external_raw: str
     path_external_references: str
-    

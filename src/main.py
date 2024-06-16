@@ -9,6 +9,9 @@ def main():
     Entry point
     """
 
+    # Execution: In future, an argument.
+    hybrid = True
+
     # Logging
     logger: logging.Logger = logging.getLogger(name=__name__)
 
@@ -18,7 +21,6 @@ def main():
         messages = src.data.steps.Steps().exc(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
         logger.info(msg=messages)
     else:
-        logger.info(msg='Backup')
         messages:list = src.data.steps.Steps().exc(hybrid=hybrid)
         logger.info(msg=messages)
 
@@ -30,6 +32,7 @@ def main():
 
 
 if __name__ == '__main__':
+
     # Setting-up
     root: str = os.getcwd()
     sys.path.append(root)
@@ -49,8 +52,5 @@ if __name__ == '__main__':
     import src.s3.s3_parameters
     import src.setup
     import src.structuring.simple
-
-    # Execution
-    hybrid = True    
 
     main()

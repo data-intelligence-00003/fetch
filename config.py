@@ -27,7 +27,7 @@ class Config:
         self.exclude: list[str] = ['emission_type', 'emission_source', 'scope', 'consumption_data_unit']
 
 
-        # The documents of interest, and the names of their source organisations
+        # References: The documents of interest, and the names of their source organisations
         self.documents = 'documents.csv'
         self.organisations = 'organisations.csv'
         self.emission_types = 'emission_types.csv'

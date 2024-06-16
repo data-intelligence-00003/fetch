@@ -1,8 +1,6 @@
 """Module api.py"""
 import logging
 
-import pandas as pd
-
 
 class API:
     """

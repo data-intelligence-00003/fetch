@@ -19,7 +19,7 @@ class Steps:
         """
         Constructor
         """
-        
+
         # Additionally
         self.__reference = src.data.reference.Reference()()
         self.__dictionary: list[dict] = self.__reference.to_dict(orient='records')
@@ -33,7 +33,8 @@ class Steps:
 
     def __get_data(self) -> list:
         """
-        :param reference:
+
+        :return:
         """
 
         # Execute
@@ -52,7 +53,7 @@ class Steps:
         :return:
             A list
         """
-        
+
         # Get
         messages: list = self.__get_data()
 
@@ -61,5 +62,5 @@ class Steps:
             transfer = src.data.transfer.Transfer(reference=self.__reference, service=service, s3_parameters=s3_parameters)
             transfers: list[str] = transfer.exc()
             self.__logger.info(msg=transfers)
-        
+
         return messages

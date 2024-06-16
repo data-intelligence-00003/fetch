@@ -1,0 +1,134 @@
+name: Fetch
+
+on: [push]
+
+jobs:
+  build:
+    name: Code Analysis
+    runs-on: ubuntu-latest
+
+    strategy:
+      max-parallel: 4
+      fail-fast: false
+      matrix:
+        python-version: ["3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f ${{ github.workspace }}/.devcontainer/requirements.txt ]; then pip install -r ${{ github.workspace }}/.devcontainer/requirements.txt; fi
+
+      - name: Lint with flake8
+        run: |
+          printf "\n"
+          echo "============================= flake8 session starts =============================="
+          printf "\n"
+          
+          
+          # stop the build if there are Python syntax errors or undefined names
+          printf "\n"
+          echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
+          formulae symbols (F63), undefined variable names (F82):"
+          
+          printf "\n src/anomalies\n"
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/anomalies
+          
+          printf "\n src/data\n"
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/data
+          
+          printf "\n src/elements\n"
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/elements
+          
+          printf "\n src/functions\n"
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/functions
+          
+          printf "\n src/s3\n"
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/s3
+          
+          printf "\n src/structuring\n"
+          flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/structuring
+          
+          
+          # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
+          printf "\n\n"
+          echo "Complexity issues:"
+          
+          printf "\n src/anomalies\n"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/anomalies
+          
+          printf "\n src/data\n"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/data
+          
+          printf "\n src/elements\n"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/elements
+          
+          printf "\n src/functions\n"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/functions
+          
+          printf "\n src/s3\n"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/s3
+          
+          printf "\n src/structuring\n"
+          flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/structuring
+
+      - name: Lint with pylint
+        run: |
+          printf "\n"
+          echo "============================= pylint session starts =============================="
+
+          printf "\n Package src/anomalies"
+          pylint --rcfile .pylintrc src/anomalies
+          
+          printf "\n Package src/data"
+          pylint --rcfile .pylintrc src/data
+          
+          printf "\n Package src/elements"
+          pylint --rcfile .pylintrc src/elements
+          
+          printf "\n Package src/functions"
+          pylint --rcfile .pylintrc src/functions
+          
+          printf "\n Package src/s3"
+          pylint --rcfile .pylintrc src/s3
+          
+          printf "\n Package src/structuring"
+          pylint --rcfile .pylintrc src/structuring
+
+      - name: Test with pytest
+        run: |
+          printf "\n"
+          echo "============================= pytest session starts =============================="
+          
+          printf "\n"
+          printf "Upcoming ... pytest -o python_files=test_*.py"
+
+      - name: Coverage with pytest-cov
+        run: |
+          printf "\n"
+          echo "============================= coverage session starts =============================="
+          
+          printf "\nCoverage tests/anomalies/"
+          printf "\n Upcoming ... pytest --cov-report term-missing  --cov src/algorithms/ tests/anomalies/"
+          
+          printf "\nCoverage tests/data/"
+          printf "\n Upcoming ... pytest --cov-report term-missing  --cov src/algorithms/ tests/data/"
+          
+          printf "\nCoverage tests/elements/"
+          printf "\n Upcoming ... pytest --cov-report term-missing  --cov src/elements/ tests/elements/"
+          
+          printf "\nCoverage tests/functions/"
+          printf "\n Upcoming ... pytest --cov-report term-missing  --cov src/elements/ tests/functions/"
+          
+          printf "\nCoverage tests/s3/"
+          printf "\n Upcoming ... pytest --cov-report term-missing  --cov src/references/ tests/s3/"
+          
+          printf "\nCoverage tests/structuring/"
+          printf "\n Upcoming ... pytest --cov-report term-missing  --cov src/references/ tests/structuring/"

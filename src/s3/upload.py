@@ -61,7 +61,7 @@ class Upload:
             return bool(response)
         except botocore.exceptions.ClientError as err:
             raise err from err
-        
+
     def binary(self, buffer: bytes, metadata: dict, key_name: str) -> bool:
         """
         https://boto3.amazonaws.com/v1/documentation/api/latest/reference/services/s3/object/put.html

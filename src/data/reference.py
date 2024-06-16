@@ -9,6 +9,9 @@ import src.functions.streams
 
 
 class Reference:
+    """
+    Prepares a reference sheet summarising metadata
+    """
 
     def __init__(self):
         """
@@ -19,7 +22,7 @@ class Reference:
 
         # An instance for interacting with CSV files
         self.__streams = src.functions.streams.Streams()
-        
+
         # Get the inventory/metadata of climate documents & health organisations
         documents: pd.DataFrame = self.reader(name=self.__configurations.documents)
         organisations: pd.DataFrame = self.reader(name=self.__configurations.organisations)
@@ -45,6 +48,6 @@ class Reference:
         """
         :return:
             A frame of references
-        """    
+        """
 
         return self.reference

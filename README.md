@@ -1,6 +1,5 @@
 <br>
 
-
 ### Organisations & Documents
 
 Public Health Scotland's climate & sustainability analysis focuses on 22 health organisations.  Each organisation falls under one of [three organisation types](https://www.scot.nhs.uk/organisations/):
@@ -20,21 +19,21 @@ Each organisation has submitted one or more annual climate measures reports to [
 
 ### Documents & Emission Measures
 
-The emissions measures are recorded within a single sheet, but the name of this sheet is not the same across the years.  Bearing this in mind, programmatically
+The emissions measures are recorded within a single sheet, but the name of this sheet is not the same across the years.  Via an inventory, a team can programmatically
 
-* [Retrieving](/warehouse/raw/) a set Excel documents from the Sustainable Scotland Network, and
-* Extracting the emission measures data, and addressing anomalies.
+* [Retrieve](/warehouse/raw) the Excel documents from the Sustainable Scotland Network, and subsequently
+* Extract the emission measures data, and addressing anomalies.
 
 <br>
 
-```mermaid
-    flowchart LR
-        A([start]) --> B("Get raw Excel\ndocument") --> C("Extract emission measures\ndata, and address\nanomalies.")
+The inventory should include each document's (a) *document identifier*, (b) emissions measures sheet name, (c) dict of emission segment fields, etc.
 
-        click A "https://github.com/prml-0003/fetch/tree/master/warehouse/raw" _blank
-```
+<br>
+<br>
 
-An initial range of data fields can be found in the [warehouse/excerpt/](/warehouse/excerpt/) files.  **Practically**, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
+### Structuring
+
+An initial range of data fields can be found in the [warehouse/excerpt/](/warehouse/excerpt) files.  **Practically**, the corresponding standard structure for analytics, including forecasting, will be akin to [warehouse/structures/simple.csv](/warehouse/structures/simple.csv).  
 
 <br>
 
@@ -50,7 +49,7 @@ The latter, i.e., [warehouse/structures/simple.csv](/warehouse/structures/simple
 
 <br>
 
-This should involve extending the [units of measure table](/data/units.csv), such that it includes all the distinct *unit of measures* of emission factors.  Visit the [data](/data/) to explore a few dimension tables suggestions.
+This should involve extending the [units of measure table](/data/units.csv), such that it includes all the distinct *unit of measures* of emission factors.  Visit the [data](/data) to explore a few dimension tables suggestions.
 
 <br>
 <br>
