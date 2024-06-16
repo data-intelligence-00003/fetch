@@ -2,7 +2,8 @@
 Module serial.py
 """
 import yaml
-import requests
+
+import src.functions.databytes
 
 
 class Serial:
@@ -19,21 +20,16 @@ class Serial:
         Constructor
         """
 
-    @staticmethod
-    def api(url: str) -> dict:
+        self.__databytes = src.functions.databytes.DataBytes()
+
+    def api(self, url: str) -> dict:
         """
 
-        :param url:
+        :param url: The uniform resource locator (URL) of a data set.
         :return:
         """
 
-        try:
-            response = requests.get(url=url, timeout=600)
-            response.raise_for_status()
-        except requests.exceptions.Timeout as err:
-            raise err from err
-        except Exception as err:
-            raise err from err
+        response = self.__databytes.content(url=url)
 
         if response.status_code == 200:
             content = response.content.decode(encoding='utf-8')
