@@ -14,7 +14,7 @@ class Scope:
         """
         Constructor
         """
-        
+
         self.__configurations = config.Config()
         self.__reference = src.data.reference.Reference()
 
@@ -34,9 +34,9 @@ class Scope:
         # Identification codes
         frame = frame.copy().merge(right=units, how='left', on='mapping_string')
         frame.drop(columns='mapping_string', inplace=True)
-        
+
         return frame
-    
+
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
             
