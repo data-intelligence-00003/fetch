@@ -48,7 +48,7 @@ class Interface:
         
         :param buffer:
         :param metadata:
-        :return: A str indicating data upload success
+        :return: A str indicating raw data storage success
         """
 
         name: str = os.path.join(self.__configurations.raw_, 
