@@ -23,7 +23,7 @@ class Boundaries:
         self.__xlsx = src.functions.xlsx.XLSX()
 
         # The attributes of the Excel Sheet in focus
-        self.__dictionary: dict = {'sheet_name': 'Emissions and Projects', 
+        self.__dictionary: dict = {'sheet_name': 'Emissions and Projects',
                  'header': None, 'skiprows': 0, 'usecols': 'D', 'nrows': None}
         self.__sheet = src.elements.sheet.Sheet()
 
@@ -35,14 +35,14 @@ class Boundaries:
             A data frame
         """
 
-        # Setting the final set of Excel Sheet attributes        
+        # Setting the final set of Excel Sheet attributes
         sheet = self.__sheet._replace(**self.__dictionary)
 
         # Reading the data cells
         segment: pd.DataFrame = self.__xlsx.decode(buffer=buffer, sheet=sheet)
 
         return segment
-    
+
     def __inspect(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
         
@@ -57,20 +57,20 @@ class Boundaries:
         frame: pd.DataFrame = frame.copy().dropna(axis=0)
 
         return frame
-    
+
     def __starting(self, blob: pd.DataFrame) -> int:
         """
         
         :param blob:
         :return:
             A data frame
-        """        
+        """
 
         frame: pd.DataFrame = blob.copy()
         index: int = frame.index[frame['source'].str.lower() == 'emission source'].values[0]
-        
+
         return index
-    
+
     def __ending(self, blob: pd.DataFrame) -> int:
         """
         
@@ -80,11 +80,10 @@ class Boundaries:
         """
 
         frame: pd.DataFrame = blob.copy()
-        index: int = frame.index[frame['source'].str.lower() == 'total consumed by the body (kwh)'].values[0] 
-        
+        index: int = frame.index[frame['source'].str.lower() == 'total consumed by the body (kwh)'].values[0]
+
         return index
 
-        
     def exc(self, buffer: bytes) -> src.elements.boundaries.Boundaries:
         """
         
