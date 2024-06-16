@@ -9,7 +9,7 @@ def main():
     Entry point
     """
 
-    # Execution
+    # Execution: In future, an argument.
     hybrid = True
 
     # Logging
