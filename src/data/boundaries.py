@@ -43,7 +43,8 @@ class Boundaries:
 
         return segment
 
-    def __inspect(self, blob: pd.DataFrame) -> pd.DataFrame:
+    @staticmethod
+    def __inspect(blob: pd.DataFrame) -> pd.DataFrame:
         """
         
         :param blob: A single field data frame; refer to self.__dictionary above.
@@ -59,7 +60,8 @@ class Boundaries:
 
         return frame
 
-    def __starting(self, blob: pd.DataFrame) -> int:
+    @staticmethod
+    def __starting(blob: pd.DataFrame) -> int:
         """
         
         :param blob:
@@ -72,7 +74,8 @@ class Boundaries:
 
         return index
 
-    def __ending(self, blob: pd.DataFrame) -> int:
+    @staticmethod
+    def __ending(blob: pd.DataFrame) -> int:
         """
         
         :param blob:
