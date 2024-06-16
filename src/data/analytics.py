@@ -23,9 +23,10 @@ class Analytics:
         self.__matrix = src.data.matrix.Matrix()
 
         self.__select: list[str] = [
-            'consumption_data', 'consumption_data_unit', 'consumption_data_unit_id', 'emission_factor', 'emission_factor_unit', 
-            'emission_tCO2e', 'starting_year', 'organisation_id', 'emission_type_id', 'emission_type', 
-            'emission_source_id', 'emission_source', 'scope_id', 'scope', 'comment']
+            'consumption_data', 'consumption_data_unit', 'consumption_data_unit_id',
+            'emission_factor', 'emission_factor_unit', 'emission_tCO2e', 'starting_year',
+            'organisation_id', 'emission_type_id', 'emission_type', 'emission_source_id',
+            'emission_source', 'scope_id', 'scope', 'comment']
 
     def exc(self, buffer: bytes, metadata: dict) -> pd.DataFrame:
         """
