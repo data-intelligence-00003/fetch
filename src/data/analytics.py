@@ -10,12 +10,15 @@ import src.elements.boundaries as br
 
 
 class Analytics:
+    """
+    Prepares the data for modelling & analysis by addressing anomalies.
+    """
 
     def __init__(self) -> None:
         """
         Constructor
         """
-        
+
         self.__boundaries = src.data.boundaries.Boundaries()
         self.__matrix = src.data.matrix.Matrix()
 
@@ -40,4 +43,3 @@ class Analytics:
         frame = frame.copy()[self.__select]
 
         return frame
- 
