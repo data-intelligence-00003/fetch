@@ -1,5 +1,5 @@
 # Base Image
-FROM python:3.11.9-bookworm
+FROM python:3.12.4-bookworm
 
 # Temporary
 ARG GID=3333
