@@ -20,7 +20,7 @@ class Scope:
 
     def __scope(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
@@ -39,10 +39,10 @@ class Scope:
 
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-            
-            :param blob:
-            :return:
-                A data frame that includes the numeric identifier of a scope type
-            """
+
+        :param blob:
+        :return:
+            A data frame that includes the numeric identifier of a scope type
+        """
 
         return self.__scope(blob=blob.copy())
