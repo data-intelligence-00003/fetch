@@ -52,6 +52,7 @@ class Boundaries:
         """
 
         # This section renames the single field, and drops empty cells
+        print(blob)
         frame = blob.copy().set_axis(labels=['source'], axis=1)
         frame = frame.assign(source=frame['source'].str.lower())
         frame: pd.DataFrame = frame.copy().dropna(axis=0)
