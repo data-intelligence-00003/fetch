@@ -20,7 +20,7 @@ class Units:
 
     def __units(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
