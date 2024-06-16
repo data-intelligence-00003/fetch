@@ -25,7 +25,7 @@ class Transfer:
         :param service:
         :param s3_parameters:
         """
-        
+
         self.__reference: pd.DataFrame = reference
         self.__configurations = config.Config()
 
@@ -43,13 +43,13 @@ class Transfer:
 
         :return:
         """
-        
-        names: list[str] =  [os.path.basename(file) for file in self.__files]        
+
+        names: list[str] =  [os.path.basename(file) for file in self.__files]
         years: list[int] = [int(os.path.basename(os.path.dirname(file))) for file in self.__files]
         keys: list[str] = [f'{self.__s3_parameters.path_internal_raw}{year}/{name}' for year, name in zip(years, names)]
 
         return names, years, keys
-    
+
     def __dictionary(self, names: list[str], years: list[int]) -> list[dict]:
         """
         A dictionary of the metadata of each file being uploaded. Note, files of the
@@ -61,7 +61,8 @@ class Transfer:
 
         identifiers: list[int] = [int(pathlib.PurePath(name).stem) for name in names]
         lines = pd.DataFrame(data={'organisation_id': identifiers, 'starting_year': years})
-        reference: pd.DataFrame = self.__reference.copy().merge(right=lines, how='right', on=['organisation_id', 'starting_year'])
+        reference: pd.DataFrame = self.__reference.copy().merge(
+            right=lines, how='right', on=['organisation_id', 'starting_year'])
         dictionary: list[dict] = reference.to_dict(orient='records')
 
         return dictionary
@@ -82,7 +83,7 @@ class Transfer:
         for file, key, metadata in zip(self.__files, keys, dictionary):
             message = ingress(file=file, key=key, metadata=metadata)
             computations.append(message)
-        
+
         messages = dask.compute(computations, scheduler='threads')[0]
 
         return messages
