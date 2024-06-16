@@ -28,7 +28,7 @@ class Analytics:
         """
         
         :param buffer: A buffer of data
-        :param metadate: The metadata of the bytes
+        :param metadata: The metadata of the bytes
         :return:
         """
 
