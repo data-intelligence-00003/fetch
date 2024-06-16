@@ -1,11 +1,12 @@
 dask[complete]>=2024.*
 dask-expr
 graphviz
-boto3
-botocore
+pydot
+boto3>=1.34.*
+botocore>=1.34.*
 s3fs>=2024.*
 openpyxl
-XlsxWriter
+XlsxWriter>=3.2.*
 scikit-learn
 numpy>=1.25.*
 pandas>=2.0.*
