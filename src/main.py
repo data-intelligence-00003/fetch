@@ -18,7 +18,6 @@ def main():
         messages = src.data.steps.Steps().exc(hybrid=hybrid, service=service, s3_parameters=s3_parameters)
         logger.info(msg=messages)
     else:
-        logger.info(msg='Backup')
         messages:list = src.data.steps.Steps().exc(hybrid=hybrid)
         logger.info(msg=messages)
 
