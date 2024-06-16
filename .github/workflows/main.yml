@@ -38,22 +38,22 @@ jobs:
           echo "Issues in relation to logic (F7), syntax (Python E9, Flake F7), mathematical
           formulae symbols (F63), undefined variable names (F82):"
           
-          printf "\n src/anomalies "
+          printf "\n src/anomalies\n"
           flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/anomalies
           
-          printf "\n src/data "
+          printf "\n src/data\n"
           flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/data
           
-          printf "\n src/elements "
+          printf "\n src/elements\n"
           flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/elements
           
-          printf "\n src/functions "
+          printf "\n src/functions\n"
           flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/functions
           
-          printf "\n src/s3 "
+          printf "\n src/s3\n"
           flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/s3
           
-          printf "\n src/structuring "
+          printf "\n src/structuring\n"
           flake8 --count --select=E9,F63,F7,F82 --show-source --statistics src/structuring
           
           
@@ -61,22 +61,22 @@ jobs:
           printf "\n\n"
           echo "Complexity issues:"
           
-          printf "\n src/anomalies "
+          printf "\n src/anomalies\n"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/anomalies
           
-          printf "\n src/data "
+          printf "\n src/data\n"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/data
           
-          printf "\n src/elements "
+          printf "\n src/elements\n"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/elements
           
-          printf "\n src/functions "
+          printf "\n src/functions\n"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/functions
           
-          printf "\n src/s3 "
+          printf "\n src/s3\n"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/s3
           
-          printf "\n src/structuring "
+          printf "\n src/structuring\n"
           flake8 --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics src/structuring
 
       - name: Lint with pylint
