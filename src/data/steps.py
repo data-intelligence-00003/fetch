@@ -33,7 +33,8 @@ class Steps:
 
     def __get_data(self) -> list:
         """
-        :param reference:
+
+        :return:
         """
 
         # Execute
