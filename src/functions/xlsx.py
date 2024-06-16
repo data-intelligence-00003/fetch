@@ -1,3 +1,4 @@
+"""Module xlsx.py"""
 import io
 
 import pandas as pd
@@ -27,7 +28,7 @@ class XLSX:
                                  header=sheet.header, skiprows=sheet.skiprows, nrows=sheet.nrows,
                                  usecols=sheet.usecols)
         except OSError as err:
-            raise Exception(err.strerror) from err
+            raise err from err
 
     # noinspection PyTypeChecker
     @staticmethod
@@ -42,7 +43,7 @@ class XLSX:
                                  skiprows=sheet.skiprows, nrows=sheet.nrows, usecols=sheet.usecols,
                                  engine='openpyxl')
         except OSError as err:
-            raise Exception(err.strerror) from err
+            raise err from err
 
     @staticmethod
     def write(buffer: bytes, name: str) -> bool:
