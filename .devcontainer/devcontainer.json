@@ -6,7 +6,7 @@
   "name": "Python 3",
 
   // Image
-  "image": "mcr.microsoft.com/devcontainers/python:1-3.11-bookworm",
+  "image": "mcr.microsoft.com/devcontainers/python:1-3.12-bookworm",
 
 
   // Or use a Dockerfile or Docker Compose file; https://containers.dev/guide/dockerfile
