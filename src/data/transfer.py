@@ -22,7 +22,7 @@ class Transfer:
         """
         
         :param reference:
-        :param services:
+        :param service:
         :param s3_parameters:
         """
         
@@ -37,9 +37,11 @@ class Transfer:
         self.__s3_parameters = s3_parameters
         self.__ingress = src.s3.ingress.Ingress(service=service, s3_parameters=self.__s3_parameters)
 
-    def __tags(self) -> typing.Tuple[list[str], list[str], list[str]]:
+    def __tags(self) -> typing.Tuple[list[str], list[int], list[str]]:
         """
         Tags of a data file
+
+        :return:
         """
         
         names: list[str] =  [os.path.basename(file) for file in self.__files]        
@@ -50,6 +52,8 @@ class Transfer:
     
     def __dictionary(self, names: list[str], years: list[int]) -> list[dict]:
         """
+        A dictionary of the metadata of each file being uploaded. Note, files of the
+        same content type are expected, assumed.
         
         :param names:
         :param years:
@@ -64,11 +68,11 @@ class Transfer:
 
     def exc(self) -> list[str]:
         """
-        The metadata of the files being uploaded. Note, files of the same content type are expected, assumed.
 
         :return:
         """
 
+        # Metadata dictionary
         names, years, keys = self.__tags()
         dictionary = self.__dictionary(names=names, years=years)
 
