@@ -20,7 +20,7 @@ class Emissions:
 
     def __types(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
@@ -42,7 +42,7 @@ class Emissions:
 
     def __sources(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-        
+
         :param blob:
         :return: A frame
         """
@@ -60,10 +60,10 @@ class Emissions:
 
     def exc(self, blob: pd.DataFrame) -> pd.DataFrame:
         """
-            
+
         :param blob:
         :return:
-            A data frame that includes the numeric identifier (1) of emission types, and (2) of the emission 
+            A data frame that includes the numeric identifier (1) of emission types, and (2) of the emission
             source of an emission type
         """
 
